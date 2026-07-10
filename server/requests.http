@@ -30,11 +30,6 @@ Content-Type: application/json
 ###
 @accessToken = {{login.response.body.token}}
 
-### GET CURRENT USER
-
-GET {{baseUrl}}/auth/me
-Authorization: Bearer {{accessToken}}
-
 ### =========================
 ### TEST API
 ### =========================
@@ -42,3 +37,16 @@ Authorization: Bearer {{accessToken}}
 ### API ROOT
 GET http://localhost:3002
 Content-Type: application/json
+
+### =========================
+### PROTECTED ROUTES
+### =========================
+
+### CURRENT USER
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{accessToken}}
+
+
+### ADMIN ROUTE
+GET {{baseUrl}}/auth/admin-test
+Authorization: Bearer {{accessToken}}

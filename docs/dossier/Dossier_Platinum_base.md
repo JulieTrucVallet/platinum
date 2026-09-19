@@ -16,13 +16,13 @@ La présentation ci-dessous distingue les réalisations présentes, la conceptio
 | --- | --- | --- |
 | Installer et configurer son environnement de travail | Client React, serveur Express, Prisma et configuration Docker ; sections 6 et 7 | Procédure reproductible et vérification du démarrage |
 | Développer des interfaces utilisateur | Maquettes Figma et client initialisé ; sections 5 et 7 | Écrans développés, reliés à l’API et testés |
-| Développer des composants métier | Authentification et CRUD du stock, conversions et contrôles ; section 7 | Recettes, préférences et suggestions à développer et vérifier |
+| Développer des composants métier | Authentification, CRUD du stock et des recettes, conversions et droits ; section 7 | Préférences et suggestions à développer et vérifier |
 | Contribuer à la gestion d’un projet informatique | Tickets GitHub, tableau Kanban et historique ; section 4 | Suivi actualisé et bilan des écarts |
 | Analyser les besoins et maquetter une application | Besoins, acteurs, droits et maquettes ; sections 2 et 5 | Corrections des diagrammes et adaptations aux supports |
 | Définir l’architecture logicielle d’une application | Séparation client/serveur et responsabilités du serveur ; sections 5 et 6 | Schéma d’architecture et parcours détaillé d’une requête |
 | Concevoir et mettre en place une base de données relationnelle | MCD, MLD, MPD et neuf tables PostgreSQL ; section 5 | Compléter avec le diagramme de classes et les contrôles des services |
-| Développer des composants d’accès aux données SQL et NoSQL | Accès SQL du stock via Prisma, vérifiés sur PostgreSQL ; section 7 | Accès NoSQL et preuve à réaliser |
-| Préparer et exécuter les plans de tests d’une application | Contrôles SQL et tests HTTP du stock exécutés ; section 9 | Autres parcours, interfaces et jeu d’essai des suggestions |
+| Développer des composants d’accès aux données SQL et NoSQL | Accès SQL du stock et transactions des recettes via Prisma, vérifiés sur PostgreSQL ; section 7 | Accès NoSQL et preuve à réaliser |
+| Préparer et exécuter les plans de tests d’une application | Contrôles SQL et tests HTTP du stock et des recettes exécutés ; section 9 | Autres parcours, interfaces et jeu d’essai des suggestions |
 | Préparer et documenter le déploiement d’une application | Environnement de développement décrit ; section 6 | Procédure de déploiement et vérifications |
 | Contribuer à la mise en production dans une démarche DevOps | Travail suivi dans GitHub ; section 6 | Chaîne d’intégration et éléments de production à documenter |
 
@@ -71,7 +71,7 @@ Trois profils sont distingués. Le visiteur découvre les recettes et effectue d
 | Modifier ou supprimer ses recettes | Non | Oui | Oui |
 | Administrer les utilisateurs et les contenus | Non | Non | Oui |
 
-Cette matrice décrit les droits attendus. Leur implémentation complète et leurs tests restent à apporter. L’inscription et la connexion permettent d’accéder aux fonctions personnelles ; elles ne donnent pas de droits d’administration.
+Cette matrice décrit les droits attendus. Les droits du stock et des recettes sont vérifiés côté API ; les parcours restants, dont l’administration des comptes, restent à compléter. L’inscription et la connexion permettent d’accéder aux fonctions personnelles ; elles ne donnent pas de droits d’administration.
 
 Les contenus comprennent les recettes, ingrédients, étapes de préparation, catégories et images. L’utilisation de données externes est envisagée mais n’est pas présentée ici comme réalisée. Les données de compte sont le nom d’utilisateur, l’adresse électronique et un mot de passe conservé sous forme hachée. Les modalités d’information et de gestion des données personnelles restent à concrétiser dans l’application.
 
@@ -113,7 +113,7 @@ Le ticket #15 suit l’assemblage du dossier et les preuves des compétences. Le
 | Mardi 22 septembre | Tests, sécurité, veille et consolidation des preuves |
 | Mercredi 23 septembre | Relecture et préparation du PDF de remise |
 
-Le samedi, le modèle de données, les migrations et la première base du dossier ont été réalisés. La vérification finale du CRUD du stock se poursuit le dimanche. Une branche est consacrée au modèle et une autre au stock, qui dépend de la première. La relecture et l’intégration des propositions restent distinctes de leur publication. À compléter : les autres écarts et arbitrages, puis une capture actualisée du tableau Projects. L’échéance annoncée de remise est le jeudi 24 septembre à 17 h ; mercredi constitue l’objectif interne.
+Le samedi, le modèle de données, les migrations et la première base du dossier ont été réalisés. Le dimanche, le CRUD du stock a été vérifié, puis celui des recettes a été développé et testé. Des branches successives sont consacrées au modèle, au stock puis aux recettes ; chaque évolution repose sur la précédente. La relecture et l’intégration des propositions restent distinctes de leur publication. À compléter : les autres écarts et arbitrages, puis une capture actualisée du tableau Projects. L’échéance annoncée de remise est le jeudi 24 septembre à 17 h ; mercredi constitue l’objectif interne.
 
 ### 4.4 Objectifs de qualité
 
@@ -145,7 +145,7 @@ Le MCD ci-dessous représente les informations métier et leurs associations. Un
 
 
 
-La relation Composer porte la quantité nécessaire pour le nombre de portions de la recette. Chaque ingrédient a une unité de référence : gramme, millilitre ou pièce. Les quantités du stock et des recettes utilisent cette même unité. Cette organisation évite de comparer directement des grammes et des kilogrammes ou de mélanger une masse et un volume. Les conversions de kilogrammes en grammes et de litres en millilitres sont maintenant réalisées dans le service de stock ; leur utilisation pour les recettes reste à développer.
+La relation Composer porte la quantité nécessaire pour le nombre de portions de la recette. Chaque ingrédient a une unité de référence : gramme, millilitre ou pièce. Les quantités du stock et des recettes utilisent cette même unité. Cette organisation évite de comparer directement des grammes et des kilogrammes ou de mélanger une masse et un volume. Les services du stock et des recettes partagent les conversions de kilogrammes en grammes et de litres en millilitres.
 
 Le MLD traduit les associations en tables. RecipeIngredient relie une recette à ses ingrédients et porte leurs quantités. UserPreference et RecipePreference représentent les préférences choisies par les utilisateurs et celles compatibles avec les recettes. Leurs clés composées empêchent les doublons.
 
@@ -165,7 +165,7 @@ Les suppressions tiennent compte du rôle des données : supprimer un utilisateu
 
 ![MPD - associations et contraintes](../diagrammes/mpd-2.svg)
 
-Une recette exploitable doit contenir au moins un ingrédient : le MCD indique donc 1,n. Les clés étrangères SQL garantissent l’existence des références, mais ne forcent pas une recette à avoir une ligne dans RecipeIngredient. Cette règle devra être vérifiée lors de la création de la recette, dans une transaction. Le contrôle des droits sur les données personnelles reste lui aussi une responsabilité de l’API.
+Une recette exploitable doit contenir au moins un ingrédient : le MCD indique donc 1,n. Les clés étrangères SQL garantissent l’existence des références, mais ne forcent pas une recette à avoir une ligne dans RecipeIngredient. Cette règle est maintenant vérifiée par le service de recettes, qui regroupe la recette et sa composition dans une transaction. Le contrôle des droits reste une responsabilité de l’API ; il est vérifié pour le stock et pour les écritures des recettes.
 
 À compléter : diagramme de classes avec les contrôleurs et services, puis preuves de ces contrôles lors du développement des fonctionnalités.
 
@@ -250,7 +250,7 @@ Les tests HTTP du stock passent par une inscription et une connexion réelles. I
 
 ### 7.4 Mise en place du modèle métier
 
-Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage. Les routes du stock et leurs contrôles d’accès font l’objet des vérifications HTTP décrites ci-dessous ; celles des autres fonctions restent à développer.
+Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage. Les routes du stock et des recettes, leurs droits et les transactions font l’objet des vérifications HTTP décrites ci-dessous ; les autres fonctions restent à développer.
 
 Les fichiers de référence sont server/prisma/schema.prisma, la migration 20260919110000_add_recipe_stock_preferences, server/prisma/tests/constraints.sql et docs/verification-base-2026-09-19.txt. Les choix du modèle sont expliqués dans docs/modele-donnees.md et les trois niveaux de représentation figurent en section 5.4.
 
@@ -293,9 +293,49 @@ La contrainte unique en base complète ces contrôles. Deux ajouts simultanés d
 
 Les fichiers server/tests/stock.test.cjs et docs/verification-stock-2026-09-20.txt contiennent les scénarios et leur exécution. Le contrat détaillé de l’API se trouve dans docs/api-stock.md.
 
-### 7.7 Autres réalisations et interfaces
+### 7.7 Consultation et recherche de recettes
 
-À compléter après développement : catalogue de recettes, préférences et suggestions, puis interfaces React reliées à l’API. Pour chaque réalisation, présenter le besoin couvert, la capture réelle, le code significatif, l’argumentation et le résultat de vérification. Ajouter également les preuves des composants d’accès aux données NoSQL.
+Les routes GET /api/recipes et GET /api/recipes/:id permettent de consulter les recettes sans connexion. La liste présente le titre, l’image éventuelle, les portions, les durées, la difficulté, la catégorie et le nom de l’auteur. Le détail ajoute les instructions, la source éventuelle et les ingrédients avec leurs quantités. L’adresse électronique et le mot de passe de l’auteur ne sont jamais sélectionnés pour ces réponses publiques.
+
+La recherche porte sur le titre ou le nom d’un ingrédient, sans distinction de casse. Elle peut être combinée à une catégorie et à une liste d’ingrédients : dans ce dernier cas, la recette doit contenir tous les ingrédients demandés. Il s’agit d’une recherche dans le catalogue, pas encore d’une vérification des quantités disponibles dans le stock personnel.
+
+La liste est paginée avec vingt recettes par défaut et cent au maximum. Le tri utilise la date de création puis l’identifiant pour conserver un ordre stable. Le total et la page de résultats sont lus dans une transaction au niveau REPEATABLE READ, pour utiliser un même instantané des données.
+
+### 7.8 Création et modification d’une recette
+
+Un utilisateur connecté peut créer une recette avec POST /api/recipes. Le serveur attribue automatiquement son compte comme auteur. Le corps contient le titre, les instructions, la catégorie, les portions, les durées et entre un et cent ingrédients distincts. Les ingrédients et la catégorie doivent exister dans le catalogue. Les quantités utilisent les mêmes contrôles et conversions que le stock.
+
+PUT /api/recipes/:id reçoit une recette complète et remplace ses champs ainsi que sa composition. Les quantités correspondent au nombre de portions envoyé ; un changement de portions ne les recalcule pas implicitement. Le service vérifie la présence d’au moins un ingrédient avant toute écriture.
+
+L’enregistrement est transactionnel. Si l’ajout d’un ingrédient échoue, la création entière est annulée. Lors d’une modification, les changements de titre et de composition sont eux aussi annulés ensemble en cas d’échec : la recette précédente reste utilisable.
+
+Extrait de server/src/services/recipe.service.ts, dans la transaction de remplacement :
+
+```typescript
+return tx.recipe.update({
+  where: writable(id, account),
+  data: {
+    ...fields,
+    ingredients: { deleteMany: {}, create: rows },
+    preferences: { deleteMany: {} },
+  },
+  select: detail,
+});
+```
+
+La condition writable contient l’identifiant de la recette et celui de son auteur pour un compte USER ; ADMIN peut intervenir sur toute recette. L’auteur d’origine est conservé lors d’une modification par l’administration. Une recette sans auteur reste publique, mais seul ADMIN peut la gérer.
+
+Les anciennes étiquettes de compatibilité alimentaire sont retirées lors d’un remplacement complet, car la composition peut avoir changé. Leur réévaluation sera traitée dans la partie préférences. Le futur formulaire devra expliquer cette réinitialisation.
+
+Les transactions de création et de remplacement utilisent le niveau SERIALIZABLE. En cas de conflit simultané, le serveur peut répondre 409 et demander une actualisation. Les tests vérifient que la composition finale est complète et ne mélange pas les ingrédients de deux modifications. Cette protection n’empêche pas encore qu’un formulaire ancien soit envoyé plus tard : aucun verrou de version n’est implémenté.
+
+DELETE /api/recipes/:id est réservé à l’auteur ou à ADMIN. Les associations de la recette sont supprimées, mais les ingrédients du catalogue restent présents. Les erreurs de validation retournent 400 ; une recette inexistante ou non modifiable par ce compte retourne 404.
+
+Les fichiers server/tests/recipes.test.cjs, docs/api-recettes.md et docs/verification-recettes-2026-09-20.txt conservent le contrat et les preuves d’exécution.
+
+### 7.9 Autres réalisations et interfaces
+
+À compléter après développement : préférences et suggestions, puis interfaces React reliées à l’API. Pour chaque réalisation, présenter le besoin couvert, la capture réelle, le code significatif, l’argumentation et le résultat de vérification. Ajouter également les preuves des composants d’accès aux données NoSQL.
 
 ## 8 Éléments de sécurité de l’application
 
@@ -324,7 +364,7 @@ Le plan doit vérifier les fonctionnalités attendues et les refus nécessaires.
 
 Le tableau ci-dessus reste un plan de vérification des parcours applicatifs. En complément, 22 contrôles ont été exécutés avec succès sur PostgreSQL 16 le 19 septembre 2026 : refus des quantités invalides et des doublons, respect des références, contrôles des portions et des temps, suppressions en cascade et conservation des recettes sans auteur. Les données de ce test ont été annulées par ROLLBACK. La trace d’exécution est conservée dans docs/verification-base-2026-09-19.txt.
 
-Les vérifications SQL du 19 septembre sont complétées par la suite HTTP du stock du 20 septembre, décrite ci-dessous. Le calcul des suggestions et les interfaces ne sont pas encore couverts.
+Les vérifications SQL du 19 septembre sont complétées par la suite HTTP du stock du 20 septembre, décrite ci-dessous. Les recettes sont également vérifiées par la suite de tests décrite en section 9.2. Le calcul des suggestions et les interfaces ne sont pas encore couverts.
 
 ### 9.1 Vérification HTTP du stock
 
@@ -346,6 +386,30 @@ Les tests lancent l’application sur un port local temporaire et utilisent une 
 | Supprimer sa propre ligne puis la relire | HTTP 204 puis HTTP 404 |
 
 Le lanceur Node compte 29 tests réussis, sans échec ni test ignoré : neuf scénarios principaux et vingt sous-cas. Le bilan de l’exécution du 20 septembre est conservé dans la trace, avec les résultats de chaque scénario. Ces tests vérifient les opérations du stock et certains parcours d’authentification ; ils ne remplacent pas les essais des futures interfaces et des suggestions.
+
+### 9.2 Vérification HTTP des recettes
+
+La suite des recettes utilise une autre base dédiée, platinum_recipes_test, avec PostgreSQL 16 et les trois migrations. Les comptes d’essai sont créés par HTTP. Un rôle administrateur est attribué uniquement dans cette base de test, afin de comparer les droits du visiteur, de l’auteur, d’un autre utilisateur et de l’administration.
+
+| Essai | Résultat observé |
+| --- | --- |
+| Consulter sans jeton | Liste, catégories et détail accessibles, sans adresse électronique de l’auteur |
+| Rechercher par titre, ingrédient ou catégorie | Résultats conformes aux critères et pagination stable |
+| Filtrer sur deux ingrédients | Seules les recettes contenant les deux sont retournées |
+| Créer sans connexion | HTTP 401 |
+| Créer avec 0,2 kg de riz et 0,4 litre d’eau | HTTP 201 ; 200 g et 400 ml pour les portions déclarées |
+| Modifier ou supprimer la recette d’un autre utilisateur | HTTP 404 ; recette inchangée |
+| Administrer une recette d’un autre auteur | Modification et suppression autorisées ; auteur conservé lors de la modification |
+| Supprimer le compte auteur | Recette publique conservée, auteur nul ; gestion réservée à ADMIN |
+| Envoyer une recette vide, un doublon ou une référence inconnue | HTTP 400 ; aucune création partielle |
+| Provoquer une erreur SQL pendant une création | HTTP 500 générique ; aucune recette ajoutée |
+| Provoquer une erreur SQL pendant un remplacement | Recette initiale intégralement conservée |
+| Envoyer deux remplacements simultanés | Composition finale complète ; succès ou conflit explicite, sans mélange |
+| Supprimer une recette | Associations supprimées et catalogue conservé |
+
+Pour vérifier l’annulation réelle, le test ajoute temporairement une contrainte SQL qui refuse une quantité pourtant valide pour l’application. Cette panne intervient après les validations métier. Le test compare ensuite le titre, les dates et les ingrédients à leur état initial, puis retire la contrainte. Le conteneur est supprimé à la fin de la vérification.
+
+Le bilan du 20 septembre compte 30 tests réussis, sans échec ni test ignoré : douze scénarios principaux et dix-huit sous-cas. La trace se trouve dans docs/verification-recettes-2026-09-20.txt. Les 29 tests du stock ont aussi été relancés après cette évolution et restent tous réussis. Ces résultats concernent l’API ; les essais sur les écrans restent à effectuer.
 
 ## 10 Jeu d’essai de la fonctionnalité la plus représentative
 
@@ -371,4 +435,4 @@ Suivi du dossier : https://github.com/JulieTrucVallet/platinum/issues/15
 
 Maquettes : https://www.figma.com/design/35jm2eGMTuwXBFyl6bJNUF/Maquettes-Platinum
 
-À constituer : modèles corrigés, diagrammes significatifs, captures des maquettes et des interfaces réelles, extraits de code, scripts de données et de migration, résultats de tests et références de veille. Les annexes doivent soutenir les explications du dossier et rester lisibles.
+À compléter : diagrammes UML, captures, extraits de code et preuves des fonctionnalités restantes.

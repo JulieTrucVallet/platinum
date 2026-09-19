@@ -1,0 +1,8 @@
+Applied historical migration 20260709132041_init_auth
+Applied historical migration 20260709142344_create_user
+Existing user preserved: every column including password and creation date unchanged
+NOTICE:  22 database checks passed
+Constraint test fixtures rolled back
+Demonstration catalogue loaded twice without duplicates: {"ingredients" : 6, "recipes" : 2, "recipeIngredients" : 5, "preferences" : 2, "recipePreferences" : 2, "users" : 1}
+Demonstration catalogue creates no user and preserves the existing account
+Scope: SQL schema and invariants. API authentication, ownership and suggestion calculation are not tested here.

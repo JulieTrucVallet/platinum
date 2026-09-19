@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1000" height="700" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1000" height="700"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-700)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="25" y="671" style="font-family: Arial-Bold; font-size: 23px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1342) scale(1,-1)">MPD - PostgreSQL 16 (1/2)</text>
+			<text x="25" y="644" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1288) scale(1,-1)">Types et contraintes de la migration ; la table User conserve sa structure existante.</text>
+			<rect x="25" y="459" width="470" height="152" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="579" width="470" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="589" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1178) scale(1,-1)">User</text>
+			<text x="35" y="560" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1120) scale(1,-1)">id SERIAL PK</text>
+			<text x="35" y="541" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1082) scale(1,-1)">username TEXT NOT NULL UQ</text>
+			<text x="35" y="522" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1044) scale(1,-1)">email TEXT NOT NULL UQ</text>
+			<text x="35" y="503" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1006) scale(1,-1)">password TEXT NOT NULL</text>
+			<text x="35" y="484" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,968) scale(1,-1)">role &quot;Role&quot; NOT NULL DEFAULT USER</text>
+			<text x="35" y="465" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,930) scale(1,-1)">createdAt TIMESTAMP(3) NOT NULL DEFAULT now</text>
+			<rect x="25" y="298" width="470" height="114" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="380" width="470" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="390" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,780) scale(1,-1)">Ingredient</text>
+			<text x="35" y="361" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,722) scale(1,-1)">id SERIAL PK</text>
+			<text x="35" y="342" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,684) scale(1,-1)">name TEXT NOT NULL</text>
+			<text x="35" y="323" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,646) scale(1,-1)">slug TEXT NOT NULL UQ</text>
+			<text x="35" y="304" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,608) scale(1,-1)">unit &quot;IngredientUnit&quot; NOT NULL</text>
+			<rect x="505" y="421" width="470" height="190" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="505" y="579" width="470" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="515" y="589" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1178) scale(1,-1)">StockItem</text>
+			<text x="515" y="560" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1120) scale(1,-1)">id SERIAL PK</text>
+			<text x="515" y="541" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1082) scale(1,-1)">userId INTEGER NOT NULL FK &gt; User.id</text>
+			<text x="515" y="522" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1044) scale(1,-1)">ingredientId INTEGER NOT NULL FK &gt; Ingredient.id</text>
+			<text x="515" y="503" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1006) scale(1,-1)">quantity DECIMAL(12,3) NOT NULL CHECK &gt; 0</text>
+			<text x="515" y="484" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,968) scale(1,-1)">location &quot;StorageLocation&quot; NOT NULL DEFAULT PANTRY</text>
+			<text x="515" y="465" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,930) scale(1,-1)">createdAt TIMESTAMP(3) NOT NULL DEFAULT now</text>
+			<text x="515" y="446" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,892) scale(1,-1)">updatedAt TIMESTAMP(3) NOT NULL</text>
+			<text x="515" y="427" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,854) scale(1,-1)">UQ (userId, ingredientId, location)</text>
+			<rect x="505" y="101" width="470" height="247" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="505" y="316" width="470" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="515" y="326" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,652) scale(1,-1)">Recipe</text>
+			<text x="515" y="297" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,594) scale(1,-1)">id SERIAL PK</text>
+			<text x="515" y="278" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,556) scale(1,-1)">title TEXT NOT NULL ; instructions TEXT NOT NULL</text>
+			<text x="515" y="259" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,518) scale(1,-1)">imageUrl TEXT NULL ; source TEXT NULL</text>
+			<text x="515" y="240" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,480) scale(1,-1)">servings INTEGER NOT NULL DEFAULT 2 CHECK &gt; 0</text>
+			<text x="515" y="221" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,442) scale(1,-1)">preparationMinutes INTEGER NOT NULL DEFAULT 0 CHECK &gt;= 0</text>
+			<text x="515" y="202" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,404) scale(1,-1)">cookingMinutes INTEGER NOT NULL DEFAULT 0 CHECK &gt;= 0</text>
+			<text x="515" y="183" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,366) scale(1,-1)">difficulty &quot;Difficulty&quot; NULL</text>
+			<text x="515" y="164" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,328) scale(1,-1)">authorId INTEGER NULL FK &gt; User.id</text>
+			<text x="515" y="145" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,290) scale(1,-1)">categoryId INTEGER NOT NULL FK &gt; Category.id</text>
+			<text x="515" y="126" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,252) scale(1,-1)">createdAt TIMESTAMP(3) NOT NULL DEFAULT now</text>
+			<text x="515" y="107" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,214) scale(1,-1)">updatedAt TIMESTAMP(3) NOT NULL</text>
+			<rect x="25" y="176" width="470" height="76" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="220" width="470" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="230" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,460) scale(1,-1)">Category</text>
+			<text x="35" y="201" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,402) scale(1,-1)">id SERIAL PK</text>
+			<text x="35" y="182" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,364) scale(1,-1)">name TEXT NOT NULL ; slug TEXT NOT NULL UQ</text>
+			<text x="25" y="135" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,270) scale(1,-1)">Role : USER | ADMIN</text>
+			<text x="25" y="115" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,230) scale(1,-1)">IngredientUnit : GRAM | MILLILITER | PIECE</text>
+			<text x="25" y="95" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,190) scale(1,-1)">StorageLocation : FRIDGE | FREEZER | PANTRY | CONDIMENTS</text>
+			<text x="25" y="75" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,150) scale(1,-1)">Difficulty : EASY | MEDIUM | HARD</text>
+			<text x="25" y="24" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,48) scale(1,-1)">now = CURRENT_TIMESTAMP. updatedAt est géré par Prisma, sans valeur par défaut SQL.</text>
+		</g>
+	</g>
+</svg>

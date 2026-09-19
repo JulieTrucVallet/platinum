@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1000" height="700" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1000" height="700"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-700)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="25" y="671" style="font-family: Arial-Bold; font-size: 23px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1342) scale(1,-1)">MCD - les informations et leurs liens</text>
+			<text x="25" y="644" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1288) scale(1,-1)">Cardinalités côté entité ; identifiants signalés par ID ; aucune clé étrangère à ce niveau.</text>
+			<polyline points="250 540, 410 540" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: None; fill-rule: evenodd;"/>
+			<polyline points="590 540, 750 540" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: None; fill-rule: evenodd;"/>
+			<polyline points="130 492, 130 270" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: None; fill-rule: evenodd;"/>
+			<polyline points="250 510, 325 355, 465 270" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: None; fill-rule: evenodd;"/>
+			<polyline points="590 240, 670 348, 750 520" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: None; fill-rule: evenodd;"/>
+			<polyline points="230 220, 410 220" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: None; fill-rule: evenodd;"/>
+			<polyline points="590 190, 750 190" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: None; fill-rule: evenodd;"/>
+			<ellipse cx="330.0" cy="540.0" rx="62.0" ry="25.0" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="304.65234375" y="536" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1072) scale(1,-1)">Posséder</text>
+			<ellipse cx="670.0" cy="540.0" rx="62.0" ry="25.0" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="641.986328125" y="536" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1072) scale(1,-1)">Concerner</text>
+			<ellipse cx="130.0" cy="345.0" rx="62.0" ry="25.0" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="111.3291015625" y="341" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,682) scale(1,-1)">Choisir</text>
+			<ellipse cx="325.0" cy="355.0" rx="62.0" ry="25.0" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="309.9970703125" y="351" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,702) scale(1,-1)">Créer</text>
+			<ellipse cx="670.0" cy="348.0" rx="62.0" ry="33.0" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="642.3232421875" y="351" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,702) scale(1,-1)">Composer</text>
+			<text x="650.427734375" y="334" style="font-family: Arial; font-size: 11px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,668) scale(1,-1)">quantité</text>
+			<ellipse cx="320.0" cy="220.0" rx="62.0" ry="25.0" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="278.3134765625" y="216" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,432) scale(1,-1)">Être compatible</text>
+			<ellipse cx="670.0" cy="190.0" rx="62.0" ry="25.0" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="649.662109375" y="186" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,372) scale(1,-1)">Classer</text>
+			<rect x="25" y="492" width="225" height="118" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="578" width="225" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="588" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1176) scale(1,-1)">UTILISATEUR</text>
+			<text x="35" y="559" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1118) scale(1,-1)">ID utilisateur</text>
+			<path d="M 35,557 L 107.249023,557 Z" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="35" y="539" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1078) scale(1,-1)">nom, courriel</text>
+			<text x="35" y="519" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1038) scale(1,-1)">mot de passe haché</text>
+			<text x="35" y="499" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,998) scale(1,-1)">rôle, date de création</text>
+			<rect x="410" y="492" width="180" height="118" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="410" y="578" width="180" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="420" y="588" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1176) scale(1,-1)">LIGNE DE STOCK</text>
+			<text x="420" y="559" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1118) scale(1,-1)">ID ligne</text>
+			<path d="M 420,557 L 464.078125,557 Z" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="420" y="539" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1078) scale(1,-1)">quantité</text>
+			<text x="420" y="519" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1038) scale(1,-1)">emplacement</text>
+			<text x="420" y="499" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,998) scale(1,-1)">création, modification</text>
+			<rect x="750" y="512" width="225" height="98" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="750" y="578" width="225" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="760" y="588" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1176) scale(1,-1)">INGRÉDIENT</text>
+			<text x="760" y="559" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1118) scale(1,-1)">ID ingrédient</text>
+			<path d="M 760,557 L 833.708984,557 Z" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="760" y="539" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1078) scale(1,-1)">nom, slug</text>
+			<text x="760" y="519" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1038) scale(1,-1)">unité de référence</text>
+			<rect x="25" y="192" width="205" height="78" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="238" width="205" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="248" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,496) scale(1,-1)">PRÉFÉRENCE</text>
+			<text x="35" y="219" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,438) scale(1,-1)">ID préférence</text>
+			<path d="M 35,217 L 113.761719,217 Z" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="35" y="199" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,398) scale(1,-1)">nom, slug</text>
+			<rect x="410" y="124" width="180" height="146" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="410" y="238" width="180" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="420" y="248" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,496) scale(1,-1)">RECETTE</text>
+			<text x="420" y="219" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,438) scale(1,-1)">ID recette</text>
+			<path d="M 420,217 L 472.019531,217 Z" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="420" y="201" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,402) scale(1,-1)">titre, instructions</text>
+			<text x="420" y="183" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,366) scale(1,-1)">image, source</text>
+			<text x="420" y="165" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,330) scale(1,-1)">portions, difficulté</text>
+			<text x="420" y="147" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,294) scale(1,-1)">préparation, cuisson</text>
+			<text x="420" y="129" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,258) scale(1,-1)">création, modification</text>
+			<rect x="750" y="192" width="225" height="78" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="750" y="238" width="225" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="760" y="248" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,496) scale(1,-1)">CATÉGORIE</text>
+			<text x="760" y="219" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,438) scale(1,-1)">ID catégorie</text>
+			<path d="M 760,217 L 830.09082,217 Z" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="760" y="199" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,398) scale(1,-1)">nom, slug</text>
+			<text x="255" y="572" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1144) scale(1,-1)">0,n</text>
+			<text x="376" y="572" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1144) scale(1,-1)">1,1</text>
+			<text x="595" y="572" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1144) scale(1,-1)">1,1</text>
+			<text x="712" y="572" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1144) scale(1,-1)">0,n</text>
+			<text x="141" y="471" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,942) scale(1,-1)">0,n</text>
+			<text x="141" y="282" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,564) scale(1,-1)">0,n</text>
+			<text x="259" y="492" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,984) scale(1,-1)">0,n</text>
+			<text x="437" y="286" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,572) scale(1,-1)">0,1</text>
+			<text x="597" y="247" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,494) scale(1,-1)">1,n</text>
+			<text x="713" y="496" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,992) scale(1,-1)">0,n</text>
+			<text x="233" y="254" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,508) scale(1,-1)">0,n</text>
+			<text x="376" y="254" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,508) scale(1,-1)">0,n</text>
+			<text x="594" y="224" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,448) scale(1,-1)">1,1</text>
+			<text x="712" y="224" style="font-family: Arial-Bold; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,448) scale(1,-1)">0,n</text>
+			<text x="25" y="72" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,144) scale(1,-1)">Une ligne est unique pour le triplet utilisateur + ingrédient + emplacement.</text>
+			<text x="25" y="49" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,98) scale(1,-1)">Composer porte la quantité pour les portions de la recette, dans l’unité de l’ingrédient.</text>
+			<text x="25" y="26" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,52) scale(1,-1)">Le minimum 1 ingrédient par recette est une règle métier à contrôler dans le service.</text>
+		</g>
+	</g>
+</svg>

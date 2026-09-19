@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1000" height="700" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1000" height="700"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-700)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="25" y="671" style="font-family: Arial-Bold; font-size: 23px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1342) scale(1,-1)">MPD - PostgreSQL 16 (2/2)</text>
+			<text x="25" y="644" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1288) scale(1,-1)">Associations, suppressions et index complémentaires aux clés primaires et contraintes uniques.</text>
+			<rect x="25" y="486" width="470" height="122" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="576" width="470" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="586" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1172) scale(1,-1)">RecipeIngredient</text>
+			<text x="35" y="557" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1114) scale(1,-1)">recipeId INTEGER NOT NULL FK &gt; Recipe.id</text>
+			<text x="35" y="536" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1072) scale(1,-1)">ingredientId INTEGER NOT NULL FK &gt; Ingredient.id</text>
+			<text x="35" y="515" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1030) scale(1,-1)">quantity DECIMAL(12,3) NOT NULL CHECK &gt; 0</text>
+			<text x="35" y="494" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,988) scale(1,-1)">PK (recipeId, ingredientId)</text>
+			<rect x="505" y="528" width="470" height="80" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="505" y="576" width="470" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="515" y="586" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1172) scale(1,-1)">FoodPreference</text>
+			<text x="515" y="557" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1114) scale(1,-1)">id SERIAL PK</text>
+			<text x="515" y="536" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1072) scale(1,-1)">name TEXT NOT NULL ; slug TEXT NOT NULL UQ</text>
+			<rect x="25" y="337" width="470" height="101" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="406" width="470" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="416" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,832) scale(1,-1)">UserPreference</text>
+			<text x="35" y="387" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,774) scale(1,-1)">userId INTEGER NOT NULL FK &gt; User.id</text>
+			<text x="35" y="366" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,732) scale(1,-1)">preferenceId INTEGER NOT NULL FK &gt; FoodPreference.id</text>
+			<text x="35" y="345" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,690) scale(1,-1)">PK (userId, preferenceId)</text>
+			<rect x="505" y="337" width="470" height="101" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="505" y="406" width="470" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="515" y="416" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,832) scale(1,-1)">RecipePreference</text>
+			<text x="515" y="387" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,774) scale(1,-1)">recipeId INTEGER NOT NULL FK &gt; Recipe.id</text>
+			<text x="515" y="366" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,732) scale(1,-1)">preferenceId INTEGER NOT NULL FK &gt; FoodPreference.id</text>
+			<text x="515" y="345" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,690) scale(1,-1)">PK (recipeId, preferenceId)</text>
+			<text x="25" y="286" style="font-family: Arial-Bold; font-size: 16px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,572) scale(1,-1)">Comportement des clés étrangères</text>
+			<text x="25" y="258" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,516) scale(1,-1)">User supprimé : stock et UserPreference supprimés ; Recipe.authorId devient NULL.</text>
+			<text x="25" y="235" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,470) scale(1,-1)">Recipe supprimée : RecipeIngredient et RecipePreference supprimés.</text>
+			<text x="25" y="212" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,424) scale(1,-1)">FoodPreference supprimée : UserPreference et RecipePreference associés supprimés.</text>
+			<text x="25" y="189" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,378) scale(1,-1)">Ingredient utilisé ou Category contenant des recettes : suppression refusée (RESTRICT).</text>
+			<text x="25" y="166" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,332) scale(1,-1)">Toutes les clés étrangères utilisent ON UPDATE CASCADE.</text>
+			<text x="25" y="119" style="font-family: Arial-Bold; font-size: 16px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,238) scale(1,-1)">Index supplémentaires</text>
+			<text x="25" y="92" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,184) scale(1,-1)">StockItem(ingredientId) ; Recipe(authorId) ; Recipe(categoryId) ; RecipeIngredient(ingredientId).</text>
+			<text x="25" y="70" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,140) scale(1,-1)">UserPreference(preferenceId) ; RecipePreference(preferenceId).</text>
+			<text x="25" y="48" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,96) scale(1,-1)">Les index uniques couvrent déjà les recherches sur leur préfixe, dont StockItem(userId).</text>
+			<text x="25" y="17" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,34) scale(1,-1)">Source : schema.prisma et migration 20260919110000_add_recipe_stock_preferences.</text>
+		</g>
+	</g>
+</svg>

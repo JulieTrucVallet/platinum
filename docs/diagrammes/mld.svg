@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1000" height="700" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1000" height="700"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-700)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="25" y="671" style="font-family: Arial-Bold; font-size: 23px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1342) scale(1,-1)">MLD - passage aux neuf relations</text>
+			<text x="25" y="644" style="font-family: Arial; font-size: 13px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1288) scale(1,-1)">PK : clé primaire ; FK : clé étrangère ; UQ : unicité ; ? : valeur facultative ; &gt; : référence.</text>
+			<rect x="25" y="522" width="310" height="92" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="582" width="310" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="592" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1184) scale(1,-1)">User</text>
+			<text x="35" y="563" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1126) scale(1,-1)">id [PK]</text>
+			<text x="35" y="545" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1090) scale(1,-1)">username [UQ], email [UQ]</text>
+			<text x="35" y="527" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1054) scale(1,-1)">password, role, createdAt</text>
+			<rect x="355" y="540" width="310" height="74" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="355" y="582" width="310" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="365" y="592" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1184) scale(1,-1)">Ingredient</text>
+			<text x="365" y="563" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1126) scale(1,-1)">id [PK]</text>
+			<text x="365" y="545" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1090) scale(1,-1)">name, slug [UQ], unit</text>
+			<rect x="685" y="468" width="310" height="146" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="685" y="582" width="310" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="695" y="592" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1184) scale(1,-1)">StockItem</text>
+			<text x="695" y="563" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1126) scale(1,-1)">id [PK]</text>
+			<text x="695" y="545" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1090) scale(1,-1)">userId [FK] &gt; User.id</text>
+			<text x="695" y="527" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1054) scale(1,-1)">ingredientId [FK] &gt; Ingredient.id</text>
+			<text x="695" y="509" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,1018) scale(1,-1)">quantity, location</text>
+			<text x="695" y="491" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,982) scale(1,-1)">createdAt, updatedAt</text>
+			<text x="695" y="473" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,946) scale(1,-1)">UQ (userId, ingredientId, location)</text>
+			<rect x="25" y="224" width="310" height="164" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="356" width="310" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="366" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,732) scale(1,-1)">Recipe</text>
+			<text x="35" y="337" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,674) scale(1,-1)">id [PK]</text>
+			<text x="35" y="319" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,638) scale(1,-1)">title, instructions, imageUrl ?</text>
+			<text x="35" y="301" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,602) scale(1,-1)">servings, preparationMinutes</text>
+			<text x="35" y="283" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,566) scale(1,-1)">cookingMinutes, difficulty ?, source ?</text>
+			<text x="35" y="265" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,530) scale(1,-1)">authorId ? [FK] &gt; User.id</text>
+			<text x="35" y="247" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,494) scale(1,-1)">categoryId [FK] &gt; Category.id</text>
+			<text x="35" y="229" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,458) scale(1,-1)">createdAt, updatedAt</text>
+			<rect x="355" y="314" width="310" height="74" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="355" y="356" width="310" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="365" y="366" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,732) scale(1,-1)">Category</text>
+			<text x="365" y="337" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,674) scale(1,-1)">id [PK]</text>
+			<text x="365" y="319" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,638) scale(1,-1)">name, slug [UQ]</text>
+			<rect x="685" y="296" width="310" height="92" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="685" y="356" width="310" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="695" y="366" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,732) scale(1,-1)">RecipeIngredient</text>
+			<text x="695" y="337" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,674) scale(1,-1)">recipeId [PK, FK] &gt; Recipe.id</text>
+			<text x="695" y="319" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,638) scale(1,-1)">ingredientId [PK, FK] &gt; Ingredient.id</text>
+			<text x="695" y="301" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,602) scale(1,-1)">quantity</text>
+			<rect x="25" y="71" width="310" height="74" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="25" y="113" width="310" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="35" y="123" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,246) scale(1,-1)">FoodPreference</text>
+			<text x="35" y="94" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,188) scale(1,-1)">id [PK]</text>
+			<text x="35" y="76" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,152) scale(1,-1)">name, slug [UQ]</text>
+			<rect x="355" y="53" width="310" height="92" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="355" y="113" width="310" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="365" y="123" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,246) scale(1,-1)">UserPreference</text>
+			<text x="365" y="94" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,188) scale(1,-1)">userId [PK, FK] &gt; User.id</text>
+			<text x="365" y="76" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,152) scale(1,-1)">preferenceId [PK, FK]</text>
+			<text x="365" y="58" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,116) scale(1,-1)">  &gt; FoodPreference.id</text>
+			<rect x="685" y="53" width="310" height="92" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="685" y="113" width="310" height="32" style="stroke: rgb(14%,24%,22%); stroke-linecap: butt; stroke-width: 1; fill: rgb(93%,95%,93%); fill-rule: evenodd;"/>
+			<text x="695" y="123" style="font-family: Arial-Bold; font-size: 15px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,246) scale(1,-1)">RecipePreference</text>
+			<text x="695" y="94" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,188) scale(1,-1)">recipeId [PK, FK] &gt; Recipe.id</text>
+			<text x="695" y="76" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,152) scale(1,-1)">preferenceId [PK, FK]</text>
+			<text x="695" y="58" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,116) scale(1,-1)">  &gt; FoodPreference.id</text>
+			<text x="25" y="10" style="font-family: Arial; font-size: 12px;fill: rgb(14%,24%,22%); stroke:none;" transform="translate(0,20) scale(1,-1)">Plusieurs champs PK dans une même table forment une seule clé primaire composée.</text>
+		</g>
+	</g>
+</svg>

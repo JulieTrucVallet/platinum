@@ -39,7 +39,13 @@ L’unité n’est plus répétée dans les deux associations : elle dépend de 
 
 ## Relations et cardinalités
 
-Ce diagramme présente le modèle relationnel préparé pour Prisma. Il ne remplace pas le MCD Merise conceptuel à corriger dans le dossier.
+Les modèles corrigés sont disponibles en [PDF](diagrammes/Platinum_modeles_donnees.pdf) et en SVG :
+
+- [MCD conceptuel](diagrammes/mcd.svg) : entités, associations et cardinalités métier, sans clés étrangères.
+- [MLD relationnel](diagrammes/mld.svg) : neuf relations, clés primaires, clés étrangères et unicité.
+- [MPD, tables principales](diagrammes/mpd-1.svg) et [MPD, associations et contraintes](diagrammes/mpd-2.svg) : PostgreSQL 16 et migration appliquée.
+
+Les SVG sont des sources vectorielles modifiables. Les clés étrangères du MLD et du MPD indiquent explicitement la table et la colonne référencées. Le diagramme Mermaid suivant est une vue relationnelle complémentaire ; il représente les cardinalités permises par la structure SQL.
 
 ```mermaid
 erDiagram
@@ -83,7 +89,7 @@ J’ai distingué les ingrédients du catalogue des quantités détenues par cha
 
 J’ai modélisé la composition des recettes avec RecipeIngredient, qui relie une recette à un ingrédient et porte la quantité nécessaire pour le nombre de portions de la recette. Les préférences sont reliées séparément aux utilisateurs et aux recettes par deux tables d’association. Cette organisation évite de répéter les préférences dans des champs de texte et permet de filtrer les recettes en s’appuyant sur des relations explicites.
 
-À compléter après exécution : résultats des validations, des migrations et des tests ; captures du schéma ; diagrammes Merise et UML corrigés. Ne pas présenter ces vérifications comme réussies avant leur exécution.
+Les résultats réellement obtenus sont détaillés ci-dessous. Les modèles Merise sont intégrés à la section 5.4 du [dossier en cours](dossier/Dossier_Platinum_base.pdf). Le diagramme de classes, les séquences et les activités restent à reprendre dans le ticket #15, avec les contrôleurs et services effectivement développés.
 
 ## Vérifications effectuées le 19 septembre 2026
 

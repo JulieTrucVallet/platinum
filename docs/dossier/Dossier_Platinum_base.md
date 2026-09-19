@@ -2,7 +2,7 @@
 
 Julie Truc-Vallet · Formation Concepteur développeur d’applications · 3W Academy
 
-Version de travail du 19 septembre 2026 · Préparation du dossier pour l’oral blanc
+Version de travail du 20 septembre 2026 · Préparation du dossier pour l’oral blanc
 
 Platinum est une application web destinée à aider les utilisateurs à trouver quoi cuisiner avec les ingrédients qu’ils possèdent déjà. Le projet associe la gestion d’un stock personnel, un catalogue de recettes et des suggestions tenant compte des produits disponibles et des préférences alimentaires.
 
@@ -16,13 +16,13 @@ La présentation ci-dessous distingue les réalisations présentes, la conceptio
 | --- | --- | --- |
 | Installer et configurer son environnement de travail | Client React, serveur Express, Prisma et configuration Docker ; sections 6 et 7 | Procédure reproductible et vérification du démarrage |
 | Développer des interfaces utilisateur | Maquettes Figma et client initialisé ; sections 5 et 7 | Écrans développés, reliés à l’API et testés |
-| Développer des composants métier | Service d’authentification ; section 7 | Stock, recettes, préférences et suggestions vérifiés |
+| Développer des composants métier | Authentification et CRUD du stock, conversions et contrôles ; section 7 | Recettes, préférences et suggestions à développer et vérifier |
 | Contribuer à la gestion d’un projet informatique | Tickets GitHub, tableau Kanban et historique ; section 4 | Suivi actualisé et bilan des écarts |
 | Analyser les besoins et maquetter une application | Besoins, acteurs, droits et maquettes ; sections 2 et 5 | Corrections des diagrammes et adaptations aux supports |
 | Définir l’architecture logicielle d’une application | Séparation client/serveur et responsabilités du serveur ; sections 5 et 6 | Schéma d’architecture et parcours détaillé d’une requête |
 | Concevoir et mettre en place une base de données relationnelle | MCD, MLD, MPD et neuf tables PostgreSQL ; section 5 | Compléter avec le diagramme de classes et les contrôles des services |
-| Développer des composants d’accès aux données SQL et NoSQL | Accès à PostgreSQL avec Prisma ; section 7 | Accès métier SQL et preuve NoSQL à identifier ou réaliser |
-| Préparer et exécuter les plans de tests d’une application | Trame de scénarios ; sections 9 et 10 | Exécution, résultats et corrections |
+| Développer des composants d’accès aux données SQL et NoSQL | Accès SQL du stock via Prisma, vérifiés sur PostgreSQL ; section 7 | Accès NoSQL et preuve à réaliser |
+| Préparer et exécuter les plans de tests d’une application | Contrôles SQL et tests HTTP du stock exécutés ; section 9 | Autres parcours, interfaces et jeu d’essai des suggestions |
 | Préparer et documenter le déploiement d’une application | Environnement de développement décrit ; section 6 | Procédure de déploiement et vérifications |
 | Contribuer à la mise en production dans une démarche DevOps | Travail suivi dans GitHub ; section 6 | Chaîne d’intégration et éléments de production à documenter |
 
@@ -113,7 +113,7 @@ Le ticket #15 suit l’assemblage du dossier et les preuves des compétences. Le
 | Mardi 22 septembre | Tests, sécurité, veille et consolidation des preuves |
 | Mercredi 23 septembre | Relecture et préparation du PDF de remise |
 
-Ce planning est prévisionnel. À compléter : travail réellement effectué, écarts et arbitrages, puis capture actualisée du tableau Projects. L’échéance annoncée de remise est le jeudi 24 septembre à 17 h ; mercredi constitue l’objectif interne.
+Le samedi, le modèle de données, les migrations et la première base du dossier ont été réalisés. La vérification finale du CRUD du stock se poursuit le dimanche. Une branche est consacrée au modèle et une autre au stock, qui dépend de la première. La relecture et l’intégration des propositions restent distinctes de leur publication. À compléter : les autres écarts et arbitrages, puis une capture actualisée du tableau Projects. L’échéance annoncée de remise est le jeudi 24 septembre à 17 h ; mercredi constitue l’objectif interne.
 
 ### 4.4 Objectifs de qualité
 
@@ -145,7 +145,7 @@ Le MCD ci-dessous représente les informations métier et leurs associations. Un
 
 
 
-La relation Composer porte la quantité nécessaire pour le nombre de portions de la recette. Chaque ingrédient a une unité de référence : gramme, millilitre ou pièce. Les quantités du stock et des recettes utilisent cette même unité. Cette organisation évite de comparer directement des grammes et des kilogrammes ou de mélanger une masse et un volume. Les conversions de saisie restent à développer dans les services.
+La relation Composer porte la quantité nécessaire pour le nombre de portions de la recette. Chaque ingrédient a une unité de référence : gramme, millilitre ou pièce. Les quantités du stock et des recettes utilisent cette même unité. Cette organisation évite de comparer directement des grammes et des kilogrammes ou de mélanger une masse et un volume. Les conversions de kilogrammes en grammes et de litres en millilitres sont maintenant réalisées dans le service de stock ; leur utilisation pour les recettes reste à développer.
 
 Le MLD traduit les associations en tables. RecipeIngredient relie une recette à ses ingrédients et porte leurs quantités. UserPreference et RecipePreference représentent les préférences choisies par les utilisateurs et celles compatibles avec les recettes. Leurs clés composées empêchent les doublons.
 
@@ -244,19 +244,58 @@ Lors de la connexion, le service recherche le compte par son adresse électroniq
 
 ### 7.3 Contrôle des accès
 
-J’ai ajouté un middleware qui récupère le jeton dans l’en-tête Authorization au format Bearer et vérifie sa validité. La route GET /api/auth/me l’utilise avant de renvoyer les informations décodées du jeton. Un second middleware vérifie que le rôle appartient aux rôles autorisés ; la route /api/auth/admin-test en fournit un premier exemple réservé à ADMIN.
+J’ai ajouté un middleware qui récupère le jeton dans l’en-tête Authorization au format Bearer et vérifie sa validité. Le middleware contrôle la signature HS256, l’expiration et l’identifiant, puis recherche le compte en base. GET /api/auth/me renvoie son identifiant et son rôle courant. Un compte supprimé ne peut plus utiliser son ancien jeton. Un second middleware vérifie que le rôle appartient aux rôles autorisés ; la route /api/auth/admin-test en fournit un premier exemple réservé à ADMIN.
 
-À compléter : extraits lisibles du code correspondant, captures d’appels API et résultats de tests nominaux et refusés. Cette version décrit le code présent ; la vérification de son exécution doit encore être ajoutée.
+Les tests HTTP du stock passent par une inscription et une connexion réelles. Ils vérifient aussi les jetons absents, invalides ou expirés, le compte supprimé et le refus d’un ancien jeton administrateur pour un compte actuellement USER. À compléter : les autres cas de validation des formulaires d’authentification et les captures des parcours.
 
 ### 7.4 Mise en place du modèle métier
 
-Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage ; les routes métier et leur contrôle d’accès restent à développer.
+Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage. Les routes du stock et leurs contrôles d’accès font l’objet des vérifications HTTP décrites ci-dessous ; celles des autres fonctions restent à développer.
 
 Les fichiers de référence sont server/prisma/schema.prisma, la migration 20260919110000_add_recipe_stock_preferences, server/prisma/tests/constraints.sql et docs/verification-base-2026-09-19.txt. Les choix du modèle sont expliqués dans docs/modele-donnees.md et les trois niveaux de représentation figurent en section 5.4.
 
-### 7.5 Réalisations métier et interfaces
+### 7.5 Gestion du stock personnel
 
-À compléter après développement : stock personnel, catalogue de recettes, préférences et suggestions, puis interfaces React reliées à l’API. Pour chaque réalisation, présenter le besoin couvert, la capture réelle, le code significatif, l’argumentation et le résultat de vérification. Ajouter également les preuves des composants d’accès aux données SQL et NoSQL.
+Le stock permet à un utilisateur connecté de renseigner les ingrédients qu’il possède. Les opérations sont exposées par l’API ; l’interface React n’est pas encore construite. Le catalogue d’ingrédients est partagé, mais les quantités et les emplacements appartiennent à chaque utilisateur.
+
+| Opération | Route et résultat |
+| --- | --- |
+| Choisir un ingrédient | GET /api/ingredients : recherche par nom et pagination |
+| Consulter son stock | GET /api/stock : liste, avec filtre facultatif par emplacement |
+| Consulter une ligne | GET /api/stock/:id : ligne du compte connecté |
+| Ajouter au stock | POST /api/stock : ligne créée, HTTP 201 |
+| Modifier la quantité ou l’emplacement | PATCH /api/stock/:id : ligne mise à jour, HTTP 200 |
+| Supprimer une ligne | DELETE /api/stock/:id : suppression, HTTP 204 |
+
+À l’ajout, l’utilisateur choisit un ingrédient existant, une quantité, une unité et un emplacement. Le serveur prend l’identité dans le compte authentifié ; il refuse un userId fourni dans le corps de la requête. Ajouter le même ingrédient au même emplacement donne un conflit HTTP 409 : il faut modifier la ligne existante. Une modification remplace la quantité totale, sans addition automatique.
+
+Le service vérifie les valeurs avant l’écriture. Une quantité doit être positive et comporter au maximum trois décimales. Les kilogrammes sont convertis en grammes et les litres en millilitres avec Prisma Decimal, sans calcul flottant intermédiaire. Une unité incompatible est refusée. Une quantité nulle n’efface pas silencieusement la ligne : la suppression utilise sa propre route.
+
+Exemple : une saisie de 0,5 kg de riz produit une quantité enregistrée de 500 g. Une modification à 0,125 kg remplace cette valeur par 125 g. L’unité de référence reste attachée à l’ingrédient du catalogue.
+
+### 7.6 Protection des données du stock
+
+Le contrôleur transmet au service l’identifiant du compte connecté et celui de la ligne demandée. La condition de propriétaire est présente dans la requête d’écriture elle-même. Une lecture préalable ne serait pas suffisante pour protéger les autres chemins de modification.
+
+Extrait de server/src/services/stock.service.ts :
+
+```typescript
+return prisma.stockItem.update({
+  where: { id, userId },
+  data: { quantity, location },
+  include: withIngredient,
+});
+```
+
+Ici, userId vient du middleware d’authentification. Si la ligne n’appartient pas à ce compte, Prisma ne trouve aucune ligne correspondant aux deux critères. Le serveur renvoie 404, comme pour une ligne inexistante. La suppression utilise la même condition. La liste est également filtrée par propriétaire.
+
+La contrainte unique en base complète ces contrôles. Deux ajouts simultanés du même ingrédient au même emplacement donnent une seule création et un conflit ; ils ne produisent pas deux lignes. Une tentative de déplacement vers un emplacement déjà occupé est refusée sans modifier la quantité ni l’emplacement d’origine.
+
+Les fichiers server/tests/stock.test.cjs et docs/verification-stock-2026-09-20.txt contiennent les scénarios et leur exécution. Le contrat détaillé de l’API se trouve dans docs/api-stock.md.
+
+### 7.7 Autres réalisations et interfaces
+
+À compléter après développement : catalogue de recettes, préférences et suggestions, puis interfaces React reliées à l’API. Pour chaque réalisation, présenter le besoin couvert, la capture réelle, le code significatif, l’argumentation et le résultat de vérification. Ajouter également les preuves des composants d’accès aux données NoSQL.
 
 ## 8 Éléments de sécurité de l’application
 
@@ -264,9 +303,9 @@ Le code actuel hache les mots de passe avec bcrypt et ne renvoie pas leur emprei
 
 Les rôles USER et ADMIN sont définis dans Prisma, avec USER comme valeur par défaut. Le rôle ne fait pas partie des champs transmis par la route d’inscription au service, ce qui évite de proposer l’attribution d’un rôle administrateur dans ce parcours.
 
-À compléter et vérifier : validation des données d’entrée, gestion des erreurs, configuration des échanges avec le client, typage du contenu du JWT, gestion des secrets et droits sur les ressources personnelles. Chaque route de stock devra déterminer l’utilisateur à partir de son identité authentifiée et empêcher l’accès aux ressources d’un autre compte.
+Les routes du stock refusent les champs inattendus, notamment userId, les quantités invalides et les unités incompatibles. Chaque requête utilise l’identité du compte authentifié. L’identifiant et le rôle sont typés ; le rôle est relu en base. Les erreurs internes ne renvoient pas de détails SQL. À compléter : validation approfondie des formulaires d’authentification, configuration des échanges avec le client, gestion des secrets en production et contrôles des futures routes.
 
-La présence d’une protection dans le code doit être accompagnée de tests. La section suivante prévoit notamment le refus d’un jeton absent ou invalide et les tentatives d’accès avec un rôle insuffisant.
+Les tests HTTP vérifient ces protections avec deux comptes distincts. Les accès au stock d’un autre compte sont refusés avec le même code 404 qu’une ligne inexistante, sans divulguer son contenu.
 
 ## 9 Plan de tests
 
@@ -274,18 +313,39 @@ Le plan doit vérifier les fonctionnalités attendues et les refus nécessaires.
 
 | Scénario préparé | Résultat attendu | État de la preuve |
 | --- | --- | --- |
-| Inscription avec données valides | Compte créé, rôle USER et absence du mot de passe dans la réponse | À exécuter et documenter |
+| Inscription avec données valides | Compte créé, rôle USER et absence du mot de passe dans la réponse | Vérifié lors de la préparation des tests HTTP |
 | Adresse ou nom déjà utilisé | Création refusée | À exécuter et documenter |
-| Connexion correcte puis incorrecte | Jeton dans le premier cas, refus dans le second | À exécuter et documenter |
-| Route protégée sans jeton ou avec jeton invalide | Accès refusé | À exécuter et documenter |
-| Route administrateur avec un compte USER | Accès refusé | À exécuter et documenter |
-| Lecture ou modification du stock d’un autre compte | Accès refusé, données inchangées | Fonctionnalité à développer |
+| Connexion correcte puis incorrecte | Jeton dans le premier cas, refus dans le second | Connexion correcte vérifiée ; mauvais mot de passe à tester |
+| Route protégée sans jeton ou avec jeton invalide | Accès refusé | HTTP 401 vérifié sur stock et catalogue |
+| Route administrateur avec un compte USER | Accès refusé | HTTP 403 vérifié, même avec un ancien rôle ADMIN dans le jeton |
+| Lecture, modification ou suppression du stock d’un autre compte | Accès refusé, données inchangées | HTTP 404 et maintien de la quantité vérifiés |
 | Recette, stock et préférences cohérents | Suggestions conformes aux règles définies | Règles et fonctionnalité à compléter |
 | Navigation sur plusieurs supports et au clavier | Contenus et actions utilisables | Interfaces à développer |
 
 Le tableau ci-dessus reste un plan de vérification des parcours applicatifs. En complément, 22 contrôles ont été exécutés avec succès sur PostgreSQL 16 le 19 septembre 2026 : refus des quantités invalides et des doublons, respect des références, contrôles des portions et des temps, suppressions en cascade et conservation des recettes sans auteur. Les données de ce test ont été annulées par ROLLBACK. La trace d’exécution est conservée dans docs/verification-base-2026-09-19.txt.
 
-Ces résultats ne démontrent pas encore la protection des routes HTTP, les conversions d’unités ou le calcul des suggestions. À compléter : tests unitaires et d’intégration pertinents, traces d’exécution des parcours, anomalies, corrections et vérification après correction.
+Les vérifications SQL du 19 septembre sont complétées par la suite HTTP du stock du 20 septembre, décrite ci-dessous. Le calcul des suggestions et les interfaces ne sont pas encore couverts.
+
+### 9.1 Vérification HTTP du stock
+
+Les tests lancent l’application sur un port local temporaire et utilisent une base PostgreSQL 16 séparée, appelée platinum_stock_test. Les trois migrations sont appliquées avant les essais. Les comptes sont créés par les routes d’inscription et de connexion ; les appels passent ensuite par HTTP, le middleware, les contrôleurs, les services et PostgreSQL. Le fichier de test refuse une base ne portant pas ce nom ou un hôte non local. Le conteneur est supprimé à la fin ; la base de développement n’est pas utilisée.
+
+| Essai | Résultat attendu et observé |
+| --- | --- |
+| Ajouter 0,5 kg de riz | HTTP 201 ; quantité renvoyée « 500 », unité GRAM |
+| Remplacer par 0,125 kg et déplacer au frigo | HTTP 200 ; quantité « 125 » et emplacement FRIDGE |
+| Filtrer par emplacement | La ligne déplacée apparaît au frigo et plus au placard |
+| Lire, modifier ou supprimer depuis le second compte | HTTP 404 ; quantité du premier compte conservée |
+| Envoyer un userId dans le corps | HTTP 400 ; champ non autorisé |
+| Créer deux fois le même produit au même endroit | HTTP 409 au second ajout |
+| Envoyer deux ajouts simultanés | Une réponse 201 et une réponse 409 |
+| Déplacer vers un emplacement déjà occupé | HTTP 409 ; données de la ligne inchangées |
+| Saisir zéro, une valeur négative ou trop précise | HTTP 400, sans arrondi silencieux |
+| Mélanger litres et grammes | HTTP 400 ; unité incompatible |
+| Utiliser un jeton expiré ou un compte supprimé | HTTP 401 |
+| Supprimer sa propre ligne puis la relire | HTTP 204 puis HTTP 404 |
+
+Le lanceur Node compte 29 tests réussis, sans échec ni test ignoré : neuf scénarios principaux et vingt sous-cas. Le bilan de l’exécution du 20 septembre est conservé dans la trace, avec les résultats de chaque scénario. Ces tests vérifient les opérations du stock et certains parcours d’authentification ; ils ne remplacent pas les essais des futures interfaces et des suggestions.
 
 ## 10 Jeu d’essai de la fonctionnalité la plus représentative
 

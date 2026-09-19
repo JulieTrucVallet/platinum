@@ -1,0 +1,190 @@
+Vérification HTTP du stock - 20 septembre 2026
+PostgreSQL 16 isolé ; trois migrations appliquées ; aucune utilisation de la base de développement.
+
+TAP version 13
+# ◇ injected env (0) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+# Subtest: Le stock et le catalogue nécessitent une authentification valide
+    # Subtest: absent
+    ok 1 - absent
+      ---
+      duration_ms: 17.9079
+      type: 'test'
+      ...
+    # Subtest: altéré
+    ok 2 - altéré
+      ---
+      duration_ms: 16.9654
+      type: 'test'
+      ...
+    # Subtest: expiré
+    ok 3 - expiré
+      ---
+      duration_ms: 23.1216
+      type: 'test'
+      ...
+    # Subtest: identifiant invalide
+    ok 4 - identifiant invalide
+      ---
+      duration_ms: 12.0123
+      type: 'test'
+      ...
+    # Subtest: sans expiration
+    ok 5 - sans expiration
+      ---
+      duration_ms: 17.687
+      type: 'test'
+      ...
+    # Subtest: autre algorithme
+    ok 6 - autre algorithme
+      ---
+      duration_ms: 17.5522
+      type: 'test'
+      ...
+    # Subtest: compte supprimé
+    ok 7 - compte supprimé
+      ---
+      duration_ms: 270.3433
+      type: 'test'
+      ...
+    1..7
+ok 1 - Le stock et le catalogue nécessitent une authentification valide
+  ---
+  duration_ms: 1495.5166
+  type: 'test'
+  ...
+# Subtest: Le catalogue propose recherche et pagination sans données de compte
+ok 2 - Le catalogue propose recherche et pagination sans données de compte
+  ---
+  duration_ms: 86.3677
+  type: 'test'
+  ...
+# Subtest: CRUD complet avec conversion exacte et emplacement
+ok 3 - CRUD complet avec conversion exacte et emplacement
+  ---
+  duration_ms: 328.1926
+  type: 'test'
+  ...
+# Subtest: Un autre compte ne peut ni lire, ni modifier, ni supprimer la ligne
+ok 4 - Un autre compte ne peut ni lire, ni modifier, ni supprimer la ligne
+  ---
+  duration_ms: 197.4203
+  type: 'test'
+  ...
+# Subtest: Doublons refusés, plusieurs emplacements permis, collision de déplacement atomique
+ok 5 - Doublons refusés, plusieurs emplacements permis, collision de déplacement atomique
+  ---
+  duration_ms: 189.9214
+  type: 'test'
+  ...
+# Subtest: Quantités invalides refusées sans arrondi silencieux
+    # Subtest: 0
+    ok 1 - 0
+      ---
+      duration_ms: 22.2807
+      type: 'test'
+      ...
+    # Subtest: -1
+    ok 2 - -1
+      ---
+      duration_ms: 21.5132
+      type: 'test'
+      ...
+    # Subtest: "1.1234"
+    ok 3 - "1.1234"
+      ---
+      duration_ms: 22.535
+      type: 'test'
+      ...
+    # Subtest: "1e3"
+    ok 4 - "1e3"
+      ---
+      duration_ms: 24.3893
+      type: 'test'
+      ...
+    # Subtest: ""
+    ok 5 - ""
+      ---
+      duration_ms: 21.9489
+      type: 'test'
+      ...
+    # Subtest: "1\\n"
+    ok 6 - "1\\n"
+      ---
+      duration_ms: 20.6669
+      type: 'test'
+      ...
+    # Subtest: " 1"
+    ok 7 - " 1"
+      ---
+      duration_ms: 17.2704
+      type: 'test'
+      ...
+    # Subtest: null
+    ok 8 - null
+      ---
+      duration_ms: 20.0856
+      type: 'test'
+      ...
+    # Subtest: true
+    ok 9 - true
+      ---
+      duration_ms: 19.1832
+      type: 'test'
+      ...
+    # Subtest: []
+    ok 10 - []
+      ---
+      duration_ms: 20.9578
+      type: 'test'
+      ...
+    # Subtest: {}
+    ok 11 - {}
+      ---
+      duration_ms: 19.064
+      type: 'test'
+      ...
+    # Subtest: "1000000000"
+    ok 12 - "1000000000"
+      ---
+      duration_ms: 18.5083
+      type: 'test'
+      ...
+    # Subtest: "1000000.001"
+    ok 13 - "1000000.001"
+      ---
+      duration_ms: 15.4718
+      type: 'test'
+      ...
+    1..13
+ok 6 - Quantités invalides refusées sans arrondi silencieux
+  ---
+  duration_ms: 315.4244
+  type: 'test'
+  ...
+# Subtest: Unités compatibles, litres et pièces ; précision décimale conservée
+ok 7 - Unités compatibles, litres et pièces ; précision décimale conservée
+  ---
+  duration_ms: 150.1012
+  type: 'test'
+  ...
+# Subtest: Identifiants, emplacement, corps JSON et mises à jour incompletes refusés
+ok 8 - Identifiants, emplacement, corps JSON et mises à jour incompletes refusés
+  ---
+  duration_ms: 170.9274
+  type: 'test'
+  ...
+# Subtest: Le rôle courant du compte prime sur le rôle contenu dans un ancien jeton
+ok 9 - Le rôle courant du compte prime sur le rôle contenu dans un ancien jeton
+  ---
+  duration_ms: 25.8999
+  type: 'test'
+  ...
+1..9
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 23041.165

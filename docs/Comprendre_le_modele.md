@@ -12,9 +12,9 @@ Cette fiche sert à relire les décisions et à vérifier que tu peux les expliq
 
 **Ingrédient et stock.** Le riz existe dans le catalogue même si personne n’en possède. Une ligne de stock indique qui en possède, combien et où. Deux personnes ne partagent donc pas la même ligne de stock.
 
-**Quantité et unité.** Si le riz utilise le gramme comme unité de référence, 500 signifie 500 g, dans le stock comme dans une recette. Une saisie de 0,5 kg devra être convertie en 500 g. Cette conversion n’est pas encore développée.
+**Quantité et unité.** Si le riz utilise le gramme comme unité de référence, 500 signifie 500 g, dans le stock comme dans une recette. Une saisie de 0,5 kg devra être convertie en 500 g. Cette conversion est maintenant réalisée dans l’API du stock ; elle reste à intégrer aux recettes.
 
-**Même produit, plusieurs emplacements.** Un utilisateur peut avoir des tomates au frigo et au congélateur. Deux lignes sont alors possibles. En revanche, le même utilisateur ne peut pas avoir deux lignes pour les tomates dans le même emplacement : l’unicité du triplet l’empêche. La règle de mise à jour lors d’un nouvel ajout doit être définie dans l’API.
+**Même produit, plusieurs emplacements.** Un utilisateur peut avoir des tomates au frigo et au congélateur. Deux lignes sont alors possibles. En revanche, le même utilisateur ne peut pas avoir deux lignes pour les tomates dans le même emplacement : l’unicité du triplet l’empêche. Un nouvel ajout en doublon est refusé ; la modification remplace la quantité totale de la ligne existante.
 
 **Ingrédients d’une recette.** RecipeIngredient porte la quantité nécessaire pour les portions de la recette. Pour doubler les portions, il faudra doubler les quantités dans le calcul ; le catalogue Ingredient ne change pas.
 
@@ -24,7 +24,7 @@ Cette fiche sert à relire les décisions et à vérifier que tu peux les expliq
 
 ## Ce qui est vérifié, ce qui reste à faire
 
-Les migrations, les contraintes SQL et les comportements de suppression ont été vérifiés. Les 22 contrôles réussis concernent PostgreSQL. Ils ne prouvent pas encore qu’un utilisateur ne peut pas modifier le stock d’un autre via l’API : ce test arrivera avec les routes du stock.
+Les migrations, les contraintes SQL et les comportements de suppression ont été vérifiés. Les 22 contrôles réussis concernent PostgreSQL. Ces contrôles SQL sont complétés depuis le 20 septembre par les tests HTTP du stock, qui vérifient aussi le refus des lectures et modifications entre comptes.
 
 Le MCD impose au moins un ingrédient par recette. Une clé étrangère ne suffit pas à imposer cette règle : le service devra créer la recette et ses ingrédients ensemble, puis refuser une recette vide.
 

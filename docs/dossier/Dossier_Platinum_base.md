@@ -15,8 +15,8 @@ La présentation ci-dessous distingue les réalisations présentes, la conceptio
 | Compétence | Éléments présents et emplacement dans le dossier | Preuve restant à apporter |
 | --- | --- | --- |
 | Installer et configurer son environnement de travail | Client React, serveur Express, Prisma et configuration Docker ; sections 6 et 7 | Procédure reproductible et vérification du démarrage |
-| Développer des interfaces utilisateur | Maquettes Figma et client initialisé ; sections 5 et 7 | Écrans développés, reliés à l’API et testés |
-| Développer des composants métier | Authentification, stock, recettes, préférences et suggestions ; section 7 | Parcours React à relier et vérifier |
+| Développer des interfaces utilisateur | Connexion, inscription et stock React reliés à l’API ; section 7.11 | Recettes, suggestions et profil à réaliser |
+| Développer des composants métier | Authentification, stock, recettes, préférences et suggestions ; section 7 | Parcours React restants à relier et vérifier |
 | Contribuer à la gestion d’un projet informatique | Tickets GitHub, tableau Kanban et historique ; section 4 | Suivi actualisé et bilan des écarts |
 | Analyser les besoins et maquetter une application | Besoins, acteurs, droits et maquettes ; sections 2 et 5 | Corrections des diagrammes et adaptations aux supports |
 | Définir l’architecture logicielle d’une application | Séparation client/serveur et responsabilités du serveur ; sections 5 et 6 | Schéma d’architecture et parcours détaillé d’une requête |
@@ -127,7 +127,7 @@ L’application doit être utilisable sur plusieurs tailles d’écran et réser
 
 ### 5.2 Architecture logicielle
 
-Le client React et TypeScript présente les interfaces. Le serveur Express reçoit les requêtes HTTP et expose l’API. Ses routes orientent les appels, ses middlewares vérifient les autorisations, ses contrôleurs traitent les échanges HTTP et ses services regroupent les traitements. Prisma assure les échanges avec PostgreSQL.
+Le client React et TypeScript présente les interfaces de connexion, d’inscription et de stock ; les autres pages restent à développer. Le serveur Express reçoit les requêtes HTTP et expose l’API. Ses routes orientent les appels, ses middlewares vérifient les autorisations, ses contrôleurs traitent les échanges HTTP et ses services regroupent les traitements. Prisma assure les échanges avec PostgreSQL.
 
 Le parcours d’authentification existant suit cette organisation : route, contrôleur, service puis accès aux données avec Prisma. La même séparation doit guider les composants métier restant à développer.
 
@@ -250,7 +250,7 @@ Les tests HTTP du stock passent par une inscription et une connexion réelles. I
 
 ### 7.4 Mise en place du modèle métier
 
-Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage. Les routes du stock, des recettes, des préférences et des suggestions font l’objet des vérifications HTTP décrites ci-dessous. Les interfaces restent à développer et relier à ces routes.
+Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage. Les routes du stock, des recettes, des préférences et des suggestions font l’objet des vérifications HTTP décrites ci-dessous. Les interfaces de connexion et stock sont reliées à ces routes. Les autres pages restent à réaliser.
 
 Les fichiers de référence sont server/prisma/schema.prisma, la migration 20260919110000_add_recipe_stock_preferences, server/prisma/tests/constraints.sql et docs/verification-base-2026-09-19.txt. Les choix du modèle sont expliqués dans docs/modele-donnees.md et les trois niveaux de représentation figurent en section 5.4.
 
@@ -361,9 +361,31 @@ Les recettes sont triées par proportion exacte décroissante, puis par nombre d
 
 La première version classe en mémoire toutes les recettes compatibles. Ce choix est adapté au petit catalogue du projet, mais devra être mesuré et revu pour une volumétrie importante. Elle ne recalcule pas encore les portions à la demande. Le contrat complet figure dans docs/api-suggestions.md.
 
-### 7.11 Interfaces et accès NoSQL à compléter
+### 7.11 Interfaces React de connexion et de stock
 
-Les API métier sont disponibles et testées. Les interfaces React restent à relier à ces routes et à vérifier sur plusieurs tailles d’écran. Les captures à intégrer au dossier devront provenir de ces parcours réels. Les composants d’accès aux données NoSQL et leur preuve restent également à réaliser.
+Le client initialisé avec Vite a été remplacé par un premier parcours fonctionnel. L’utilisateur peut créer un compte, se connecter et consulter son stock. Les formulaires reprennent le logo et les boutons jaunes des maquettes Figma. Des étiquettes visibles et des messages de retour ont été ajoutés pour rendre les actions compréhensibles.
+
+L’inscription appelle POST /api/auth/register. Après confirmation, l’utilisateur se connecte avec POST /api/auth/login. Le jeton est conservé dans sessionStorage pour permettre l’actualisation de l’onglet, puis vérifié avec GET /api/auth/me. Le code ne conserve pas le mot de passe. Si une requête protégée répond 401, le client retire le jeton et demande une nouvelle connexion. Une indisponibilité du serveur propose de réessayer.
+
+![Figure - Écran de connexion React, application locale du 20 septembre 2026.](../captures/connexion-desktop.png)
+
+L’écran de stock propose les filtres Tout, Frigo, Congélateur, Placard et Condiments. Il lit les données de GET /api/stock et affiche les quantités dans leurs unités de référence. L’ajout utilise un catalogue recherché et paginé. Le formulaire accepte une virgule décimale, propose les unités compatibles et laisse le serveur effectuer les conversions.
+
+![Figure - Stock sur ordinateur : 700 g de poulet enregistrés dans le frigo d’un compte fictif.](../captures/stock-desktop.png)
+
+Une écriture n’est présentée comme réussie qu’après la réponse de l’API. L’ajout et la modification reprennent la ligne enregistrée renvoyée par le serveur. Un doublon affiche le message de refus dans le formulaire, sans perdre les valeurs. Le retrait comporte une confirmation et une possibilité d’annuler.
+
+Sous 800 px, le frigo décoratif est masqué pour donner la priorité à la liste. Les filtres passent à la ligne. Le formulaire reste accessible dans une fenêtre dialog avec un titre et des libellés. La fermeture par Échap rend le focus au bouton qui l’a ouvert ; ce comportement a été corrigé puis vérifié pendant les essais. Les erreurs et confirmations utilisent les rôles alert et status. Ces vérifications ne constituent pas un audit d’accessibilité complet.
+
+![Figure - Même stock sur mobile ; viewport de test 390 × 844 px.](../captures/stock-mobile.png)
+
+App.tsx gère la session ; AuthPage.tsx contient les formulaires d’authentification ; StockPage.tsx présente la liste ; StockForm.tsx gère le formulaire d’ajout et de modification. lib/api.ts centralise les appels HTTP et les erreurs. Les lectures sont annulées si leur écran disparaît ou si la recherche change. Le client appelle /api sur la même origine ; le proxy Vite redirige les demandes vers Express pendant le développement.
+
+Les images sont les exports des maquettes, stockés localement pour éviter les liens temporaires. Leur droit d’utilisation final reste à documenter, en conservant les éventuels filigranes d’origine. Georgia et Arial remplacent provisoirement Playfair Display et Inter. Les couleurs principales sont reprises des maquettes ; le titre vert est foncé pour rester lisible. Le parcours de récupération de mot de passe n’est pas exposé avant son implémentation serveur.
+
+### 7.12 Réalisations restantes
+
+Les écrans des recettes, des suggestions et du profil restent à relier aux API déjà disponibles. L’accès NoSQL, la préparation de production et les éléments de sécurité restants doivent être réalisés et vérifiés. Les captures ci-dessus documentent uniquement les parcours de connexion et stock déjà exécutés.
 
 ## 8 Éléments de sécurité de l’application
 
@@ -383,7 +405,7 @@ Le plan doit vérifier les fonctionnalités attendues et les refus nécessaires.
 | --- | --- | --- |
 | Inscription avec données valides | Compte créé, rôle USER et absence du mot de passe dans la réponse | Vérifié lors de la préparation des tests HTTP |
 | Adresse ou nom déjà utilisé | Création refusée | À exécuter et documenter |
-| Connexion correcte puis incorrecte | Jeton dans le premier cas, refus dans le second | Connexion correcte vérifiée ; mauvais mot de passe à tester |
+| Connexion correcte puis incorrecte | Accès dans le premier cas, refus dans le second | Les deux cas sont vérifiés depuis le navigateur ; section 9.4 |
 | Route protégée sans jeton ou avec jeton invalide | Accès refusé | HTTP 401 vérifié sur stock et catalogue |
 | Route administrateur avec un compte USER | Accès refusé | HTTP 403 vérifié, même avec un ancien rôle ADMIN dans le jeton |
 | Lecture, modification ou suppression du stock d’un autre compte | Accès refusé, données inchangées | HTTP 404 et maintien de la quantité vérifiés |
@@ -392,7 +414,7 @@ Le plan doit vérifier les fonctionnalités attendues et les refus nécessaires.
 
 Le tableau ci-dessus reste un plan de vérification des parcours applicatifs. En complément, 22 contrôles ont été exécutés avec succès sur PostgreSQL 16 le 19 septembre 2026 : refus des quantités invalides et des doublons, respect des références, contrôles des portions et des temps, suppressions en cascade et conservation des recettes sans auteur. Les données de ce test ont été annulées par ROLLBACK. La trace d’exécution est conservée dans docs/verification-base-2026-09-19.txt.
 
-Les vérifications SQL du 19 septembre sont complétées par la suite HTTP du stock du 20 septembre, décrite ci-dessous. Les recettes sont également vérifiées par la suite de tests décrite en section 9.2. La section 9.3 complète ces preuves pour les préférences et les suggestions. Les interfaces restent à vérifier.
+Les vérifications SQL du 19 septembre sont complétées par la suite HTTP du stock du 20 septembre, décrite ci-dessous. Les recettes sont également vérifiées par la suite de tests décrite en section 9.2. La section 9.3 complète ces preuves pour les préférences et les suggestions. Les premiers parcours visuels sont vérifiés en section 9.4 ; les autres pages restent à tester.
 
 ### 9.1 Vérification HTTP du stock
 
@@ -437,7 +459,7 @@ La suite des recettes utilise une autre base dédiée, platinum_recipes_test, av
 
 Pour vérifier l’annulation réelle, le test ajoute temporairement une contrainte SQL qui refuse une quantité pourtant valide pour l’application. Cette panne intervient après les validations métier. Le test compare ensuite le titre, les dates et les ingrédients à leur état initial, puis retire la contrainte. Le conteneur est supprimé à la fin de la vérification.
 
-Le bilan du 20 septembre compte 30 tests réussis, sans échec ni test ignoré : douze scénarios principaux et dix-huit sous-cas. La trace se trouve dans docs/verification-recettes-2026-09-20.txt. Les 29 tests du stock ont aussi été relancés après cette évolution et restent tous réussis. Ces résultats concernent l’API ; les essais sur les écrans restent à effectuer.
+Le bilan du 20 septembre compte 30 tests réussis, sans échec ni test ignoré : douze scénarios principaux et dix-huit sous-cas. La trace se trouve dans docs/verification-recettes-2026-09-20.txt. Les 29 tests du stock ont aussi été relancés après cette évolution et restent tous réussis. Ces résultats concernent l’API ; la section 9.4 distingue les essais effectués sur les premiers écrans.
 
 ### 9.3 Vérification HTTP des préférences et suggestions
 
@@ -446,6 +468,27 @@ La suite server/tests/suggestions.test.cjs utilise la base PostgreSQL 16 isolée
 Les essais couvrent l’accès au catalogue, la confidentialité des choix, leur remplacement et leur effacement, le refus des références invalides sans perte des choix précédents et les écritures simultanées. Les droits d’étiquetage sont testés pour l’auteur, un autre compte et l’administration. Une version ancienne est refusée et un changement de composition efface les étiquettes.
 
 Les suggestions sont vérifiées avec un stock réparti entre plusieurs rangements, un stock vide, un manque de 0,001 g et plusieurs préférences cumulées. Les tests contrôlent aussi le tri avant pagination, l’exclusion d’une recette vide et l’absence de consommation du stock à la consultation. Ils ne constituent pas un test de charge ni une validation des écrans.
+
+### 9.4 Essais des interfaces dans le navigateur
+
+Le 20 septembre, les premiers écrans ont été testés dans le navigateur intégré avec la vraie API et une base PostgreSQL 16 temporaire nommée platinum_ui_test. Les trois migrations et le catalogue de démonstration ont été appliqués. Deux comptes fictifs distincts ont été créés depuis le formulaire. La base de développement et son fichier .env n’ont pas été modifiés.
+
+| Parcours | Résultat attendu | Résultat observé |
+| --- | --- | --- |
+| Créer un compte puis se connecter | Confirmation puis accès au stock personnel | Conforme |
+| Envoyer un mauvais mot de passe | Refus sans accès au stock | Message d’identifiants incorrects |
+| Ajouter 0,5 kg de riz au placard | 500 g enregistrés et affichés | Conforme |
+| Saisir zéro ou un doublon | Refus sans perte de la saisie | Messages explicites ; formulaire conservé |
+| Modifier en 0,125 kg et déplacer au frigo | 125 g au frigo ; placard vide | Conforme dans les deux filtres |
+| Actualiser la page | Session et stock conservés | 125 g retrouvés au frigo |
+| Annuler puis confirmer un retrait | Conservation puis suppression de la ligne | Conforme |
+| Se connecter avec le second compte | Aucun produit du premier compte | Stock vide |
+| Invalider ce compte dans la base de test | Retour à la connexion lors de la prochaine demande | Jeton retiré et message de session expirée |
+| Fermer le formulaire mobile par Échap | Retour du focus au bouton de modification | Conforme après correction |
+
+Le stock a été inspecté au format ordinateur et avec un viewport mobile de 390 × 844 px. Les images se chargent et aucun débordement horizontal n’a été constaté. Les captures sont conservées dans docs/captures et la trace détaillée dans docs/verification-interface-2026-09-20.md. La compilation du client et son contrôle ESLint réussissent.
+
+Ces parcours observés sont distincts des 84 tests HTTP automatisés existants. Les essais multi-navigateurs, de panne réseau, de catalogue volumineux et d’accessibilité complète restent à effectuer, ainsi que ceux des pages restantes. Cette tranche ne modifie pas le serveur : les suites API ne sont pas présentées comme réexécutées à cette occasion.
 
 ## 10 Jeu d’essai de la fonctionnalité la plus représentative
 

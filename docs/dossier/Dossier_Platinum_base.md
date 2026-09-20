@@ -16,13 +16,13 @@ La présentation ci-dessous distingue les réalisations présentes, la conceptio
 | --- | --- | --- |
 | Installer et configurer son environnement de travail | Client React, serveur Express, Prisma et configuration Docker ; sections 6 et 7 | Procédure reproductible et vérification du démarrage |
 | Développer des interfaces utilisateur | Maquettes Figma et client initialisé ; sections 5 et 7 | Écrans développés, reliés à l’API et testés |
-| Développer des composants métier | Authentification, CRUD du stock et des recettes, conversions et droits ; section 7 | Préférences et suggestions à développer et vérifier |
+| Développer des composants métier | Authentification, stock, recettes, préférences et suggestions ; section 7 | Parcours React à relier et vérifier |
 | Contribuer à la gestion d’un projet informatique | Tickets GitHub, tableau Kanban et historique ; section 4 | Suivi actualisé et bilan des écarts |
 | Analyser les besoins et maquetter une application | Besoins, acteurs, droits et maquettes ; sections 2 et 5 | Corrections des diagrammes et adaptations aux supports |
 | Définir l’architecture logicielle d’une application | Séparation client/serveur et responsabilités du serveur ; sections 5 et 6 | Schéma d’architecture et parcours détaillé d’une requête |
 | Concevoir et mettre en place une base de données relationnelle | MCD, MLD, MPD et neuf tables PostgreSQL ; section 5 | Compléter avec le diagramme de classes et les contrôles des services |
 | Développer des composants d’accès aux données SQL et NoSQL | Accès SQL du stock et transactions des recettes via Prisma, vérifiés sur PostgreSQL ; section 7 | Accès NoSQL et preuve à réaliser |
-| Préparer et exécuter les plans de tests d’une application | Contrôles SQL et tests HTTP du stock et des recettes exécutés ; section 9 | Autres parcours, interfaces et jeu d’essai des suggestions |
+| Préparer et exécuter les plans de tests d’une application | Contrôles SQL et tests HTTP du stock, des recettes et des suggestions ; sections 9 et 10 | Autres parcours et interfaces à vérifier |
 | Préparer et documenter le déploiement d’une application | Environnement de développement décrit ; section 6 | Procédure de déploiement et vérifications |
 | Contribuer à la mise en production dans une démarche DevOps | Travail suivi dans GitHub ; section 6 | Chaîne d’intégration et éléments de production à documenter |
 
@@ -108,12 +108,12 @@ Le ticket #15 suit l’assemblage du dossier et les preuves des compétences. Le
 | Période prévue | Résultat recherché |
 | --- | --- |
 | Samedi 19 septembre | Base du dossier et consolidation du modèle de données |
-| Dimanche 20 septembre | Base métier, stock et recettes avec vérifications API |
-| Lundi 21 septembre | Parcours React, suggestions et préférences |
+| Dimanche 20 septembre | Stock, recettes, préférences et suggestions avec vérifications API |
+| Lundi 21 septembre | Parcours React reliés aux fonctionnalités métier |
 | Mardi 22 septembre | Tests, sécurité, veille et consolidation des preuves |
 | Mercredi 23 septembre | Relecture et préparation du PDF de remise |
 
-Le samedi, le modèle de données, les migrations et la première base du dossier ont été réalisés. Le dimanche, le CRUD du stock a été vérifié, puis celui des recettes a été développé et testé. Des branches successives sont consacrées au modèle, au stock puis aux recettes ; chaque évolution repose sur la précédente. La relecture et l’intégration des propositions restent distinctes de leur publication. À compléter : les autres écarts et arbitrages, puis une capture actualisée du tableau Projects. L’échéance annoncée de remise est le jeudi 24 septembre à 17 h ; mercredi constitue l’objectif interne.
+Le samedi, le modèle de données, les migrations et la première base du dossier ont été réalisés. Le dimanche, le CRUD du stock a été vérifié, puis celui des recettes a été développé et testé. Les préférences et le calcul des suggestions ont ensuite été vérifiés. Des branches successives sont consacrées au modèle, au stock, aux recettes puis aux suggestions ; chaque évolution repose sur la précédente. La relecture et l’intégration des propositions restent distinctes de leur publication. À compléter : les autres écarts et arbitrages, puis une capture actualisée du tableau Projects. L’échéance annoncée de remise est le jeudi 24 septembre à 17 h ; mercredi constitue l’objectif interne.
 
 ### 4.4 Objectifs de qualité
 
@@ -157,13 +157,13 @@ Le MPD précise les types PostgreSQL et les contraintes effectivement créées. 
 
 Les suppressions tiennent compte du rôle des données : supprimer un utilisateur retire son stock et ses préférences, mais conserve ses recettes avec un auteur nul. La suppression d’un ingrédient utilisé est refusée. Supprimer une recette retire ses associations, sans retirer les ingrédients du catalogue.
 
-![MCD](../diagrammes/mcd.svg)
+![mcd](../diagrammes/mcd.svg)
 
-![MLD](../diagrammes/mld.svg)
+![mld](../diagrammes/mld.svg)
 
-![MPD - tables principales](../diagrammes/mpd-1.svg)
+![mpd-1](../diagrammes/mpd-1.svg)
 
-![MPD - associations et contraintes](../diagrammes/mpd-2.svg)
+![mpd-2](../diagrammes/mpd-2.svg)
 
 Une recette exploitable doit contenir au moins un ingrédient : le MCD indique donc 1,n. Les clés étrangères SQL garantissent l’existence des références, mais ne forcent pas une recette à avoir une ligne dans RecipeIngredient. Cette règle est maintenant vérifiée par le service de recettes, qui regroupe la recette et sa composition dans une transaction. Le contrôle des droits reste une responsabilité de l’API ; il est vérifié pour le stock et pour les écritures des recettes.
 
@@ -189,11 +189,11 @@ Le diagramme global relie les profils aux fonctions décrites dans la matrice de
 
 Renseigner ses ingrédients permet à l’utilisateur inscrit d’enregistrer les produits qu’il possède. Les informations à préciser sont l’ingrédient, la quantité, l’unité et, selon le modèle retenu, son emplacement. L’utilisateur ne doit agir que sur son propre stock.
 
-Recevoir des suggestions permet de rapprocher ce stock des ingrédients nécessaires aux recettes. Le résultat doit présenter les recettes pertinentes et les ingrédients manquants. La règle de calcul et le traitement des préférences doivent être définis avant leur implémentation.
+Recevoir des suggestions permet de rapprocher ce stock des ingrédients nécessaires aux recettes. Le résultat doit présenter les recettes pertinentes et les ingrédients manquants. La règle de calcul et le traitement des préférences sont maintenant décrits et vérifiés en sections 7.9, 7.10 et 10.
 
 Rechercher des recettes par ingrédients permet une recherche manuelle sans dépendre exclusivement des suggestions personnelles. Les critères saisis, les contrôles et les résultats attendus doivent être précisés.
 
-Consulter la compatibilité permet d’identifier les ingrédients disponibles et manquants pour une recette. Les indicateurs visuels préparés en semaine 1 ne constituent pas encore une règle de calcul complète. À compléter : seuils, gestion des quantités, unités compatibles et cas limites.
+Consulter la compatibilité permet d’identifier les ingrédients disponibles et manquants pour une recette. Les niveaux visuels de semaine 1 sont précisés par les seuils de la section 7.10. Les quantités sont comparées dans leur unité de référence ; les cas limites sont vérifiés en section 10.
 
 Pour ces quatre fonctionnalités, reprendre et corriger les diagrammes d’activité et de séquence, puis détailler les entrées, traitements, sorties et contrôles. Les séquences doivent rendre visibles les couches du serveur.
 
@@ -250,7 +250,7 @@ Les tests HTTP du stock passent par une inscription et une connexion réelles. I
 
 ### 7.4 Mise en place du modèle métier
 
-Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage. Les routes du stock et des recettes, leurs droits et les transactions font l’objet des vérifications HTTP décrites ci-dessous ; les autres fonctions restent à développer.
+Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage. Les routes du stock, des recettes, des préférences et des suggestions font l’objet des vérifications HTTP décrites ci-dessous. Les interfaces restent à développer et relier à ces routes.
 
 Les fichiers de référence sont server/prisma/schema.prisma, la migration 20260919110000_add_recipe_stock_preferences, server/prisma/tests/constraints.sql et docs/verification-base-2026-09-19.txt. Les choix du modèle sont expliqués dans docs/modele-donnees.md et les trois niveaux de représentation figurent en section 5.4.
 
@@ -297,7 +297,7 @@ Les fichiers server/tests/stock.test.cjs et docs/verification-stock-2026-09-20.t
 
 Les routes GET /api/recipes et GET /api/recipes/:id permettent de consulter les recettes sans connexion. La liste présente le titre, l’image éventuelle, les portions, les durées, la difficulté, la catégorie et le nom de l’auteur. Le détail ajoute les instructions, la source éventuelle et les ingrédients avec leurs quantités. L’adresse électronique et le mot de passe de l’auteur ne sont jamais sélectionnés pour ces réponses publiques.
 
-La recherche porte sur le titre ou le nom d’un ingrédient, sans distinction de casse. Elle peut être combinée à une catégorie et à une liste d’ingrédients : dans ce dernier cas, la recette doit contenir tous les ingrédients demandés. Il s’agit d’une recherche dans le catalogue, pas encore d’une vérification des quantités disponibles dans le stock personnel.
+La recherche porte sur le titre ou le nom d’un ingrédient, sans distinction de casse. Elle peut être combinée à une catégorie et à une liste d’ingrédients : dans ce dernier cas, la recette doit contenir tous les ingrédients demandés. Il s’agit d’une recherche dans le catalogue. La vérification du stock personnel est assurée séparément par les suggestions.
 
 La liste est paginée avec vingt recettes par défaut et cent au maximum. Le tri utilise la date de création puis l’identifiant pour conserver un ordre stable. Le total et la page de résultats sont lus dans une transaction au niveau REPEATABLE READ, pour utiliser un même instantané des données.
 
@@ -325,17 +325,45 @@ return tx.recipe.update({
 
 La condition writable contient l’identifiant de la recette et celui de son auteur pour un compte USER ; ADMIN peut intervenir sur toute recette. L’auteur d’origine est conservé lors d’une modification par l’administration. Une recette sans auteur reste publique, mais seul ADMIN peut la gérer.
 
-Les anciennes étiquettes de compatibilité alimentaire sont retirées lors d’un remplacement complet, car la composition peut avoir changé. Leur réévaluation sera traitée dans la partie préférences. Le futur formulaire devra expliquer cette réinitialisation.
+Les anciennes étiquettes de compatibilité alimentaire sont retirées lors d’un remplacement complet, car la composition peut avoir changé. Leur confirmation est maintenant traitée par la route dédiée aux préférences de la recette, avec contrôle de sa version. Le futur formulaire devra expliquer cette réinitialisation.
 
-Les transactions de création et de remplacement utilisent le niveau SERIALIZABLE. En cas de conflit simultané, le serveur peut répondre 409 et demander une actualisation. Les tests vérifient que la composition finale est complète et ne mélange pas les ingrédients de deux modifications. Cette protection n’empêche pas encore qu’un formulaire ancien soit envoyé plus tard : aucun verrou de version n’est implémenté.
+Les transactions de création et de remplacement utilisent le niveau SERIALIZABLE. En cas de conflit simultané, le serveur peut répondre 409 et demander une actualisation. Les tests vérifient que la composition finale est complète et ne mélange pas les ingrédients de deux modifications. Cette protection n’empêche pas encore qu’un formulaire ancien soit envoyé plus tard : aucun verrou de version n’est implémenté pour le remplacement complet. La confirmation des étiquettes alimentaires dispose, elle, du contrôle décrit ci-dessous.
 
 DELETE /api/recipes/:id est réservé à l’auteur ou à ADMIN. Les associations de la recette sont supprimées, mais les ingrédients du catalogue restent présents. Les erreurs de validation retournent 400 ; une recette inexistante ou non modifiable par ce compte retourne 404.
 
 Les fichiers server/tests/recipes.test.cjs, docs/api-recettes.md et docs/verification-recettes-2026-09-20.txt conservent le contrat et les preuves d’exécution.
 
-### 7.9 Autres réalisations et interfaces
+### 7.9 Préférences alimentaires personnelles
 
-À compléter après développement : préférences et suggestions, puis interfaces React reliées à l’API. Pour chaque réalisation, présenter le besoin couvert, la capture réelle, le code significatif, l’argumentation et le résultat de vérification. Ajouter également les preuves des composants d’accès aux données NoSQL.
+GET /api/preferences présente le catalogue des préférences. Un utilisateur connecté consulte ses choix avec GET /api/preferences/me et les remplace avec PUT sur cette même route. Le corps contient seulement preferenceIds, une liste de vingt identifiants distincts au maximum. Une liste vide retire les choix. Les références sont contrôlées avant l’écriture transactionnelle ; un champ userId envoyé par le client est refusé.
+
+Les étiquettes d’une recette sont confirmées par son auteur ou un administrateur avec PUT /api/recipes/:id/preferences. La demande contient la version updatedAt obtenue à la lecture de la recette. Si elle a changé, le serveur refuse la confirmation avec 409 et demande de relire la composition. Les étiquettes sont déclaratives : elles ne résultent pas d’une détection automatique des allergènes. Modifier complètement une recette retire ses anciennes étiquettes.
+
+### 7.10 Suggestions à partir du stock
+
+GET /api/suggestions utilise le compte authentifié pour lire ses préférences et son stock. Les quantités d’un même ingrédient sont additionnées entre les rangements. Les recettes doivent porter toutes les préférences choisies et contenir au moins un ingrédient. En l’absence de préférence, aucun filtre alimentaire n’est appliqué. Une étiquette absente ne signifie pas que la recette est compatible.
+
+Le calcul utilise les quantités prévues pour les portions de chaque recette. Pour chaque ingrédient, le manque est la différence positive entre le besoin et le stock. Le serveur indique si le stock est suffisant, partiel ou absent. Les quantités sont comparées avec Decimal afin de conserver la précision des valeurs enregistrées.
+
+Le score est le pourcentage d’ingrédients disponibles en quantité suffisante. Il ne mélange pas les grammes, les millilitres et les pièces. Les seuils précisent les niveaux qualitatifs de la semaine 1 : vert si plus de la moitié des ingrédients sont suffisants, orange si au moins un l’est sans dépasser la moitié, rouge si aucun ne l’est. Le champ canCook indique séparément si tous les ingrédients sont suffisants. Une majorité ne suffit donc pas à déclarer la recette réalisable.
+
+Extrait de server/src/services/suggestion.service.ts :
+
+```typescript
+const available = quantities.get(row.ingredient.id)
+  ?? new Prisma.Decimal(0);
+const missing = Prisma.Decimal.max(
+  row.quantity.minus(available), 0
+);
+```
+
+Les recettes sont triées par proportion exacte décroissante, puis par nombre d’ingrédients à compléter et identifiant. L’arrondi du score sert uniquement à l’affichage. La pagination intervient après le tri : vingt résultats par défaut et cent maximum. Les préférences, le stock et les recettes sont lus dans un même instantané REPEATABLE READ. Une consultation ne modifie pas les quantités du stock.
+
+La première version classe en mémoire toutes les recettes compatibles. Ce choix est adapté au petit catalogue du projet, mais devra être mesuré et revu pour une volumétrie importante. Elle ne recalcule pas encore les portions à la demande. Le contrat complet figure dans docs/api-suggestions.md.
+
+### 7.11 Interfaces et accès NoSQL à compléter
+
+Les API métier sont disponibles et testées. Les interfaces React restent à relier à ces routes et à vérifier sur plusieurs tailles d’écran. Les captures à intégrer au dossier devront provenir de ces parcours réels. Les composants d’accès aux données NoSQL et leur preuve restent également à réaliser.
 
 ## 8 Éléments de sécurité de l’application
 
@@ -359,12 +387,12 @@ Le plan doit vérifier les fonctionnalités attendues et les refus nécessaires.
 | Route protégée sans jeton ou avec jeton invalide | Accès refusé | HTTP 401 vérifié sur stock et catalogue |
 | Route administrateur avec un compte USER | Accès refusé | HTTP 403 vérifié, même avec un ancien rôle ADMIN dans le jeton |
 | Lecture, modification ou suppression du stock d’un autre compte | Accès refusé, données inchangées | HTTP 404 et maintien de la quantité vérifiés |
-| Recette, stock et préférences cohérents | Suggestions conformes aux règles définies | Règles et fonctionnalité à compléter |
+| Recette, stock et préférences cohérents | Suggestions conformes aux règles définies | Calculs, filtres et isolation vérifiés ; voir section 10 |
 | Navigation sur plusieurs supports et au clavier | Contenus et actions utilisables | Interfaces à développer |
 
 Le tableau ci-dessus reste un plan de vérification des parcours applicatifs. En complément, 22 contrôles ont été exécutés avec succès sur PostgreSQL 16 le 19 septembre 2026 : refus des quantités invalides et des doublons, respect des références, contrôles des portions et des temps, suppressions en cascade et conservation des recettes sans auteur. Les données de ce test ont été annulées par ROLLBACK. La trace d’exécution est conservée dans docs/verification-base-2026-09-19.txt.
 
-Les vérifications SQL du 19 septembre sont complétées par la suite HTTP du stock du 20 septembre, décrite ci-dessous. Les recettes sont également vérifiées par la suite de tests décrite en section 9.2. Le calcul des suggestions et les interfaces ne sont pas encore couverts.
+Les vérifications SQL du 19 septembre sont complétées par la suite HTTP du stock du 20 septembre, décrite ci-dessous. Les recettes sont également vérifiées par la suite de tests décrite en section 9.2. La section 9.3 complète ces preuves pour les préférences et les suggestions. Les interfaces restent à vérifier.
 
 ### 9.1 Vérification HTTP du stock
 
@@ -385,7 +413,7 @@ Les tests lancent l’application sur un port local temporaire et utilisent une 
 | Utiliser un jeton expiré ou un compte supprimé | HTTP 401 |
 | Supprimer sa propre ligne puis la relire | HTTP 204 puis HTTP 404 |
 
-Le lanceur Node compte 29 tests réussis, sans échec ni test ignoré : neuf scénarios principaux et vingt sous-cas. Le bilan de l’exécution du 20 septembre est conservé dans la trace, avec les résultats de chaque scénario. Ces tests vérifient les opérations du stock et certains parcours d’authentification ; ils ne remplacent pas les essais des futures interfaces et des suggestions.
+Le lanceur Node compte 29 tests réussis, sans échec ni test ignoré : neuf scénarios principaux et vingt sous-cas. Le bilan de l’exécution du 20 septembre est conservé dans la trace, avec les résultats de chaque scénario. Ces tests vérifient les opérations du stock et certains parcours d’authentification ; ils ne remplacent pas les essais des interfaces ni la suite dédiée aux suggestions.
 
 ### 9.2 Vérification HTTP des recettes
 
@@ -411,13 +439,37 @@ Pour vérifier l’annulation réelle, le test ajoute temporairement une contrai
 
 Le bilan du 20 septembre compte 30 tests réussis, sans échec ni test ignoré : douze scénarios principaux et dix-huit sous-cas. La trace se trouve dans docs/verification-recettes-2026-09-20.txt. Les 29 tests du stock ont aussi été relancés après cette évolution et restent tous réussis. Ces résultats concernent l’API ; les essais sur les écrans restent à effectuer.
 
+### 9.3 Vérification HTTP des préférences et suggestions
+
+La suite server/tests/suggestions.test.cjs utilise la base PostgreSQL 16 isolée platinum_suggestions_test, après application des trois migrations. Les requêtes passent par HTTP et utilisent des comptes créés par les routes d’authentification. Le 20 septembre 2026, les douze scénarios et treize sous-cas ont donné 25 tests réussis, sans échec ni test ignoré. La trace est conservée dans docs/verification-suggestions-2026-09-20.txt.
+
+Les essais couvrent l’accès au catalogue, la confidentialité des choix, leur remplacement et leur effacement, le refus des références invalides sans perte des choix précédents et les écritures simultanées. Les droits d’étiquetage sont testés pour l’auteur, un autre compte et l’administration. Une version ancienne est refusée et un changement de composition efface les étiquettes.
+
+Les suggestions sont vérifiées avec un stock réparti entre plusieurs rangements, un stock vide, un manque de 0,001 g et plusieurs préférences cumulées. Les tests contrôlent aussi le tri avant pagination, l’exclusion d’une recette vide et l’absence de consommation du stock à la consultation. Ils ne constituent pas un test de charge ni une validation des écrans.
+
 ## 10 Jeu d’essai de la fonctionnalité la plus représentative
 
-La génération de suggestions à partir du stock est la fonctionnalité candidate, car elle représente l’objectif anti-gaspillage de Platinum et relie les données aux traitements et à l’interface.
+La suggestion de recettes représente l’objectif anti-gaspillage de Platinum. Le jeu d’essai ci-dessous relie les ingrédients enregistrés, le stock personnel, les préférences et le résultat du service. Il a été exécuté sur l’API le 20 septembre 2026 ; la démonstration visuelle reste à ajouter après le développement des écrans.
 
-À compléter une fois la règle métier arrêtée : créer des utilisateurs de test, des ingrédients, des recettes et des préférences ; fixer les résultats attendus ; exécuter les appels ; comparer les résultats obtenus aux attentes. Inclure une recette entièrement couverte, une recette partiellement couverte, un stock vide et une préférence excluant une recette.
+### 10.1 Données initiales
 
-Pour chaque cas, conserver les données d’entrée, la liste attendue, les valeurs calculées, les valeurs obtenues et la conclusion. Aucun résultat chiffré ni succès de test n’est inventé dans cette version.
+La recette « Riz carottes » est prévue pour deux personnes : 200 g de riz et 100 g de carotte. Une seconde recette d’essai demande 200 ml d’eau. Le premier compte possède 150 g de riz au placard, 50 g au frigo et 60 g de carotte au frigo. Un second compte possède 900 g de carotte. Un troisième compte n’a aucun stock. Les préférences végétarien et végétalien sont présentes dans le catalogue.
+
+Le scénario fait évoluer ces données entre les essais et remet la carotte à 60 g après le contrôle des quantités. Les comptes et recettes sont fictifs et réservés à la base de test. La base de développement n’est pas utilisée.
+
+### 10.2 Résultats attendus et obtenus
+
+| Action et entrée | Résultat attendu | Résultat obtenu |
+| --- | --- | --- |
+| Consulter les suggestions avec le premier stock | Riz : 200 g suffisants ; carotte : manque 40 g ; score 50 %, orange, non réalisable | Conforme, HTTP 200 ; riz avant la recette d’eau |
+| Examiner la recette d’eau sans eau en stock | Manque 200 ml ; score 0 %, rouge | Conforme, statut ABSENT |
+| Consulter depuis le compte au stock vide | Deux recettes à 0 %, aucune réalisable | Conforme ; recette vide exclue |
+| Porter la carotte à 99,999 g | Manque 0,001 g ; recette non réalisable | Conforme, sans arrondi masquant le manque |
+| Porter la carotte à 100 g | Tous les ingrédients suffisants ; 100 %, vert et réalisable | Conforme, canCook vrai |
+| Choisir végétarien et végétalien ; recette portant seulement végétarien | Aucun résultat compatible | Conforme, total égal à zéro |
+| Confirmer les deux étiquettes sur Riz carottes | Cette recette seule ; score toujours 50 % avec 60 g de carotte | Conforme ; deux préférences appliquées |
+
+Le test vérifie également que les 900 g de carotte du second compte ne complètent pas le stock du premier. Deux consultations successives laissent les lignes de stock strictement identiques. Ces contrôles montrent que la suggestion repose sur les données du bon utilisateur et reste une opération de lecture.
 
 ## 11 Veille sur les vulnérabilités de sécurité
 

@@ -4,6 +4,8 @@ import { ApiError } from "../utils/api-error";
 import { recipeFilters, recipeInput } from "./recipe.validation";
 import { referenceQuantity } from "./stock.validation";
 
+import { preferenceRelation } from "./preference.service";
+
 type Account = { id: number; role: "USER" | "ADMIN" };
 const summary = {
   id: true, title: true, imageUrl: true, servings: true, preparationMinutes: true,
@@ -13,6 +15,7 @@ const summary = {
 } satisfies Prisma.RecipeSelect;
 const detail = {
   ...summary, instructions: true, source: true,
+  preferences: preferenceRelation,
   ingredients: {
     select: { quantity: true, ingredient: { select: { id: true, name: true, slug: true, unit: true } } },
     orderBy: { ingredientId: "asc" as const },

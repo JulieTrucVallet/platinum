@@ -7,7 +7,8 @@
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "typecheck": "tsc --noEmit",
     "test:stock": "node --test tests/stock.test.cjs",
-    "test:recipes": "node --test tests/recipes.test.cjs"
+    "test:recipes": "node --test tests/recipes.test.cjs",
+    "test:suggestions": "node --test tests/suggestions.test.cjs"
   },
   "keywords": [],
   "author": "",

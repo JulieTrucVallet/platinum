@@ -85,3 +85,5 @@ Les tests démarrent le serveur sur un port temporaire, créent les comptes via 
 Un scénario ajoute temporairement une contrainte SQL de panne dans la base de test : une quantité spécifique, pourtant valide pour le métier, y est refusée. Les essais vérifient qu’aucune création partielle ne reste et qu’une modification échouée conserve intégralement la recette initiale. La contrainte est retirée dans un bloc finally. Les données de test sont nettoyées et le conteneur temporaire est supprimé par le lancement de validation.
 
 Trace de l’exécution : verification-recettes-2026-09-20.txt. La suite du stock est également relancée sur sa propre base pour vérifier sa non-régression.
+
+Les étiquettes alimentaires peuvent maintenant être confirmées par PUT /api/recipes/:id/preferences avec contrôle de version. Voir [le contrat des préférences et suggestions](api-suggestions.md). Le détail public expose les associations preferences ; une modification complète continue de les effacer.

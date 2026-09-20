@@ -1,0 +1,168 @@
+Vérification HTTP des suggestions - 20 septembre 2026
+PostgreSQL 16 isolé ; trois migrations appliquées ; aucune utilisation de la base de développement.
+
+TAP version 13
+# ◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+# Subtest: Accès public au catalogue, authentification des données personnelles
+ok 1 - Accès public au catalogue, authentification des données personnelles
+  ---
+  duration_ms: 1822.4692
+  type: 'test'
+  ...
+# JEU DOSSIER : riz 200/200 g + carotte 60/100 g => 50 %, orange, manque 40 g ; eau 0/200 ml => 0 %, rouge.
+# Subtest: Jeu représentatif : addition des rangements, quantités et isolation du stock
+ok 2 - Jeu représentatif : addition des rangements, quantités et isolation du stock
+  ---
+  duration_ms: 74.1782
+  type: 'test'
+  ...
+# Subtest: Stock vide, recette sans ingrédients exclue et consultation sans consommation
+ok 3 - Stock vide, recette sans ingrédients exclue et consultation sans consommation
+  ---
+  duration_ms: 134.2703
+  type: 'test'
+  ...
+# JEU DOSSIER : carotte 99,999/100 g => manque 0,001 g ; carotte 100/100 g => 100 %, vert, réalisable.
+# Subtest: Quantité exacte et déficit de 0,001 g : aucun faux positif
+ok 4 - Quantité exacte et déficit de 0,001 g : aucun faux positif
+  ---
+  duration_ms: 113.4969
+  type: 'test'
+  ...
+# Subtest: Pagination appliquée après classement global et ordre stable
+ok 5 - Pagination appliquée après classement global et ordre stable
+  ---
+  duration_ms: 189.7621
+  type: 'test'
+  ...
+# Subtest: Enregistrement, remplacement et effacement des préférences personnelles
+ok 6 - Enregistrement, remplacement et effacement des préférences personnelles
+  ---
+  duration_ms: 236.9093
+  type: 'test'
+  ...
+# Subtest: Rejet des préférences invalides et conservation atomique des choix
+    # Subtest: {}
+    ok 1 - {}
+      ---
+      duration_ms: 26.8834
+      type: 'test'
+      ...
+    # Subtest: {"preferenceIds":"1"}
+    ok 2 - {"preferenceIds":"1"}
+      ---
+      duration_ms: 26.9969
+      type: 'test'
+      ...
+    # Subtest: {"preferenceIds":[1,1]}
+    ok 3 - {"preferenceIds":[1,1]}
+      ---
+      duration_ms: 30.3498
+      type: 'test'
+      ...
+    # Subtest: {"preferenceIds":[2147483647]}
+    ok 4 - {"preferenceIds":[2147483647]}
+      ---
+      duration_ms: 37.4994
+      type: 'test'
+      ...
+    # Subtest: {"preferenceIds":[-1]}
+    ok 5 - {"preferenceIds":[-1]}
+      ---
+      duration_ms: 33.1719
+      type: 'test'
+      ...
+    # Subtest: {"preferenceIds":[],"userId":2}
+    ok 6 - {"preferenceIds":[],"userId":2}
+      ---
+      duration_ms: 22.4991
+      type: 'test'
+      ...
+    # Subtest: {"preferenceIds":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}
+    ok 7 - {"preferenceIds":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}
+      ---
+      duration_ms: 23.2413
+      type: 'test'
+      ...
+    1..7
+ok 7 - Rejet des préférences invalides et conservation atomique des choix
+  ---
+  duration_ms: 298.5183
+  type: 'test'
+  ...
+# Subtest: Étiquettes réservées à l’auteur ou administrateur, avec contrôle de version
+ok 8 - Étiquettes réservées à l’auteur ou administrateur, avec contrôle de version
+  ---
+  duration_ms: 348.0911
+  type: 'test'
+  ...
+# Subtest: Toutes les préférences choisies sont exigées ; une recette non étiquetée est exclue
+ok 9 - Toutes les préférences choisies sont exigées ; une recette non étiquetée est exclue
+  ---
+  duration_ms: 387.2322
+  type: 'test'
+  ...
+# Subtest: Changement de composition : étiquettes effacées et ancienne version refusée
+ok 10 - Changement de composition : étiquettes effacées et ancienne version refusée
+  ---
+  duration_ms: 151.2506
+  type: 'test'
+  ...
+# Subtest: Deux remplacements simultanés ne mélangent pas les préférences
+ok 11 - Deux remplacements simultanés ne mélangent pas les préférences
+  ---
+  duration_ms: 253.4418
+  type: 'test'
+  ...
+# Subtest: Filtres invalides et tentative d’utiliser un autre compte rejetés
+    # Subtest: ?userId=2
+    ok 1 - ?userId=2
+      ---
+      duration_ms: 10.9405
+      type: 'test'
+      ...
+    # Subtest: ?page=0
+    ok 2 - ?page=0
+      ---
+      duration_ms: 10.6222
+      type: 'test'
+      ...
+    # Subtest: ?pageSize=101
+    ok 3 - ?pageSize=101
+      ---
+      duration_ms: 8.6847
+      type: 'test'
+      ...
+    # Subtest: ?page=1&page=2
+    ok 4 - ?page=1&page=2
+      ---
+      duration_ms: 10.0564
+      type: 'test'
+      ...
+    # Subtest: ?pageSize=1.5
+    ok 5 - ?pageSize=1.5
+      ---
+      duration_ms: 8.4686
+      type: 'test'
+      ...
+    # Subtest: ?servings=4
+    ok 6 - ?servings=4
+      ---
+      duration_ms: 9.051
+      type: 'test'
+      ...
+    1..6
+ok 12 - Filtres invalides et tentative d’utiliser un autre compte rejetés
+  ---
+  duration_ms: 59.2327
+  type: 'test'
+  ...
+1..12
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 22121.457

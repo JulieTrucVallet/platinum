@@ -40,6 +40,6 @@ Exemple : recette pour deux personnes avec 200 g de riz et 100 g de carotte. Sto
 
 ## Limites et vérification
 
-Le classement est réalisé en mémoire sur l’ensemble des recettes compatibles. Ce choix convient au petit catalogue pédagogique ; il faudra mesurer puis adapter la requête pour un catalogue important. Aucun test de charge n’est revendiqué. Il n’y a pas encore de réservation du stock, de déduction après préparation, d’historique NoSQL ni d’écran React connecté pour ces parcours.
+Le classement est réalisé en mémoire sur l’ensemble des recettes compatibles. Ce choix convient au petit catalogue pédagogique ; il faudra mesurer puis adapter la requête pour un catalogue important. Aucun test de charge n’est revendiqué. Il n’y a pas encore de réservation du stock, de déduction après préparation, d’historique NoSQL avant consolidation pour la remise. Les écrans React sont décrits dans interface-recettes-suggestions.md.
 
 Suite : server/tests/suggestions.test.cjs. Base dédiée obligatoire : platinum_suggestions_test sur localhost, JWT_SECRET de test requis ; appliquer les migrations puis npm run test:suggestions. Ne pas utiliser la base de développement. Trace : verification-suggestions-2026-09-20.txt.

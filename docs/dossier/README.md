@@ -1,6 +1,6 @@
 # Dossier CDA en cours
 
-Version du 20 septembre 2026 : 26 pages, dont la couverture, le sommaire et quatre pages de modèles de données. Il s’agit d’une base de travail, pas du dossier final de 40 à 60 pages hors couverture, sommaire et annexes attendu pour le titre complet.
+Version du 21 septembre 2026 : 29 pages, dont la couverture, le sommaire et quatre pages de modèles de données. Il s’agit d’une base de travail, pas du dossier final de 40 à 60 pages hors couverture, sommaire et annexes attendu pour le titre complet.
 
 Le contenu suit le gabarit 3WA fourni et le périmètre des rendus de 2026. Les mentions « À compléter » identifient les réalisations et preuves restantes. Le suivi se fait dans le ticket #15.
 
@@ -17,4 +17,6 @@ La consultation publique, la recherche et les écritures transactionnelles des r
 
 Les sections 7.9 et 7.10 décrivent les préférences et suggestions. La section 9.3 présente 25 tests supplémentaires réussis et la section 10 leur jeu d’essai représentatif. Les trois suites HTTP totalisent 84 tests réussis après cette évolution.
 
-La section 7.11 décrit les interfaces React de connexion et de stock, avec captures ordinateur et mobile. La section 9.4 présente les essais manuels du 20 septembre. Compilation et lint du client réussis. Les écrans recettes, suggestions et profil restent à réaliser. Fiche personnelle : [Comprendre les interfaces](../Comprendre_les_interfaces.md).
+La section 7.11 décrit les interfaces React de connexion et de stock, avec captures ordinateur et mobile. La section 9.4 présente les essais manuels du 20 septembre. Compilation et lint du client réussis. Les parcours recettes, suggestions et préférences sont désormais décrits en sections 7.12 et 7.13. Fiche personnelle : [Comprendre les interfaces](../Comprendre_les_interfaces.md).
+
+La section 9.5 complète les vérifications avec dix-neuf cas manuels des parcours recettes, suggestions et préférences. Les captures et la fiche [Comprendre les parcours recettes](../Comprendre_les_parcours_recettes.md) accompagnent cette étape. Le profil complet, NoSQL, la sécurité, la veille, le déploiement et les autres éléments signalés restent à consolider.

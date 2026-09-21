@@ -37,7 +37,7 @@ export default function StockPage({ token, onExpired }: { token: string; onExpir
     finally { lock.current = false; setBusy(false) }
   }
   const visible = items.filter(row => !filter || row.location === filter)
-  return <main id="main" className="stock-page">
+  return <main tabIndex={-1} id="main" className="stock-page">
     <div className="stock-heading"><img src="/images/leaf.png" alt="" /><h1>Mon stock</h1></div>
     <p className="stock-intro">Tes ingrédients, au bon endroit. Garde un œil sur ce que tu as déjà.</p>
     <div className="filters" aria-label="Filtrer par rangement"><button aria-pressed={!filter} onClick={() => { setFilter(''); setDeleting(null) }}>Tout</button>{Object.entries(locations).map(([key, label]) => <button key={key} aria-pressed={filter === key} onClick={() => { setFilter(key as Location); setDeleting(null) }}>{label}</button>)}</div>

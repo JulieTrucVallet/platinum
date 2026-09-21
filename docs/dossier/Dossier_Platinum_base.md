@@ -2,7 +2,7 @@
 
 Julie Truc-Vallet · Formation Concepteur développeur d’applications · 3W Academy
 
-Version de travail du 20 septembre 2026 · Préparation du dossier pour l’oral blanc
+Version de travail du 21 septembre 2026 · Préparation du dossier pour l’oral blanc
 
 Platinum est une application web destinée à aider les utilisateurs à trouver quoi cuisiner avec les ingrédients qu’ils possèdent déjà. Le projet associe la gestion d’un stock personnel, un catalogue de recettes et des suggestions tenant compte des produits disponibles et des préférences alimentaires.
 
@@ -15,7 +15,7 @@ La présentation ci-dessous distingue les réalisations présentes, la conceptio
 | Compétence | Éléments présents et emplacement dans le dossier | Preuve restant à apporter |
 | --- | --- | --- |
 | Installer et configurer son environnement de travail | Client React, serveur Express, Prisma et configuration Docker ; sections 6 et 7 | Procédure reproductible et vérification du démarrage |
-| Développer des interfaces utilisateur | Connexion, inscription et stock React reliés à l’API ; section 7.11 | Recettes, suggestions et profil à réaliser |
+| Développer des interfaces utilisateur | Connexion, stock, recettes, suggestions et préférences reliés à l’API ; sections 7.11 à 7.13 | Audit complet, consolidation et parcours de production |
 | Développer des composants métier | Authentification, stock, recettes, préférences et suggestions ; section 7 | Parcours React restants à relier et vérifier |
 | Contribuer à la gestion d’un projet informatique | Tickets GitHub, tableau Kanban et historique ; section 4 | Suivi actualisé et bilan des écarts |
 | Analyser les besoins et maquetter une application | Besoins, acteurs, droits et maquettes ; sections 2 et 5 | Corrections des diagrammes et adaptations aux supports |
@@ -127,7 +127,7 @@ L’application doit être utilisable sur plusieurs tailles d’écran et réser
 
 ### 5.2 Architecture logicielle
 
-Le client React et TypeScript présente les interfaces de connexion, d’inscription et de stock ; les autres pages restent à développer. Le serveur Express reçoit les requêtes HTTP et expose l’API. Ses routes orientent les appels, ses middlewares vérifient les autorisations, ses contrôleurs traitent les échanges HTTP et ses services regroupent les traitements. Prisma assure les échanges avec PostgreSQL.
+Le client React et TypeScript présente la connexion, l’inscription, le stock, les recettes, les suggestions et les préférences alimentaires. Le serveur Express reçoit les requêtes HTTP et expose l’API. Ses routes orientent les appels, ses middlewares vérifient les autorisations, ses contrôleurs traitent les échanges HTTP et ses services regroupent les traitements. Prisma assure les échanges avec PostgreSQL.
 
 Le parcours d’authentification existant suit cette organisation : route, contrôleur, service puis accès aux données avec Prisma. La même séparation doit guider les composants métier restant à développer.
 
@@ -157,13 +157,13 @@ Le MPD précise les types PostgreSQL et les contraintes effectivement créées. 
 
 Les suppressions tiennent compte du rôle des données : supprimer un utilisateur retire son stock et ses préférences, mais conserve ses recettes avec un auteur nul. La suppression d’un ingrédient utilisé est refusée. Supprimer une recette retire ses associations, sans retirer les ingrédients du catalogue.
 
-![mcd](../diagrammes/mcd.svg)
+![Modèle mcd](../diagrammes/mcd.svg)
 
-![mld](../diagrammes/mld.svg)
+![Modèle mld](../diagrammes/mld.svg)
 
-![mpd-1](../diagrammes/mpd-1.svg)
+![Modèle mpd-1](../diagrammes/mpd-1.svg)
 
-![mpd-2](../diagrammes/mpd-2.svg)
+![Modèle mpd-2](../diagrammes/mpd-2.svg)
 
 Une recette exploitable doit contenir au moins un ingrédient : le MCD indique donc 1,n. Les clés étrangères SQL garantissent l’existence des références, mais ne forcent pas une recette à avoir une ligne dans RecipeIngredient. Cette règle est maintenant vérifiée par le service de recettes, qui regroupe la recette et sa composition dans une transaction. Le contrôle des droits reste une responsabilité de l’API ; il est vérifié pour le stock et pour les écritures des recettes.
 
@@ -250,7 +250,7 @@ Les tests HTTP du stock passent par une inscription et une connexion réelles. I
 
 ### 7.4 Mise en place du modèle métier
 
-Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage. Les routes du stock, des recettes, des préférences et des suggestions font l’objet des vérifications HTTP décrites ci-dessous. Les interfaces de connexion et stock sont reliées à ces routes. Les autres pages restent à réaliser.
+Le schéma Prisma comprend maintenant neuf modèles. La migration crée les relations nécessaires au stock, aux recettes et aux préférences. Les contraintes et les suppressions ont été vérifiées avec 22 contrôles SQL réussis sur une base isolée. Cette étape vérifie la cohérence du stockage. Les routes du stock, des recettes, des préférences et des suggestions font l’objet des vérifications HTTP décrites ci-dessous. Les interfaces de connexion, stock, recettes, suggestions et préférences sont reliées aux routes correspondantes.
 
 Les fichiers de référence sont server/prisma/schema.prisma, la migration 20260919110000_add_recipe_stock_preferences, server/prisma/tests/constraints.sql et docs/verification-base-2026-09-19.txt. Les choix du modèle sont expliqués dans docs/modele-donnees.md et les trois niveaux de représentation figurent en section 5.4.
 
@@ -383,9 +383,41 @@ App.tsx gère la session ; AuthPage.tsx contient les formulaires d’authentific
 
 Les images sont les exports des maquettes, stockés localement pour éviter les liens temporaires. Leur droit d’utilisation final reste à documenter, en conservant les éventuels filigranes d’origine. Georgia et Arial remplacent provisoirement Playfair Display et Inter. Les couleurs principales sont reprises des maquettes ; le titre vert est foncé pour rester lisible. Le parcours de récupération de mot de passe n’est pas exposé avant son implémentation serveur.
 
-### 7.12 Réalisations restantes
+### 7.12 Catalogue et gestion des recettes dans React
 
-Les écrans des recettes, des suggestions et du profil restent à relier aux API déjà disponibles. L’accès NoSQL, la préparation de production et les éléments de sécurité restants doivent être réalisés et vérifiés. Les captures ci-dessus documentent uniquement les parcours de connexion et stock déjà exécutés.
+La navigation permet de passer du stock au catalogue, aux suggestions et aux préférences. Les pages utilisent des fragments d’URL, par exemple #/recettes/3. Un lien vers une fiche peut ainsi être rechargé sans demander une route supplémentaire au serveur statique. La session reste vérifiée au démarrage. Les brouillons et les recherches ne sont pas conservés lorsqu’on quitte leur page.
+
+Le catalogue interroge GET /api/recipes avec le texte recherché, la catégorie et le numéro de page. La recherche porte sur le titre ou un ingrédient. Les catégories sont lues dans l’API, et huit recettes sont affichées par page. Un chargement, une erreur et un résultat vide donnent des états différents. Le bouton de reprise permet de relancer une lecture échouée.
+
+Le formulaire partagé RecipeEditor sert à créer et à modifier. Il contient les informations générales, les portions, les durées et la composition. Les ingrédients sont choisis dans un catalogue recherché et paginé. Une ligne comporte une quantité et une unité compatible ; le serveur assure la validation finale et la conversion. Les quantités concernent toutes les portions indiquées, sans multiplication automatique lorsque ce nombre change.
+
+Une recette créée avec 0,2 kg de riz a été retournée avec 200 g, puis modifiée à 250 g pendant les essais. Les instructions et la source sont rendues comme du texte React. Le texte avec balises de la capture sert à vérifier qu’il n’est pas injecté comme du HTML.
+
+![Figure - Fiche de la recette fictive après modification à 250 g ; les balises de test restent du texte.](../captures/recette-desktop.png)
+
+Les boutons de modification et de suppression sont affichés pour l’auteur ou ADMIN, à partir du compte validé et de l’auteur de la recette. Ce contrôle visuel complète l’autorisation serveur, sans la remplacer. La suppression demande confirmation et ne retire la recette de l’interface qu’après la réponse HTTP réussie.
+
+Une modification complète retire les étiquettes alimentaires existantes. L’écran prévient de cette conséquence, puis propose une confirmation séparée après relecture de la composition. Cette confirmation transmet updatedAt ; le serveur peut refuser une version ancienne. Le remplacement complet conserve sa limite déjà documentée face à deux modifications successives issues de formulaires anciens.
+
+### 7.13 Suggestions et préférences dans React
+
+La page de préférences lit le catalogue disponible et les choix du compte. L’enregistrement remplace la sélection complète. Décocher toutes les cases signifie aucune restriction. Le message de réussite est affiché après la réponse de l’API. Les essais ont vérifié la conservation des choix après actualisation.
+
+![Figure - Préférences alimentaires sur mobile, avec un choix enregistré.](../captures/preferences-mobile.png)
+
+Les suggestions affichent le classement calculé côté serveur, les préférences réellement appliquées et le nombre d’ingrédients suffisants. La couleur est accompagnée d’un pourcentage et d’un texte. Le détail dépliable expose les quantités nécessaires, disponibles et manquantes pour les portions de la recette. Le bouton Actualiser relit les données ; consulter les suggestions ne retire rien du stock.
+
+Dans le parcours essayé, 250 g de riz permettent de réaliser la recette fictive de riz seule : un ingrédient suffisant sur un, soit 100 %. La recette de riz aux carottes reste à 33 %, car seules les quantités de riz sont suffisantes. Les carottes et l’eau restent à compléter. Depuis un second compte sans stock, la recette fictive affiche 0 %.
+
+![Figure - Suggestions calculées à partir des 250 g de riz du compte de démonstration.](../captures/suggestions-desktop.png)
+
+Le hook useResource associe chaque résultat à une URL, un compte et une révision. Les lectures dépassées sont annulées pour éviter qu’une ancienne recherche remplace la nouvelle. Les erreurs 401 déclenchent le retour à la connexion. Les composants partagés regroupent titres, photos, durées, états de chargement et pagination.
+
+Les cartes vertes, le fond citron et les titres reprennent les maquettes. Les photos proviennent des URL des recettes ; une recette sans image affiche un texte explicite. Les polices de remplacement et les droits des décors restent à consolider. Le profil est limité ici aux préférences alimentaires disponibles ; la modification de l’identité et du mot de passe n’est pas implémentée. Les commentaires et favoris ne sont pas ajoutés au périmètre 2026.
+
+### 7.14 Réalisations restantes
+
+Les principaux parcours métier disposent désormais d’interfaces connectées. Il reste à consolider les erreurs réseau, les conflits concurrents et l’accessibilité complète, à réaliser et prouver l’accès NoSQL, à compléter la sécurité, puis à vérifier le déploiement. Les autres diagrammes, la veille et la relecture de l’ensemble du dossier restent nécessaires. Ces captures attestent uniquement des essais locaux décrits.
 
 ## 8 Éléments de sécurité de l’application
 
@@ -490,9 +522,30 @@ Le stock a été inspecté au format ordinateur et avec un viewport mobile de 39
 
 Ces parcours observés sont distincts des 84 tests HTTP automatisés existants. Les essais multi-navigateurs, de panne réseau, de catalogue volumineux et d’accessibilité complète restent à effectuer, ainsi que ceux des pages restantes. Cette tranche ne modifie pas le serveur : les suites API ne sont pas présentées comme réexécutées à cette occasion.
 
+### 9.5 Vérification des parcours recettes, préférences et suggestions
+
+Les essais manuels ont utilisé le navigateur intégré, l’API réelle et une base PostgreSQL 16 temporaire nommée platinum_ui_test. Les comptes et les données sont fictifs ; la base de développement n’a pas été utilisée. Des fixtures ont porté le catalogue à douze recettes et vingt-sept ingrédients pour vérifier la pagination. Le compte rendu complet contient dix-neuf cas observés dans docs/verification-parcours-recettes-2026-09-21.md.
+
+| Parcours vérifié | Résultat observé |
+| --- | --- |
+| Recherche absente, puis citron | Message de liste vide, puis une recette correspondante |
+| Création sans composition | Refus et champs conservés |
+| Création avec 0,2 kg de riz | 200 g enregistrés, auteur correct |
+| Modification à 250 g après étiquetage | Quantité enregistrée, étiquette retirée, invitation à revérifier |
+| Préférences après actualisation | Cases enregistrées toujours cochées |
+| Deux préférences simultanées | Seules les recettes portant les deux étiquettes sont retenues |
+| Stock personnel de 250 g de riz | Recette de riz à 100 %, riz aux carottes à 33 % |
+| Lecture depuis un second compte | Pas de boutons d’édition ; suggestion de riz à 0 % |
+| Pagination des trois catalogues | Dernière page accessible, Suivant désactivé ; brouillon non envoyé |
+| Quantité nulle en modification | Refus, valeurs conservées ; annulation sans modification |
+| Annulation puis confirmation du retrait | Recette conservée puis supprimée, recherche sans résultat |
+| Mobile à 390 × 844 px | Pas de débordement horizontal sur suggestions, préférences et édition |
+
+La compilation et le lint du client réussissent après les corrections. Ces observations sont distinctes des 84 tests HTTP antérieurs, non réexécutés dans cette tranche sans changement serveur. Les conflits simultanés depuis le navigateur, les pannes réseau, le rôle ADMIN dans l’interface et l’audit complet d’accessibilité restent à vérifier. La pagination testée ne constitue pas un test de charge.
+
 ## 10 Jeu d’essai de la fonctionnalité la plus représentative
 
-La suggestion de recettes représente l’objectif anti-gaspillage de Platinum. Le jeu d’essai ci-dessous relie les ingrédients enregistrés, le stock personnel, les préférences et le résultat du service. Il a été exécuté sur l’API le 20 septembre 2026 ; la démonstration visuelle reste à ajouter après le développement des écrans.
+La suggestion de recettes représente l’objectif anti-gaspillage de Platinum. Le jeu d’essai ci-dessous relie les ingrédients enregistrés, le stock personnel, les préférences et le résultat du service. Il a été exécuté sur l’API le 20 septembre 2026 ; un parcours visuel complémentaire, avec un jeu de données distinct, est décrit en sections 7.13 et 9.5.
 
 ### 10.1 Données initiales
 

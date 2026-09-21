@@ -1,6 +1,6 @@
 # API des recettes
 
-Périmètre du ticket #8 : catalogue public et gestion des recettes côté serveur. L’interface React, les suggestions et les préférences personnelles restent à réaliser.
+Périmètre du ticket #8 : catalogue public et gestion des recettes côté serveur. Les interfaces React, les suggestions et les préférences sont maintenant disponibles ; voir interface-recettes-suggestions.md.
 
 ## Routes
 
@@ -72,7 +72,7 @@ La création de la recette et de ses ingrédients forme une seule transaction. L
 
 Les écritures complètes utilisent l’isolation SERIALIZABLE. Une modification concurrente peut produire HTTP 409 : le client doit actualiser la recette avant de proposer un nouvel envoi. Deux modifications successives autorisées restent possibles ; cette version ne comporte pas de verrou de version empêchant un écrasement séquentiel par un formulaire ancien.
 
-**Compatibilité alimentaire :** un PUT retire les anciennes associations RecipePreference, car la recette peut avoir changé. Elles devront être réévaluées dans l’étape dédiée aux préférences. Cette API ne permet pas encore de leur attribuer de nouvelles valeurs. Le futur écran devra prévenir de cette réinitialisation.
+**Compatibilité alimentaire :** un PUT retire les anciennes associations RecipePreference, car la recette peut avoir changé. Elles devront être réévaluées dans l’étape dédiée aux préférences. La route dédiée aux préférences permet leur confirmation séparée. L’écran React prévient de cette réinitialisation.
 
 La suppression d’une recette supprime ses associations, sans supprimer les ingrédients du catalogue. Les erreurs internes restent génériques, sans SQL ni détails de connexion.
 

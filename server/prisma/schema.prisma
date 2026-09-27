@@ -34,7 +34,9 @@ model StockItem {
   id           Int             @id @default(autoincrement())
   userId       Int
   ingredientId Int
-  // Positive quantity in Ingredient.unit; enforced by a SQL CHECK.
+  // Null unit is supported for legacy writers and means Ingredient.unit.
+  unit         IngredientUnit?
+  // Positive quantity in this row unit; enforced by a SQL CHECK.
   quantity     Decimal         @db.Decimal(12, 3)
   location     StorageLocation @default(PANTRY)
   createdAt    DateTime        @default(now())
@@ -81,7 +83,9 @@ model Recipe {
 model RecipeIngredient {
   recipeId     Int
   ingredientId Int
-  // Positive quantity in Ingredient.unit, for Recipe.servings servings.
+  // Null means the catalogue unit for legacy recipe rows.
+  unit         IngredientUnit?
+  // Positive quantity in this row unit, for Recipe.servings servings.
   quantity     Decimal    @db.Decimal(12, 3)
   recipe       Recipe     @relation(fields: [recipeId], references: [id], onDelete: Cascade)
   ingredient   Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Restrict)

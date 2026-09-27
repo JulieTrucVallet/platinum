@@ -31,8 +31,7 @@ export default function AuthPage({ onLogin, notice }: { onLogin: (token: string)
     finally { lock.current = false; setBusy(false) }
   }
   return <main id="main" className="auth-page">
-    <Logo />
-    <a className="button-link" href="#/recettes">Consulter les recettes sans connexion</a>
+    <a className="auth-logo-link" href="#/recettes" aria-label="Platinum — consulter les recettes"><Logo /></a>
     <h1 className="sr-only">{register ? 'Créer un compte' : 'Se connecter'}</h1>
     <form ref={form} onSubmit={submit} className="auth-form" aria-busy={busy}>
       {notice && !success && <p role="status" className="notice">{notice}</p>}

@@ -25,8 +25,8 @@ INSERT INTO "Recipe" (title,instructions,servings,"preparationMinutes","cookingM
 SELECT 'Riz aux carottes — exemple','Laver et découper les carottes. Cuire le riz et les carottes dans l’eau. Recette simplifiée pour la démonstration.',2,10,20,'EASY','platinum-demo-v1/riz-carottes',c.id,NOW()
 FROM "Category" c WHERE c.slug='plat' AND NOT EXISTS (SELECT 1 FROM "Recipe" WHERE source='platinum-demo-v1/riz-carottes');
 
-INSERT INTO "RecipeIngredient" ("recipeId","ingredientId",quantity)
-SELECT r.id,i.id,v.quantity FROM (VALUES
+INSERT INTO "RecipeIngredient" ("recipeId","ingredientId",quantity,unit)
+SELECT r.id,i.id,v.quantity,i.unit FROM (VALUES
   ('platinum-demo-v1/poulet-citron','poulet',500),
   ('platinum-demo-v1/poulet-citron','citron',2),
   ('platinum-demo-v1/riz-carottes','riz',150),

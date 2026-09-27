@@ -47,7 +47,7 @@ export default function StockPage({ token, onExpired }: { token: string; onExpir
         {error && <p role="alert" className="error">{error}</p>}
         <p role="status" className="status">{notice}</p>
         {loading ? <p role="status">Chargement de ton stock…</p> : error && items.length === 0 ? <p>Utilise « Actualiser » pour réessayer.</p> : visible.length === 0 ? <div className="empty"><h3>{items.length ? 'Ce rangement est vide' : 'Ton stock attend ses premiers ingrédients'}</h3><p>Ajoute les produits que tu as chez toi pour commencer.</p></div> : <ul className="stock-list">{visible.map(item => <li key={item.id}>
-          <div className="stock-row"><div><strong>{item.ingredient.name}</strong><span>{Number(item.quantity).toLocaleString('fr-FR', { maximumFractionDigits: 3 })} {units[item.ingredient.unit]} · {locations[item.location]}</span></div><div className="row-actions"><button disabled={busy} aria-label={`Modifier ${item.ingredient.name} (${locations[item.location]})`} onClick={event => { trigger.current = event.currentTarget; setEditor({ item }); setDeleting(null) }}>Modifier</button><button disabled={busy} aria-label={`Retirer ${item.ingredient.name} (${locations[item.location]})`} onClick={() => setDeleting(item.id)}>Retirer</button></div></div>
+          <div className="stock-row"><div><strong>{item.ingredient.name}</strong><span>{Number(item.quantity).toLocaleString('fr-FR', { maximumFractionDigits: 3 })} {units[item.unit ?? item.ingredient.unit]} · {locations[item.location]}</span></div><div className="row-actions"><button disabled={busy} aria-label={`Modifier ${item.ingredient.name} (${locations[item.location]})`} onClick={event => { trigger.current = event.currentTarget; setEditor({ item }); setDeleting(null) }}>Modifier</button><button disabled={busy} aria-label={`Retirer ${item.ingredient.name} (${locations[item.location]})`} onClick={() => setDeleting(item.id)}>Retirer</button></div></div>
           {deleting === item.id && <div className="delete-confirm"><p>Retirer {item.ingredient.name} de ce rangement ?</p><button disabled={busy} className="danger" onClick={() => remove(item)}>{busy ? 'Suppression…' : 'Confirmer le retrait'}</button><button disabled={busy} onClick={() => setDeleting(null)}>Annuler</button></div>}
         </li>)}</ul>}
         <button ref={addButton} className="primary add-button" disabled={loading || busy} onClick={event => { trigger.current = event.currentTarget; setEditor({ item: null }); setDeleting(null) }}>Ajouter un ingrédient <span aria-hidden="true">+</span></button>
@@ -55,7 +55,7 @@ export default function StockPage({ token, onExpired }: { token: string; onExpir
     </div>
     {editor && <StockForm token={token} item={editor.item} onExpired={onExpired} onClose={() => setEditor(null)} onSaved={saved => {
       setItems(rows => rows.some(row => row.id === saved.id) ? rows.map(row => row.id === saved.id ? saved : row) : [...rows, saved])
-      setNotice(`${saved.ingredient.name} enregistré : ${Number(saved.quantity).toLocaleString('fr-FR')} ${units[saved.ingredient.unit]}, ${locations[saved.location]}.`)
+      setNotice(`${saved.ingredient.name} enregistré : ${Number(saved.quantity).toLocaleString('fr-FR')} ${units[saved.unit ?? saved.ingredient.unit]}, ${locations[saved.location]}.`)
       setError(''); setFilter(saved.location); setEditor(null)
     }} />}
   </main>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
-import { api, ApiError, locations, message, units } from '../lib/api'
+import { api, ApiError, locations, message, units, unitChoices } from '../lib/api'
 import type { Ingredient, Location, StockItem } from '../lib/api'
 
 export default function StockForm({ token, item, onClose, onSaved, onExpired }: {
@@ -11,7 +11,7 @@ export default function StockForm({ token, item, onClose, onSaved, onExpired }: 
   const [catalogue, setCatalogue] = useState<Ingredient[]>([]), [total, setTotal] = useState(0)
   const [selected, setSelected] = useState<Ingredient | null>(item?.ingredient ?? null)
   const [quantity, setQuantity] = useState(item?.quantity ?? '')
-  const [unit, setUnit] = useState<string>(item?.ingredient.unit ?? 'GRAM')
+  const [unit, setUnit] = useState<string>(item?.unit ?? item?.ingredient.unit ?? 'GRAM')
   const [location, setLocation] = useState<Location>(item?.location ?? 'PANTRY')
   const [loading, setLoading] = useState(!item), [busy, setBusy] = useState(false)
   const [error, setError] = useState(''), [catalogueError, setCatalogueError] = useState('')
@@ -43,7 +43,7 @@ export default function StockForm({ token, item, onClose, onSaved, onExpired }: 
     } catch (error) { if (error instanceof ApiError && error.status === 401) onExpired(); else setError(message(error)) }
     finally { lock.current = false; setBusy(false) }
   }
-  const choices = selected?.unit === 'GRAM' ? ['GRAM', 'KILOGRAM'] : selected?.unit === 'MILLILITER' ? ['MILLILITER', 'LITER'] : ['PIECE']
+  const choices = selected ? unitChoices(selected) : ['GRAM']
   return <dialog ref={dialog} aria-labelledby="stock-form-title" onCancel={event => { event.preventDefault(); if (!busy) onClose() }}>
     <form onSubmit={submit} aria-busy={busy}>
       <h2 id="stock-form-title">{item ? `Modifier : ${item.ingredient.name}` : 'Ajouter un ingrédient'}</h2>

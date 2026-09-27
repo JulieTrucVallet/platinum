@@ -12,13 +12,13 @@ export type RecipeSummary = {
 }
 export type Recipe = RecipeSummary & {
   instructions: string; source: string | null;
-  ingredients: { quantity: string; ingredient: Ingredient }[];
+  ingredients: { quantity: string; unit?: Ingredient['unit'] | null; ingredient: Ingredient }[];
   preferences: { preference: Preference }[]
 }
 export type Suggestion = Pick<RecipeSummary, 'id' | 'title' | 'imageUrl' | 'servings' | 'preparationMinutes' | 'cookingMinutes'> & {
   preferences: Preference[]; scorePercent: number; sufficientCount: number; ingredientCount: number;
   canCook: boolean; level: 'GREEN' | 'ORANGE' | 'RED';
-  ingredients: { ingredient: Ingredient; required: string; available: string; missing: string; status: string }[]
+  ingredients: { ingredient: Ingredient; unit: Ingredient['unit']; otherUnitStock: boolean; required: string; available: string; missing: string; status: string }[]
 }
 export type Page<T> = { items: T[]; total: number; page: number; pageSize: number }
 export type SessionProps = { token: string; onExpired: () => void }

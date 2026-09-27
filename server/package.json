@@ -10,7 +10,10 @@
     "test:recipes": "node --test tests/recipes.test.cjs",
     "test:suggestions": "node --test tests/suggestions.test.cjs",
     "test:dossier": "node --test tests/dossier.test.cjs",
-    "test:units": "node --test tests/units.test.cjs"
+    "test:units": "node --test tests/units.test.cjs",
+    "seed:ingredients": "node prisma/seed-ingredients.cjs --apply",
+    "test:catalogue": "node --test tests/catalogue.test.cjs",
+    "seed:ingredients:check": "node prisma/seed-ingredients.cjs --dry-run"
   },
   "keywords": [],
   "author": "",

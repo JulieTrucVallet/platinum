@@ -1,0 +1,2731 @@
+[
+  {
+    "key": "houmous",
+    "title": "Houmous au citron",
+    "category": "aperitif",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 0,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Pois chiche",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tahini",
+        "quantity": "40",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Citron",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Ail",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Eau",
+        "quantity": "40",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Cumin",
+        "quantity": "1",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "2",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Égoutter et rincer 250 g de pois chiches déjà cuits. Peler l’ail et presser le citron.",
+      "Mixer les pois chiches avec le tahini, l’ail, le jus de citron, le cumin et le sel.",
+      "Ajouter progressivement l’eau puis l’huile et mixer jusqu’à obtenir une crème lisse.",
+      "Verser dans un bol et servir frais. Conserver au réfrigérateur jusqu’au service."
+    ]
+  },
+  {
+    "key": "guacamole",
+    "title": "Guacamole maison",
+    "category": "aperitif",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 0,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Avocat",
+        "quantity": "300",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Oignon rouge",
+        "quantity": "40",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Citron vert",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Coriandre fraîche",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "2",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Prélever 300 g de chair d’avocat. Couper la tomate et l’oignon en très petits dés.",
+      "Écraser l’avocat à la fourchette et incorporer les légumes et la coriandre ciselée.",
+      "Ajouter un peu de jus de citron vert et le sel, puis goûter pour ajuster l’acidité.",
+      "Servir aussitôt ou couvrir au contact et conserver au frais jusqu’au service."
+    ]
+  },
+  {
+    "key": "tzatziki",
+    "title": "Tzatziki au concombre",
+    "category": "aperitif",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 0,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Concombre",
+        "quantity": "300",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Yaourt grec",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "3",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Menthe",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "10",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Jus de citron",
+        "quantity": "10",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sel",
+        "quantity": "2",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Râper le concombre, le saler légèrement et laisser dégorger 10 minutes.",
+      "Presser le concombre dans une passoire pour retirer l’excès d’eau.",
+      "Mélanger le yaourt, l’ail finement râpé, la menthe, l’huile et le jus de citron.",
+      "Incorporer le concombre et garder au réfrigérateur jusqu’au service."
+    ]
+  },
+  {
+    "key": "bruschetta",
+    "title": "Bruschettas tomate et basilic",
+    "category": "aperitif",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 8,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Pain de campagne",
+        "quantity": "240",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "350",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Basilic",
+        "quantity": "8",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "25",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sel",
+        "quantity": "2",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 200 °C. Couper le pain en huit petites tranches.",
+      "Couper les tomates en dés et les mélanger avec le basilic ciselé, 15 ml d’huile, le sel et le poivre.",
+      "Badigeonner le pain avec le reste d’huile et faire dorer 6 à 8 minutes au four.",
+      "Frotter légèrement les tartines avec l’ail coupé, puis garnir de tomates juste avant de servir."
+    ]
+  },
+  {
+    "key": "oeufs-mimosa",
+    "title": "Œufs mimosa",
+    "category": "aperitif",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 10,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Œuf",
+        "quantity": "4",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Mayonnaise",
+        "quantity": "40",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Moutarde",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ciboulette",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Plonger délicatement les œufs dans l’eau frémissante et cuire 10 minutes.",
+      "Les refroidir à l’eau froide, les écaler et les couper en deux dans la longueur.",
+      "Retirer les jaunes et les écraser avec la mayonnaise, la moutarde, le poivre et la ciboulette.",
+      "Garnir les blancs avec la préparation. Garder au frais jusqu’au service."
+    ]
+  },
+  {
+    "key": "roules-saumon",
+    "title": "Roulés de tortilla au saumon fumé",
+    "category": "aperitif",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 0,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Tortilla de blé",
+        "quantity": "2",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Saumon fumé",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Fromage frais à tartiner",
+        "quantity": "120",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Concombre",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Aneth",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Jus de citron",
+        "quantity": "10",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Couper le concombre en fins bâtonnets et ciseler l’aneth.",
+      "Mélanger le fromage frais, l’aneth et le jus de citron, puis étaler sur les tortillas.",
+      "Répartir le saumon fumé et le concombre. Rouler les tortillas en serrant légèrement.",
+      "Découper chaque rouleau en six bouchées et conserver au réfrigérateur jusqu’au service."
+    ]
+  },
+  {
+    "key": "feuilletes-chevre",
+    "title": "Feuilletés chèvre et miel",
+    "category": "aperitif",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 20,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Pâte feuilletée",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Bûche de chèvre",
+        "quantity": "160",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Miel",
+        "quantity": "25",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Thym",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 190 °C. Découper une pâte feuilletée d’environ 230 g en huit portions.",
+      "Déposer un morceau de chèvre sur chaque portion, puis répartir le miel et le thym.",
+      "Replier les bords pour maintenir la garniture. Battre l’œuf et en badigeonner légèrement la pâte.",
+      "Cuire 18 à 20 minutes sur une plaque recouverte de papier cuisson, jusqu’à ce que la pâte soit dorée."
+    ]
+  },
+  {
+    "key": "cake-jambon-olives",
+    "title": "Cake au jambon et aux olives",
+    "category": "aperitif",
+    "servings": 6,
+    "preparationMinutes": 20,
+    "cookingMinutes": 45,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Farine de blé",
+        "quantity": "180",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "3",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Lait",
+        "quantity": "100",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "60",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Levure chimique",
+        "quantity": "10",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Jambon blanc",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Olive verte",
+        "quantity": "80",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Emmental",
+        "quantity": "80",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Couper le jambon et les olives, puis râper l’emmental.",
+      "Mélanger la farine et la levure. Incorporer les œufs, le lait et l’huile jusqu’à obtenir une pâte homogène.",
+      "Ajouter le jambon, les olives, l’emmental et le poivre. Verser dans un moule à cake chemisé.",
+      "Cuire environ 45 minutes. Vérifier la cuisson avec une lame qui doit ressortir sans pâte crue, puis laisser tiédir avant de trancher."
+    ]
+  },
+  {
+    "key": "spaghetti-bolognaise",
+    "title": "Spaghetti à la bolognaise",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 40,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "quantity": "360",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Bœuf haché",
+        "quantity": "400",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tomate concassée",
+        "quantity": "500",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "120",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Carotte",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Origan",
+        "quantity": "2",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Émincer l’oignon, couper la carotte en petits dés et hacher l’ail.",
+      "Faire revenir les légumes dans l’huile 8 minutes. Ajouter le bœuf haché et cuire 7 à 8 minutes en séparant les morceaux, jusqu’à cuisson complète.",
+      "Ajouter la tomate, l’origan, la moitié du sel et le poivre. Laisser mijoter 25 minutes à feu doux.",
+      "Cuire les spaghetti dans l’eau salée selon le paquet, les égoutter et les mélanger à la sauce."
+    ]
+  },
+  {
+    "key": "pates-champignons",
+    "title": "Pâtes crémeuses aux champignons",
+    "category": "plat",
+    "servings": 2,
+    "preparationMinutes": 15,
+    "cookingMinutes": 20,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Pâtes",
+        "quantity": "180",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Champignon de Paris",
+        "quantity": "300",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Crème liquide",
+        "quantity": "150",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Échalote",
+        "quantity": "50",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "3",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "15",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Persil",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "3",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Nettoyer et émincer les champignons. Hacher l’échalote et l’ail.",
+      "Faire revenir l’échalote dans l’huile 3 minutes, puis ajouter les champignons et cuire 8 à 10 minutes.",
+      "Ajouter l’ail, la crème, le sel et le poivre. Laisser épaissir doucement 3 minutes.",
+      "Cuire les pâtes selon le paquet, les égoutter et les mélanger à la sauce. Terminer avec le persil ciselé."
+    ]
+  },
+  {
+    "key": "pates-saumon",
+    "title": "Tagliatelles au saumon et à l’aneth",
+    "category": "plat",
+    "servings": 2,
+    "preparationMinutes": 15,
+    "cookingMinutes": 20,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Tagliatelles",
+        "quantity": "180",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Saumon",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Crème liquide",
+        "quantity": "150",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Échalote",
+        "quantity": "40",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "10",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Jus de citron",
+        "quantity": "15",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Aneth",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "3",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Couper le saumon en cubes et émincer l’échalote.",
+      "Faire revenir l’échalote dans l’huile 3 minutes. Ajouter le saumon et cuire 6 à 8 minutes, jusqu’à ce qu’il soit opaque à cœur.",
+      "Ajouter la crème, le jus de citron, l’aneth, le sel et le poivre. Chauffer doucement 2 minutes.",
+      "Cuire les tagliatelles selon le paquet, les égoutter et les enrober de sauce."
+    ]
+  },
+  {
+    "key": "lasagnes-epinards",
+    "title": "Lasagnes ricotta et épinards",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 25,
+    "cookingMinutes": 40,
+    "difficulty": "MEDIUM",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Feuille de lasagne",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Épinard",
+        "quantity": "500",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ricotta",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Coulis de tomate",
+        "quantity": "400",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Mozzarella",
+        "quantity": "125",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "15",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sel",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Faire tomber les épinards dans l’huile avec l’ail haché, puis les égoutter soigneusement.",
+      "Mélanger les épinards avec la ricotta, le sel et le poivre.",
+      "Étaler un peu de coulis dans un plat. Alterner feuilles de lasagne sans précuisson, mélange ricotta-épinards et coulis. Terminer par le coulis et la mozzarella.",
+      "Couvrir et cuire 25 minutes, puis découvrir et poursuivre 15 minutes. Vérifier que les pâtes sont tendres et laisser reposer 5 minutes."
+    ]
+  },
+  {
+    "key": "risotto-champignons",
+    "title": "Risotto aux champignons",
+    "category": "plat",
+    "servings": 2,
+    "preparationMinutes": 15,
+    "cookingMinutes": 30,
+    "difficulty": "MEDIUM",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Riz à risotto",
+        "quantity": "180",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Champignon de Paris",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Bouillon de légumes",
+        "quantity": "700",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "80",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "25",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "10",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Persil",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Chauffer le bouillon dans une casserole. Émincer les champignons et l’oignon.",
+      "Faire dorer les champignons dans l’huile 6 à 8 minutes et les réserver.",
+      "Faire revenir l’oignon avec 15 g de beurre. Ajouter le riz et remuer 2 minutes, puis ajouter le bouillon chaud louche après louche en remuant pendant environ 20 minutes.",
+      "Quand le riz est tendre, incorporer les champignons, le beurre restant, le persil et le poivre. Servir aussitôt."
+    ]
+  },
+  {
+    "key": "curry-coco",
+    "title": "Poulet au curry et lait de coco",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 25,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Poulet",
+        "quantity": "600",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Riz",
+        "quantity": "280",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Lait de coco",
+        "quantity": "400",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "120",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Gingembre frais",
+        "quantity": "10",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Curry",
+        "quantity": "8",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile de tournesol",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sel",
+        "quantity": "4",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Découper le poulet en morceaux avec des ustensiles réservés à la viande crue. Hacher l’oignon, l’ail et le gingembre.",
+      "Faire revenir l’oignon dans l’huile 5 minutes. Ajouter le poulet et le faire dorer 5 minutes.",
+      "Ajouter l’ail, le gingembre et le curry, puis le lait de coco et le sel. Laisser mijoter 15 minutes et vérifier que le poulet est bien cuit à cœur.",
+      "Pendant ce temps, cuire le riz selon le paquet. Servir avec la sauce au curry."
+    ]
+  },
+  {
+    "key": "poulet-basquaise",
+    "title": "Poulet basquaise",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 45,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Poulet",
+        "quantity": "650",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivron rouge",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivron vert",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tomate concassée",
+        "quantity": "400",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "6",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "25",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Paprika",
+        "quantity": "3",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Couper le poulet en morceaux, les poivrons en lanières et l’oignon en lamelles.",
+      "Faire dorer le poulet dans l’huile environ 8 minutes, puis le réserver sur une assiette propre.",
+      "Faire revenir l’oignon et les poivrons 8 minutes dans la même sauteuse. Ajouter l’ail, la tomate, le paprika, le sel et le poivre.",
+      "Remettre le poulet et laisser mijoter à couvert 25 à 30 minutes, jusqu’à cuisson complète à cœur."
+    ]
+  },
+  {
+    "key": "poulet-teriyaki",
+    "title": "Poulet teriyaki et riz",
+    "category": "plat",
+    "servings": 2,
+    "preparationMinutes": 15,
+    "cookingMinutes": 20,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Filet de poulet",
+        "quantity": "2",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Riz",
+        "quantity": "160",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sauce soja",
+        "quantity": "30",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Miel",
+        "quantity": "20",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Mirin",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Gingembre frais",
+        "quantity": "8",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile de tournesol",
+        "quantity": "10",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Graine de sésame",
+        "quantity": "5",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Cuire le riz selon le paquet. Découper deux filets de poulet moyens en lanières.",
+      "Mélanger la sauce soja, le miel, le mirin et le gingembre râpé.",
+      "Faire cuire le poulet dans l’huile à feu moyen 8 à 10 minutes, jusqu’à cuisson complète à cœur.",
+      "Verser la sauce et laisser réduire 3 à 4 minutes en remuant. Servir avec le riz et les graines de sésame."
+    ]
+  },
+  {
+    "key": "boeuf-oignons",
+    "title": "Bœuf aux oignons",
+    "category": "plat",
+    "servings": 2,
+    "preparationMinutes": 20,
+    "cookingMinutes": 15,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Bœuf",
+        "quantity": "300",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Riz",
+        "quantity": "160",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sauce soja",
+        "quantity": "30",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Fécule de maïs",
+        "quantity": "8",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Eau",
+        "quantity": "80",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Gingembre frais",
+        "quantity": "8",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile de tournesol",
+        "quantity": "15",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "5",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Émincer finement le bœuf et les oignons. Cuire le riz selon le paquet.",
+      "Mélanger la sauce soja, l’eau, la fécule, le sucre et le gingembre râpé.",
+      "Faire revenir les oignons dans l’huile 7 minutes. Ajouter le bœuf et le cuire 4 à 5 minutes en remuant.",
+      "Verser la sauce et remuer 2 minutes jusqu’à ce qu’elle nappe la viande. Servir avec le riz."
+    ]
+  },
+  {
+    "key": "chili",
+    "title": "Chili con carne",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 35,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Bœuf haché",
+        "quantity": "400",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Haricot rouge",
+        "quantity": "400",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tomate concassée",
+        "quantity": "400",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Maïs",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivron rouge",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Cumin",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Paprika",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "4",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Égoutter 400 g de haricots rouges déjà cuits et le maïs. Couper l’oignon et le poivron en dés.",
+      "Faire revenir l’oignon et le poivron dans l’huile 6 minutes. Ajouter le bœuf et cuire complètement en l’émiettant.",
+      "Ajouter l’ail haché, le cumin, le paprika, le sel et la tomate. Laisser mijoter 15 minutes.",
+      "Incorporer les haricots et le maïs, puis poursuivre la cuisson 10 minutes à feu doux."
+    ]
+  },
+  {
+    "key": "chili-legumes",
+    "title": "Chili aux haricots rouges et légumes",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 30,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Haricot rouge",
+        "quantity": "500",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tomate concassée",
+        "quantity": "500",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Maïs",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivron rouge",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Courgette",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Cumin",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Paprika",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "4",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Égoutter les haricots rouges déjà cuits et le maïs. Couper les légumes en dés.",
+      "Faire revenir l’oignon et le poivron dans l’huile 5 minutes, puis ajouter la courgette et cuire 5 minutes.",
+      "Ajouter la tomate, le cumin, le paprika et le sel. Laisser mijoter 10 minutes.",
+      "Ajouter les haricots et le maïs, puis cuire encore 10 minutes en remuant de temps en temps."
+    ]
+  },
+  {
+    "key": "nouilles-crevettes",
+    "title": "Nouilles sautées aux crevettes",
+    "category": "plat",
+    "servings": 2,
+    "preparationMinutes": 20,
+    "cookingMinutes": 15,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Nouilles de blé",
+        "quantity": "180",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Crevette",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Carotte",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Courgette",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Gingembre frais",
+        "quantity": "8",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sauce soja",
+        "quantity": "25",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Huile de sésame",
+        "quantity": "15",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Utiliser des crevettes crues décortiquées. Tailler la carotte et la courgette en fins bâtonnets.",
+      "Cuire les nouilles selon le paquet, les égoutter et les réserver.",
+      "Faire sauter les légumes dans l’huile 5 minutes. Ajouter l’ail, le gingembre et les crevettes ; cuire 4 à 5 minutes, jusqu’à ce que les crevettes soient opaques.",
+      "Ajouter les nouilles et la sauce soja, puis remuer sur feu vif 2 minutes avant de servir."
+    ]
+  },
+  {
+    "key": "saumon-papillote",
+    "title": "Saumon en papillote et courgettes",
+    "category": "plat",
+    "servings": 2,
+    "preparationMinutes": 15,
+    "cookingMinutes": 25,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Saumon",
+        "quantity": "300",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Courgette",
+        "quantity": "300",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tomate cerise",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Citron",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "15",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Aneth",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "2",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Couper la courgette en fines rondelles et les tomates en deux.",
+      "Répartir les légumes et deux portions de saumon sur deux grandes feuilles de papier cuisson.",
+      "Ajouter l’huile, des rondelles de citron, l’aneth, le sel et le poivre. Fermer les papillotes sans les serrer.",
+      "Cuire 20 à 25 minutes selon l’épaisseur du poisson. Vérifier que la chair est opaque et se détache facilement avant de servir."
+    ]
+  },
+  {
+    "key": "quiche-lorraine",
+    "title": "Quiche lorraine",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 40,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Pâte brisée",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Lardon",
+        "quantity": "180",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "3",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Crème liquide",
+        "quantity": "200",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Lait",
+        "quantity": "100",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Muscade",
+        "quantity": "1",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Foncer un moule de 26 cm avec une pâte brisée d’environ 230 g et piquer le fond.",
+      "Faire revenir les lardons 5 minutes à la poêle et les égoutter.",
+      "Battre les œufs avec la crème, le lait, la muscade et le poivre. Répartir les lardons sur la pâte puis verser le mélange.",
+      "Cuire 35 à 40 minutes, jusqu’à ce que le centre soit pris et la pâte dorée. Laisser reposer quelques minutes avant de couper."
+    ]
+  },
+  {
+    "key": "quiche-poireaux",
+    "title": "Quiche aux poireaux",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 45,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Pâte brisée",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Poireau",
+        "quantity": "500",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "3",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Crème liquide",
+        "quantity": "200",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "20",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "3",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Muscade",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Laver soigneusement les poireaux puis les émincer.",
+      "Faire fondre les poireaux dans le beurre 12 minutes, puis laisser évaporer l’excès d’eau.",
+      "Foncer un moule de 26 cm avec une pâte brisée d’environ 230 g. Battre les œufs avec la crème et l’assaisonnement, puis incorporer les poireaux.",
+      "Verser sur la pâte et cuire 30 à 35 minutes, jusqu’à ce que la garniture soit prise et dorée."
+    ]
+  },
+  {
+    "key": "croque-monsieur",
+    "title": "Croque-monsieur au four",
+    "category": "plat",
+    "servings": 2,
+    "preparationMinutes": 10,
+    "cookingMinutes": 15,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Pain de mie",
+        "quantity": "160",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Jambon blanc",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Emmental",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Crème fraîche épaisse",
+        "quantity": "60",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Moutarde",
+        "quantity": "10",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 200 °C. Préparer quatre grandes tranches de pain de mie.",
+      "Mélanger la crème et la moutarde. En tartiner deux tranches, puis répartir le jambon et la moitié de l’emmental râpé.",
+      "Refermer les sandwiches, napper du reste de crème et parsemer du fromage restant.",
+      "Cuire 12 à 15 minutes, jusqu’à ce que le dessus soit doré et le fromage fondu."
+    ]
+  },
+  {
+    "key": "fajitas-poulet",
+    "title": "Fajitas au poulet",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 20,
+    "difficulty": "EASY",
+    "preferences": [],
+    "ingredients": [
+      {
+        "name": "Tortilla de blé",
+        "quantity": "8",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Poulet",
+        "quantity": "500",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivron rouge",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivron vert",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Cumin",
+        "quantity": "3",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Paprika",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Jus de citron vert",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sel",
+        "quantity": "3",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Couper le poulet en lanières, puis émincer les poivrons et l’oignon.",
+      "Faire revenir les légumes dans la moitié de l’huile 8 à 10 minutes et les réserver.",
+      "Cuire le poulet dans le reste d’huile 8 à 10 minutes avec le cumin, le paprika et le sel, jusqu’à cuisson complète. Remettre les légumes et ajouter le jus de citron vert.",
+      "Réchauffer les tortillas selon le paquet, les garnir et servir immédiatement."
+    ]
+  },
+  {
+    "key": "couscous-legumes",
+    "title": "Couscous aux légumes et pois chiches",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 25,
+    "cookingMinutes": 30,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Semoule de couscous",
+        "quantity": "280",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Pois chiche",
+        "quantity": "300",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Carotte",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Courgette",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Navet",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tomate concassée",
+        "quantity": "300",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "120",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Bouillon de légumes",
+        "quantity": "700",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "25",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Ras el-hanout",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "3",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Égoutter les pois chiches déjà cuits. Couper les légumes en morceaux et émincer l’oignon.",
+      "Faire revenir l’oignon dans 15 ml d’huile. Ajouter les carottes, les navets, la tomate, les épices et 400 ml de bouillon. Cuire 15 minutes à couvert.",
+      "Ajouter les courgettes et les pois chiches, puis cuire encore 15 minutes.",
+      "Verser le reste du bouillon bouillant sur la semoule avec le reste d’huile et le sel. Couvrir selon le temps du paquet, égrainer et servir avec les légumes."
+    ]
+  },
+  {
+    "key": "dahl-lentilles",
+    "title": "Dahl de lentilles corail",
+    "category": "plat",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 25,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Lentille corail",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Tomate concassée",
+        "quantity": "300",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Lait de coco",
+        "quantity": "300",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Eau",
+        "quantity": "500",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Oignon jaune",
+        "quantity": "120",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Gingembre frais",
+        "quantity": "10",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Curry",
+        "quantity": "6",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile de tournesol",
+        "quantity": "15",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sel",
+        "quantity": "4",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Rincer les lentilles. Hacher l’oignon, l’ail et le gingembre.",
+      "Faire revenir l’oignon dans l’huile 5 minutes, puis ajouter l’ail, le gingembre et le curry pendant 1 minute.",
+      "Ajouter les lentilles, la tomate, le lait de coco, l’eau et le sel.",
+      "Laisser mijoter environ 20 minutes en remuant régulièrement, jusqu’à ce que les lentilles soient fondantes."
+    ]
+  },
+  {
+    "key": "gratin-dauphinois",
+    "title": "Gratin dauphinois",
+    "category": "accompagnement",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 70,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Pomme de terre",
+        "quantity": "900",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Crème liquide",
+        "quantity": "300",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Lait",
+        "quantity": "300",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Ail",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "15",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Muscade",
+        "quantity": "1",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 160 °C. Éplucher les pommes de terre et les couper en rondelles très fines et régulières.",
+      "Frotter un plat avec l’ail puis le beurrer. Répartir les rondelles en couches avec le sel, le poivre et la muscade.",
+      "Verser le lait et la crème mélangés : les pommes de terre doivent être presque recouvertes.",
+      "Cuire environ 70 minutes. Vérifier que la pointe d’un couteau traverse facilement toutes les couches ; prolonger si nécessaire en couvrant le dessus."
+    ]
+  },
+  {
+    "key": "butternut-roti",
+    "title": "Butternut rôti au thym",
+    "category": "accompagnement",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 40,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Courge butternut",
+        "quantity": "900",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "25",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Thym",
+        "quantity": "2",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Paprika",
+        "quantity": "3",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "3",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 200 °C. Éplucher et épépiner la courge, puis la couper en cubes de 2 à 3 cm.",
+      "Mélanger les cubes avec l’huile, le thym, le paprika, le sel et le poivre.",
+      "Étaler sur une plaque sans trop les superposer.",
+      "Cuire 35 à 40 minutes en retournant à mi-cuisson, jusqu’à ce que les cubes soient tendres et dorés."
+    ]
+  },
+  {
+    "key": "champignons-persillade",
+    "title": "Champignons en persillade",
+    "category": "accompagnement",
+    "servings": 2,
+    "preparationMinutes": 10,
+    "cookingMinutes": 15,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Champignon de Paris",
+        "quantity": "400",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Ail",
+        "quantity": "6",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Persil",
+        "quantity": "10",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Huile d'olive",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sel",
+        "quantity": "2",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Nettoyer les champignons et les couper en quartiers. Hacher l’ail et le persil.",
+      "Chauffer l’huile dans une grande poêle et ajouter les champignons.",
+      "Cuire 10 à 12 minutes à feu assez vif, jusqu’à évaporation de l’eau et légère coloration.",
+      "Ajouter l’ail, le persil, le sel et le poivre. Remuer encore 2 minutes sans laisser brûler l’ail."
+    ]
+  },
+  {
+    "key": "brownies",
+    "title": "Brownies au chocolat et aux noix",
+    "category": "dessert",
+    "servings": 6,
+    "preparationMinutes": 20,
+    "cookingMinutes": 25,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Chocolat noir",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "120",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "130",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "3",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Farine de blé",
+        "quantity": "80",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Noix",
+        "quantity": "80",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Chemiser un moule carré d’environ 20 cm.",
+      "Faire fondre doucement le chocolat et le beurre, puis laisser tiédir.",
+      "Battre les œufs avec le sucre. Incorporer le chocolat fondu, la farine et les noix grossièrement concassées.",
+      "Verser dans le moule et cuire environ 25 minutes : le centre doit être pris mais rester moelleux. Laisser refroidir avant de découper."
+    ]
+  },
+  {
+    "key": "cookies",
+    "title": "Cookies aux pépites de chocolat",
+    "category": "dessert",
+    "servings": 6,
+    "preparationMinutes": 20,
+    "cookingMinutes": 12,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Farine de blé",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Cassonade",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Pépites de chocolat",
+        "quantity": "120",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Levure chimique",
+        "quantity": "4",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Travailler le beurre mou avec la cassonade.",
+      "Ajouter l’œuf, puis la farine, la levure et le sel. Incorporer les pépites de chocolat.",
+      "Former douze boules de taille similaire sur deux plaques, en les espaçant largement.",
+      "Cuire chaque plaque 10 à 12 minutes : les bords doivent dorer et le centre rester souple. Laisser les cookies raffermir sur la plaque avant de les déplacer."
+    ]
+  },
+  {
+    "key": "mousse-chocolat",
+    "title": "Mousse au chocolat sans œufs",
+    "category": "dessert",
+    "servings": 4,
+    "preparationMinutes": 25,
+    "cookingMinutes": 5,
+    "difficulty": "MEDIUM",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Chocolat noir",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Crème liquide",
+        "quantity": "300",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre glace",
+        "quantity": "15",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Prévoir au moins 4 heures de réfrigération. Réserver 200 ml de crème entière bien froide et hacher le chocolat.",
+      "Chauffer les 100 ml de crème restants puis les verser sur le chocolat. Attendre 1 minute et mélanger jusqu’à obtenir une ganache lisse ; laisser tiédir sans durcir.",
+      "Fouetter la crème froide avec le sucre glace jusqu’à obtenir une texture souple. Incorporer délicatement à la ganache tiède.",
+      "Répartir dans quatre verrines, couvrir et réfrigérer au moins 4 heures avant de servir."
+    ]
+  },
+  {
+    "key": "tarte-pommes",
+    "title": "Tarte aux pommes",
+    "category": "dessert",
+    "servings": 6,
+    "preparationMinutes": 20,
+    "cookingMinutes": 35,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Pâte brisée",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Pomme",
+        "quantity": "700",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Compote de pomme",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "30",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "20",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Cannelle",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Foncer un moule de 26 cm avec une pâte brisée d’environ 230 g et piquer le fond.",
+      "Éplucher les pommes et les couper en fines lamelles.",
+      "Étaler la compote sur la pâte, disposer les lamelles et répartir le sucre, la cannelle et le beurre en petits morceaux.",
+      "Cuire 35 minutes environ, jusqu’à ce que la pâte soit dorée et les pommes tendres. Laisser tiédir avant de servir."
+    ]
+  },
+  {
+    "key": "crumble-poire",
+    "title": "Crumble poire et chocolat",
+    "category": "dessert",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 30,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Poire",
+        "quantity": "600",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Chocolat noir",
+        "quantity": "80",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Farine de blé",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "80",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Cassonade",
+        "quantity": "70",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poudre d'amande",
+        "quantity": "30",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Éplucher les poires, retirer les pépins et couper la chair en cubes.",
+      "Répartir les poires dans un plat avec le chocolat grossièrement haché.",
+      "Sabler du bout des doigts la farine, le beurre froid en dés, la cassonade et la poudre d’amande.",
+      "Répartir les miettes sur les fruits sans tasser et cuire 30 minutes, jusqu’à ce que le crumble soit doré."
+    ]
+  },
+  {
+    "key": "gateau-yaourt",
+    "title": "Gâteau au yaourt et à la vanille",
+    "category": "dessert",
+    "servings": 6,
+    "preparationMinutes": 15,
+    "cookingMinutes": 35,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Yaourt nature",
+        "quantity": "125",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Farine de blé",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "130",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "3",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Huile de tournesol",
+        "quantity": "80",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Levure chimique",
+        "quantity": "10",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Extrait de vanille",
+        "quantity": "5",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C. Chemiser un moule rond d’environ 22 cm.",
+      "Fouetter le yaourt, le sucre et les œufs. Ajouter l’huile et la vanille.",
+      "Incorporer la farine mélangée à la levure sans travailler la pâte trop longtemps.",
+      "Verser dans le moule et cuire environ 35 minutes. Une lame plantée au centre doit ressortir sans pâte crue ; laisser tiédir avant de démouler."
+    ]
+  },
+  {
+    "key": "muffins-myrtilles",
+    "title": "Muffins aux myrtilles",
+    "category": "dessert",
+    "servings": 6,
+    "preparationMinutes": 15,
+    "cookingMinutes": 25,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Farine de blé",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "90",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Lait",
+        "quantity": "150",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "70",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Levure chimique",
+        "quantity": "8",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Myrtille",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Extrait de vanille",
+        "quantity": "5",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C et préparer six grands moules à muffins. Faire fondre le beurre et le laisser tiédir.",
+      "Mélanger d’un côté la farine, le sucre et la levure, et de l’autre l’œuf, le lait, le beurre et la vanille.",
+      "Réunir les deux mélanges rapidement, puis incorporer les myrtilles sans les écraser.",
+      "Répartir aux trois quarts des moules et cuire environ 25 minutes. Vérifier que le centre est cuit avant de laisser refroidir."
+    ]
+  },
+  {
+    "key": "creme-vanille",
+    "title": "Crème dessert à la vanille",
+    "category": "dessert",
+    "servings": 4,
+    "preparationMinutes": 10,
+    "cookingMinutes": 10,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Lait",
+        "quantity": "500",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "50",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Fécule de maïs",
+        "quantity": "25",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Extrait de vanille",
+        "quantity": "5",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Prévoir environ 2 heures de refroidissement au réfrigérateur. Délayer la fécule dans 100 ml de lait froid.",
+      "Chauffer le reste du lait avec le sucre et la vanille.",
+      "Verser le mélange à la fécule et fouetter sur feu doux jusqu’à épaississement. Maintenir un léger frémissement 1 minute en remuant.",
+      "Répartir dans quatre ramequins. Laisser tiédir, couvrir et placer au réfrigérateur jusqu’à refroidissement complet."
+    ]
+  },
+  {
+    "key": "panna-cotta",
+    "title": "Panna cotta vanille et fruits rouges",
+    "category": "dessert",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 5,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Crème liquide",
+        "quantity": "400",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Lait",
+        "quantity": "100",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "50",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Agar-agar",
+        "quantity": "2",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Extrait de vanille",
+        "quantity": "5",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Coulis de fruits rouges",
+        "quantity": "120",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Prévoir au moins 4 heures au réfrigérateur. Mélanger à froid la crème, le lait, le sucre, la vanille et l’agar-agar.",
+      "Porter à ébullition en remuant et maintenir une petite ébullition pendant 1 minute pour activer l’agar-agar.",
+      "Verser dans quatre verrines, laisser tiédir puis réfrigérer au moins 4 heures.",
+      "Répartir le coulis de fruits rouges sur les crèmes prises juste avant de servir."
+    ]
+  },
+  {
+    "key": "riz-au-lait",
+    "title": "Riz au lait à la vanille",
+    "category": "dessert",
+    "servings": 4,
+    "preparationMinutes": 10,
+    "cookingMinutes": 40,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Riz à risotto",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Lait",
+        "quantity": "750",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "60",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Gousse de vanille",
+        "quantity": "1",
+        "unit": "PIECE"
+      }
+    ],
+    "steps": [
+      "Fendre la gousse de vanille et gratter les graines. Chauffer le lait avec les graines et la gousse.",
+      "Ajouter le riz et laisser cuire à feu très doux 35 à 40 minutes en remuant régulièrement pour éviter qu’il attache.",
+      "Lorsque le riz est tendre et le mélange encore crémeux, ajouter le sucre et cuire 2 minutes supplémentaires.",
+      "Retirer la gousse et répartir dans quatre ramequins. Servir tiède ou laisser refroidir puis conserver au réfrigérateur."
+    ]
+  },
+  {
+    "key": "cheesecake-verrine",
+    "title": "Verrines façon cheesecake au citron",
+    "category": "dessert",
+    "servings": 4,
+    "preparationMinutes": 20,
+    "cookingMinutes": 0,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Spéculoos",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "30",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Fromage frais à tartiner",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Crème liquide",
+        "quantity": "150",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre glace",
+        "quantity": "40",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Jus de citron",
+        "quantity": "20",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Prévoir 3 heures au frais. Émietter les spéculoos et les mélanger au beurre fondu.",
+      "Répartir les miettes dans quatre verrines et tasser légèrement.",
+      "Assouplir le fromage frais avec le sucre et le citron. Fouetter la crème entière bien froide et l’incorporer délicatement.",
+      "Répartir sur les biscuits, couvrir et réfrigérer au moins 3 heures. Servir dans les verrines."
+    ]
+  },
+  {
+    "key": "tiramisu-sans-oeufs",
+    "title": "Tiramisu sans œufs crus",
+    "category": "dessert",
+    "servings": 4,
+    "preparationMinutes": 25,
+    "cookingMinutes": 0,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Mascarpone",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Crème liquide",
+        "quantity": "200",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre glace",
+        "quantity": "50",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Biscuit à la cuillère",
+        "quantity": "120",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Café préparé",
+        "quantity": "150",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Cacao non sucré",
+        "quantity": "10",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Prévoir au moins 4 heures de réfrigération. Préparer le café et le laisser refroidir complètement.",
+      "Fouetter brièvement le mascarpone avec le sucre. Monter la crème entière bien froide en chantilly souple et l’incorporer.",
+      "Tremper rapidement les biscuits dans le café. Alterner biscuits et crème dans quatre grandes verrines.",
+      "Couvrir et réfrigérer au moins 4 heures. Saupoudrer de cacao juste avant de servir."
+    ]
+  },
+  {
+    "key": "pancakes",
+    "title": "Pancakes moelleux",
+    "category": "petit-dejeuner",
+    "servings": 4,
+    "preparationMinutes": 15,
+    "cookingMinutes": 15,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Farine de blé",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "2",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Lait",
+        "quantity": "250",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "25",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Levure chimique",
+        "quantity": "8",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "30",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sel",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Mélanger la farine, le sucre, la levure et le sel. Battre les œufs avec le lait et 20 g de beurre fondu.",
+      "Réunir les deux mélanges au fouet pour obtenir une pâte épaisse et homogène.",
+      "Chauffer une poêle à feu moyen et la graisser avec un peu du beurre restant.",
+      "Verser de petites louches de pâte. Retourner lorsque des bulles apparaissent et cuire l’autre face environ 1 minute ; renouveler pour une douzaine de pancakes."
+    ]
+  },
+  {
+    "key": "pain-perdu",
+    "title": "Pain perdu",
+    "category": "petit-dejeuner",
+    "servings": 2,
+    "preparationMinutes": 10,
+    "cookingMinutes": 10,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Pain de mie",
+        "quantity": "160",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "1",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Lait",
+        "quantity": "150",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "25",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Beurre",
+        "quantity": "20",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Extrait de vanille",
+        "quantity": "3",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Battre l’œuf avec le lait, 15 g de sucre et la vanille dans une assiette creuse.",
+      "Tremper brièvement quatre tranches de pain dans le mélange, sans les laisser se défaire.",
+      "Faire fondre le beurre à feu moyen. Cuire le pain 3 à 4 minutes par face, jusqu’à ce que l’œuf soit pris et les tranches dorées.",
+      "Répartir le reste du sucre et servir chaud."
+    ]
+  },
+  {
+    "key": "porridge-banane",
+    "title": "Porridge banane et amande",
+    "category": "petit-dejeuner",
+    "servings": 2,
+    "preparationMinutes": 5,
+    "cookingMinutes": 8,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Flocon d'avoine",
+        "quantity": "100",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Boisson à l'amande",
+        "quantity": "400",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Banane",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Purée d'amande",
+        "quantity": "20",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sirop d'érable",
+        "quantity": "15",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Cannelle",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Verser les flocons d’avoine, la boisson à l’amande et la cannelle dans une casserole.",
+      "Chauffer doucement 6 à 8 minutes en remuant, jusqu’à obtenir une consistance crémeuse.",
+      "Répartir dans deux bols et ajouter la banane coupée en rondelles.",
+      "Ajouter la purée d’amande et le sirop d’érable. Servir immédiatement."
+    ]
+  },
+  {
+    "key": "toast-avocat",
+    "title": "Tartines avocat et œuf",
+    "category": "petit-dejeuner",
+    "servings": 2,
+    "preparationMinutes": 10,
+    "cookingMinutes": 10,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Pain de campagne",
+        "quantity": "120",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Avocat",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Œuf",
+        "quantity": "2",
+        "unit": "PIECE"
+      },
+      {
+        "name": "Jus de citron",
+        "quantity": "10",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sel",
+        "quantity": "2",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Poivre noir",
+        "quantity": "1",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Faire cuire les œufs 10 minutes dans l’eau frémissante, puis les refroidir et les écaler.",
+      "Écraser la chair d’avocat avec le jus de citron, le sel et le poivre.",
+      "Faire griller deux grandes tranches de pain et répartir l’avocat.",
+      "Couper les œufs en rondelles et les déposer sur les tartines. Servir aussitôt."
+    ]
+  },
+  {
+    "key": "smoothie-fraise",
+    "title": "Smoothie fraise et banane",
+    "category": "boisson",
+    "servings": 2,
+    "preparationMinutes": 10,
+    "cookingMinutes": 0,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Fraise",
+        "quantity": "250",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Banane",
+        "quantity": "150",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Boisson à l'amande",
+        "quantity": "250",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Laver et équeuter les fraises. Éplucher la banane.",
+      "Couper les fruits en morceaux et les placer dans un blender.",
+      "Verser la boisson à l’amande bien froide et mixer jusqu’à obtenir une texture lisse.",
+      "Répartir dans deux verres et servir immédiatement."
+    ]
+  },
+  {
+    "key": "chocolat-chaud",
+    "title": "Chocolat chaud maison",
+    "category": "boisson",
+    "servings": 2,
+    "preparationMinutes": 5,
+    "cookingMinutes": 8,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Lait",
+        "quantity": "400",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Chocolat noir",
+        "quantity": "60",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Cacao non sucré",
+        "quantity": "5",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "10",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Hacher le chocolat. Délayer le cacao avec un peu de lait froid dans une casserole.",
+      "Ajouter le reste du lait et le sucre, puis chauffer doucement en remuant.",
+      "Ajouter le chocolat et fouetter jusqu’à ce qu’il soit complètement fondu, sans faire déborder le lait.",
+      "Verser dans deux grandes tasses et laisser légèrement tiédir avant de boire."
+    ]
+  },
+  {
+    "key": "citronnade",
+    "title": "Citronnade maison",
+    "category": "boisson",
+    "servings": 4,
+    "preparationMinutes": 10,
+    "cookingMinutes": 0,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien",
+      "vegetalien"
+    ],
+    "ingredients": [
+      {
+        "name": "Jus de citron",
+        "quantity": "150",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Eau",
+        "quantity": "850",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Sucre",
+        "quantity": "60",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Menthe",
+        "quantity": "5",
+        "unit": "GRAM"
+      }
+    ],
+    "steps": [
+      "Dissoudre le sucre dans 100 ml d’eau tiède en remuant.",
+      "Verser le jus de citron, le sirop obtenu et les 750 ml d’eau restants dans une carafe.",
+      "Ajouter la menthe lavée et légèrement froissée.",
+      "Servir avec de l’eau préalablement refroidie ou réserver la carafe au réfrigérateur avant de servir."
+    ]
+  },
+  {
+    "key": "milkshake-vanille",
+    "title": "Milkshake à la vanille",
+    "category": "boisson",
+    "servings": 2,
+    "preparationMinutes": 10,
+    "cookingMinutes": 0,
+    "difficulty": "EASY",
+    "preferences": [
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "name": "Lait",
+        "quantity": "300",
+        "unit": "MILLILITER"
+      },
+      {
+        "name": "Glace vanille",
+        "quantity": "200",
+        "unit": "GRAM"
+      },
+      {
+        "name": "Extrait de vanille",
+        "quantity": "3",
+        "unit": "MILLILITER"
+      }
+    ],
+    "steps": [
+      "Placer le lait bien froid et la glace dans un blender.",
+      "Ajouter l’extrait de vanille.",
+      "Mixer brièvement jusqu’à ce que la préparation soit lisse et mousseuse.",
+      "Verser dans deux grands verres et servir immédiatement."
+    ]
+  }
+]

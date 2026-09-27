@@ -13,7 +13,10 @@
     "test:units": "node --test tests/units.test.cjs",
     "seed:ingredients": "node prisma/seed-ingredients.cjs --apply",
     "test:catalogue": "node --test tests/catalogue.test.cjs",
-    "seed:ingredients:check": "node prisma/seed-ingredients.cjs --dry-run"
+    "seed:ingredients:check": "node prisma/seed-ingredients.cjs --dry-run",
+    "seed:recipes": "node prisma/seed-recipes.cjs --apply",
+    "seed:recipes:check": "node prisma/seed-recipes.cjs --dry-run",
+    "test:recipe-catalogue": "node --test tests/recipe-catalogue.test.cjs"
   },
   "keywords": [],
   "author": "",

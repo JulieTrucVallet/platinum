@@ -1,3 +1,10 @@
 export default function Logo({ compact = false }: { compact?: boolean }) {
-  return <div className={`logo ${compact ? 'logo--compact' : ''}`}><img src="/images/logo.png" alt="Platinum" /></div>
+  return (
+    <div className={`logo ${compact ? "logo--compact" : ""}`}>
+      <img
+        src="/images/logo.png"
+        alt="Platinum"
+      />
+    </div>
+  );
 }

@@ -1,6 +1,3 @@
--- Optional demonstration catalogue. Does not create users or overwrite recipes.
--- Water is explicitly marked available by default, as described in the dossier.
--- Run with psql ON_ERROR_STOP=1; safe to rerun for this catalogue version.
 BEGIN;
 INSERT INTO "Category" (name,slug) VALUES ('Plat','plat') ON CONFLICT (slug) DO NOTHING;
 INSERT INTO "FoodPreference" (name,slug) VALUES ('Végétarien','vegetarien'),('Végétalien','vegetalien') ON CONFLICT (slug) DO NOTHING;

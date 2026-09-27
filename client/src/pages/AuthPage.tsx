@@ -32,6 +32,7 @@ export default function AuthPage({ onLogin, notice }: { onLogin: (token: string)
   }
   return <main id="main" className="auth-page">
     <Logo />
+    <a className="button-link" href="#/recettes">Consulter les recettes sans connexion</a>
     <h1 className="sr-only">{register ? 'Créer un compte' : 'Se connecter'}</h1>
     <form ref={form} onSubmit={submit} className="auth-form" aria-busy={busy}>
       {notice && !success && <p role="status" className="notice">{notice}</p>}

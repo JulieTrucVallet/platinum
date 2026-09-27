@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
     getCurrentUser,
+    updateCurrentUser,
     login,
     register,
 } from "../controllers/auth.controller";
@@ -13,6 +14,7 @@ router.post("/register", register);
 router.post("/login", login);
 
 router.get("/me", verifyToken, getCurrentUser);
+router.put("/me", verifyToken, updateCurrentUser);
 
 router.get(
   "/admin-test",

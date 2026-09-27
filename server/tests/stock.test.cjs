@@ -58,7 +58,7 @@ after(async () => {
   }
 });
 
-test('Le stock et le catalogue nécessitent une authentification valide', async t => {
+test('Le stock nécessite une authentification valide ; le catalogue reste public', async t => {
   for (const [name, token] of [
     ['absent', undefined], ['altéré', 'incorrect'],
     ['expiré', jwt.sign({ id: alice.id }, process.env.JWT_SECRET, { expiresIn: -1 })],
@@ -66,7 +66,8 @@ test('Le stock et le catalogue nécessitent une authentification valide', async 
     ['sans expiration', jwt.sign({ id: alice.id }, process.env.JWT_SECRET)],
     ['autre algorithme', jwt.sign({ id: alice.id }, process.env.JWT_SECRET, { algorithm: 'HS384', expiresIn: 60 })],
   ]) await t.test(name, async () => {
-    for (const path of ['/api/stock', '/api/ingredients']) assert.equal((await request(path, { token })).status, 401);
+    assert.equal((await request('/api/stock', { token })).status, 401);
+    assert.equal((await request('/api/ingredients', { token })).status, 200);
   });
   await t.test('compte supprimé', async () => {
     const removed = await account('removed');
@@ -163,5 +164,5 @@ test('Le rôle courant du compte prime sur le rôle contenu dans un ancien jeton
   const obsolete = jwt.sign({ id: bob.id, role: 'ADMIN' }, process.env.JWT_SECRET, { expiresIn: 60 });
   assert.equal((await request('/api/auth/admin-test', { token: obsolete })).status, 403);
   const me = await request('/api/auth/me', { token: alice.token });
-  assert.equal(me.status, 200); assert.deepEqual(me.body, { id: alice.id, role: 'USER' });
+  assert.equal(me.status, 200); assert.deepEqual(me.body, { id: alice.id, role: 'USER', username: alice.username, email: alice.email });
 });

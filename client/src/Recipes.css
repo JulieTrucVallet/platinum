@@ -50,3 +50,16 @@ textarea:focus-visible,summary:focus-visible { outline: 3px solid #365c27; outli
 .recipes-page .pagination { background: #fffffff0; padding: 12px; }
 @media(max-width:1100px) { .site-header { flex-wrap: wrap; justify-content: center; padding-bottom: 12px; gap: 0; }.site-header nav { justify-content: center; }.recipe-grid { grid-template-columns: 1fr; }.recipe-card { max-width: 840px; }.suggestion-card { max-width: 840px; } }
 @media(max-width:650px) { .recipe-toolbar { grid-template-columns: 1fr; }.recipe-card-body { padding: 18px; }.recipe-card-body h2 { font-size: 22px; }.recipe-no-photo { width: 28%; padding: 12px; font-size: 13px; }.recipe-photo { width: 36%; }.recipe-sheet { margin: 24px auto; }.recipe-detail-body,.recipe-editor,.preference-sheet { padding: 20px; }.recipe-sheet>.recipe-photo { height: 200px; }.stock-heading h1 { font-size: 24px; letter-spacing: 1px; }.composition-row { grid-template-columns: 1fr 1fr; }.composition-row>strong { grid-column: 1/-1; }.form-grid { grid-template-columns: 1fr; gap: 0; }.site-header nav { gap: 8px 18px; }.site-header nav>a { letter-spacing: 0; }.recipe-title { font-size: 26px; } }
+
+.account-form { max-width: 38rem; margin: 2rem 0; }
+.account-form fieldset { display: grid; gap: 1rem; border: 1px solid #b4c5a4; border-radius: 12px; padding: 1.2rem; }
+.account-form label, .account-search { display: grid; gap: .5rem; }
+.account-form input, .account-search input, .ingredient-filters input[type=search] { padding: .7rem; border: 1px solid #78816c; border-radius: 6px; max-width: 100%; min-width: 0; }
+.account-search { max-width: 38rem; margin-bottom: 1rem; }
+.user-list { list-style: none; padding: 0; display: grid; gap: 1rem; }
+.user-list li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem; border: 1px solid #b4c5a4; border-radius: 12px; overflow-wrap: anywhere; }
+.user-list li > div { min-width: 0; }
+.ingredient-filters, .compatibility { padding: 1rem; margin: 1rem 0; border: 1px solid #b4c5a4; border-radius: 12px; }
+.ingredient-filters summary { cursor: pointer; font-weight: 600; }
+.ingredient-filters fieldset { margin-top: 1rem; }
+.site-header nav { flex-wrap: wrap; }

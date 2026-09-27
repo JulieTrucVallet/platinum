@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import { recipeCompatibility } from "../services/suggestion.service";
 import * as recipes from "../services/recipe.service";
 import { positiveId } from "../services/stock.validation";
 import { ApiError } from "../utils/api-error";
@@ -30,5 +31,10 @@ export async function remove(req: Request, res: Response, next: NextFunction) {
 }
 export async function categories(_req: Request, res: Response, next: NextFunction) {
   try { res.json({ items: await recipes.listCategories() }); }
+  catch (error) { next(error); }
+}
+
+export async function compatibility(req: Request, res: Response, next: NextFunction) {
+  try { res.json(await recipeCompatibility(account(req).id, positiveId(req.params.id))); }
   catch (error) { next(error); }
 }

@@ -8,6 +8,7 @@ const router = Router();
 router.get("/categories", recipes.categories);
 router.get("/", recipes.list);
 router.get("/:id", recipes.read);
+router.get("/:id/compatibility", verifyToken, recipes.compatibility);
 router.post("/", verifyToken, recipes.create);
 router.put("/:id/preferences", verifyToken, tagRecipe);
 router.put("/:id", verifyToken, recipes.replace);

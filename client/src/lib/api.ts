@@ -23,7 +23,7 @@ export async function api<T>(path: string, options: { token?: string; method?: s
 }
 
 export function message(error: unknown) { return error instanceof Error ? error.message : 'Une erreur est survenue.' }
-export type Ingredient = { id: number; name: string; slug: string; unit: 'GRAM' | 'MILLILITER' | 'PIECE' }
+export type Ingredient = { id: number; name: string; slug: string; isDefaultAvailable?: boolean; unit: 'GRAM' | 'MILLILITER' | 'PIECE' }
 export type Location = 'FRIDGE' | 'FREEZER' | 'PANTRY' | 'CONDIMENTS'
 export type StockItem = { id: number; quantity: string; location: Location; ingredient: Ingredient }
 export const locations: Record<Location, string> = { FRIDGE: 'Frigo', FREEZER: 'Congélateur', PANTRY: 'Placard', CONDIMENTS: 'Condiments' }

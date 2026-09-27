@@ -1,4 +1,5 @@
--- Optional demonstration catalogue. Does not create users or overwrite data.
+-- Optional demonstration catalogue. Does not create users or overwrite recipes.
+-- Water is explicitly marked available by default, as described in the dossier.
 -- Run with psql ON_ERROR_STOP=1; safe to rerun for this catalogue version.
 BEGIN;
 INSERT INTO "Category" (name,slug) VALUES ('Plat','plat') ON CONFLICT (slug) DO NOTHING;
@@ -38,4 +39,5 @@ INSERT INTO "RecipePreference" ("recipeId","preferenceId")
 SELECT r.id,p.id FROM "Recipe" r CROSS JOIN "FoodPreference" p
 WHERE r.source='platinum-demo-v1/riz-carottes' AND p.slug IN ('vegetarien','vegetalien')
 ON CONFLICT ("recipeId","preferenceId") DO NOTHING;
+UPDATE "Ingredient" SET "isDefaultAvailable" = true WHERE slug = 'eau' AND unit = 'MILLILITER';
 COMMIT;

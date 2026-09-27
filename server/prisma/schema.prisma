@@ -27,6 +27,7 @@ model Ingredient {
   unit        IngredientUnit
   stockItems  StockItem[]
   recipeItems RecipeIngredient[]
+  isDefaultAvailable Boolean @default(false)
 }
 
 model StockItem {

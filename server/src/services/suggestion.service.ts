@@ -1,8 +1,8 @@
 import { Prisma } from "@prisma/client";
 import { prisma } from "../config/prisma";
 import { ApiError } from "../utils/api-error";
-import { objectFields, positiveId } from "./stock.validation";
 import { preferenceRelation } from "./preference.service";
+import { objectFields, positiveId } from "./stock.validation";
 
 export async function suggestRecipes(userId: number, value: unknown) {
   const query = objectFields(value, ["page", "pageSize"]);
@@ -20,29 +20,47 @@ export async function suggestRecipes(userId: number, value: unknown) {
       id: true, title: true, imageUrl: true, servings: true,
       preparationMinutes: true, cookingMinutes: true,
       preferences: preferenceRelation,
-      ingredients: { select: { quantity: true, ingredient: { select: { id: true, name: true, unit: true } } }, orderBy: { ingredientId: "asc" } },
+      ingredients: { select: { quantity: true, ingredient: { select: { id: true, name: true, unit: true, isDefaultAvailable: true } } }, orderBy: { ingredientId: "asc" } },
     } });
     return { preferences, stock, recipes };
   }, { isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead });
   const quantities = new Map(stock.map(row => [row.ingredientId, row._sum.quantity ?? new Prisma.Decimal(0)]));
-  const ranked = recipes.map(recipe => {
-    const ingredients = recipe.ingredients.map(row => {
-      const available = quantities.get(row.ingredient.id) ?? new Prisma.Decimal(0);
+  const ranked = recipes.map(recipe => ({ ...recipe, preferences: recipe.preferences.map(row => row.preference), ...compareIngredients(recipe.ingredients, quantities) }));
+  // Compare the exact fractions before pagination, not their rounded display.
+  ranked.sort((a, b) => b.sufficientCount * a.ingredientCount - a.sufficientCount * b.ingredientCount || a.missingCount - b.missingCount || a.id - b.id);
+  return { items: ranked.slice((page - 1) * pageSize, page * pageSize), total: ranked.length, page, pageSize,
+    appliedPreferences: preferences.map(row => row.preference) };
+}
+
+type IngredientRow = { quantity: Prisma.Decimal; ingredient: { id: number; name: string; unit: string; isDefaultAvailable: boolean } };
+function compareIngredients(rows: IngredientRow[], quantities: Map<number, Prisma.Decimal>) {
+
+    const ingredients = rows.map(row => {
+      const available = row.ingredient.isDefaultAvailable
+        ? row.quantity
+        : quantities.get(row.ingredient.id) ?? new Prisma.Decimal(0);
       const missing = Prisma.Decimal.max(row.quantity.minus(available), 0);
       return { ingredient: row.ingredient, required: row.quantity.toString(), available: available.toString(), missing: missing.toString(),
         status: missing.isZero() ? "SUFFICIENT" : available.gt(0) ? "PARTIAL" : "ABSENT" };
     });
     const sufficientCount = ingredients.filter(row => row.status === "SUFFICIENT").length;
     const ingredientCount = ingredients.length;
-    const ratio = sufficientCount / ingredientCount;
-    return { ...recipe, preferences: recipe.preferences.map(row => row.preference), ingredients,
+    const ratio = ingredientCount ? sufficientCount / ingredientCount : 0;
+    return { ingredients,
       sufficientCount, ingredientCount, missingCount: ingredientCount - sufficientCount,
       scorePercent: Math.round(ratio * 100),
       level: ratio > 0.5 ? "GREEN" : ratio > 0 ? "ORANGE" : "RED",
-      canCook: sufficientCount === ingredientCount };
-  });
-  // Compare the exact fractions before pagination, not their rounded display.
-  ranked.sort((a, b) => b.sufficientCount * a.ingredientCount - a.sufficientCount * b.ingredientCount || a.missingCount - b.missingCount || a.id - b.id);
-  return { items: ranked.slice((page - 1) * pageSize, page * pageSize), total: ranked.length, page, pageSize,
-    appliedPreferences: preferences.map(row => row.preference) };
+      canCook: ingredientCount > 0 && sufficientCount === ingredientCount };
+
+}
+
+export async function recipeCompatibility(userId: number, id: number) {
+  return prisma.$transaction(async tx => {
+    const recipe = await tx.recipe.findUnique({ where: { id }, select: {
+      ingredients: { select: { quantity: true, ingredient: { select: { id: true, name: true, unit: true, isDefaultAvailable: true } } }, orderBy: { ingredientId: "asc" } },
+    } });
+    if (!recipe) throw new ApiError(404, "Recette introuvable");
+    const stock = await tx.stockItem.groupBy({ by: ["ingredientId"], where: { userId }, _sum: { quantity: true } });
+    return compareIngredients(recipe.ingredients, new Map(stock.map(row => [row.ingredientId, row._sum.quantity ?? new Prisma.Decimal(0)])));
+  }, { isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead });
 }

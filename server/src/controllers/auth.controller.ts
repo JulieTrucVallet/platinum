@@ -1,41 +1,24 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { loginUser, registerUser } from "../services/auth.service";
+import { getAccount, updateAccount } from "../services/account.service";
+import { objectFields } from "../services/stock.validation";
 
-export async function register(req: Request, res: Response) {
+export async function register(req: Request, res: Response, next: NextFunction) {
   try {
-    const { username, email, password } = req.body;
-
-    const user = await registerUser(username, email, password);
-
-    res.status(201).json({
-      message: "Compte créé avec succès",
-      user,
-    });
-  } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Erreur serveur";
-    res.status(400).json({ message });
-  }
+    const { username, email, password } = objectFields(req.body, ["username", "email", "password"]);
+    res.status(201).json({ message: "Compte créé avec succès", user: await registerUser(username, email, password) });
+  } catch (error) { next(error); }
 }
-
-export async function login(req: Request, res: Response) {
+export async function login(req: Request, res: Response, next: NextFunction) {
   try {
-    const { email, password } = req.body;
-
-    const result = await loginUser(email, password);
-
-    res.status(200).json({
-      message: "Connexion réussie",
-      ...result,
-    });
-  } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Erreur serveur";
-    res.status(401).json({ message });
-  }
+    // Les anciens clients peuvent aussi transmettre le nom, sans effet sur l’authentification.
+    const { email, password } = objectFields(req.body, ["username", "email", "password"]);
+    res.json({ message: "Connexion réussie", ...await loginUser(email, password) });
+  } catch (error) { next(error); }
 }
-
-export function getCurrentUser(
-    req: Request,
-    res: Response
-) {
-    res.json(req.user);
+export async function getCurrentUser(req: Request, res: Response, next: NextFunction) {
+  try { res.json(await getAccount(req.user!.id)); } catch (error) { next(error); }
+}
+export async function updateCurrentUser(req: Request, res: Response, next: NextFunction) {
+  try { res.json(await updateAccount(req.user!.id, req.body)); } catch (error) { next(error); }
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { api, ApiError, message } from './api'
 import type { Ingredient } from './api'
 
-export type Account = { id: number; role: 'USER' | 'ADMIN' }
+export type Account = { id: number; role: 'USER' | 'ADMIN'; username: string; email: string }
 export type Preference = { id: number; name: string; slug: string }
 export type Category = Preference
 export type RecipeSummary = {

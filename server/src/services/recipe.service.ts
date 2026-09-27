@@ -2,7 +2,7 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "../config/prisma";
 import { ApiError } from "../utils/api-error";
 import { recipeFilters, recipeInput } from "./recipe.validation";
-import { referenceQuantity } from "./stock.validation";
+import { measuredQuantity } from "./stock.validation";
 
 import { preferenceRelation } from "./preference.service";
 
@@ -17,7 +17,7 @@ const detail = {
   ...summary, instructions: true, source: true,
   preferences: preferenceRelation,
   ingredients: {
-    select: { quantity: true, ingredient: { select: { id: true, name: true, slug: true, unit: true } } },
+    select: { quantity: true, unit: true, ingredient: { select: { id: true, name: true, slug: true, unit: true } } },
     orderBy: { ingredientId: "asc" as const },
   },
 } satisfies Prisma.RecipeSelect;
@@ -43,7 +43,7 @@ async function checkedData(tx: Prisma.TransactionClient, input: ReturnType<typeo
   const rows = ingredients.map(row => {
     const unit = units.get(row.ingredientId);
     if (!unit) throw new ApiError(400, "Un ingrédient sélectionné n’existe pas dans le catalogue");
-    return { ingredientId: row.ingredientId, quantity: referenceQuantity(row.quantity, row.unit, unit) };
+    return { ingredientId: row.ingredientId, ...measuredQuantity(row.quantity, row.unit, unit) };
   });
   return { fields, rows };
 }

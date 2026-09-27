@@ -9,7 +9,8 @@
     "test:stock": "node --test tests/stock.test.cjs",
     "test:recipes": "node --test tests/recipes.test.cjs",
     "test:suggestions": "node --test tests/suggestions.test.cjs",
-    "test:dossier": "node --test tests/dossier.test.cjs"
+    "test:dossier": "node --test tests/dossier.test.cjs",
+    "test:units": "node --test tests/units.test.cjs"
   },
   "keywords": [],
   "author": "",

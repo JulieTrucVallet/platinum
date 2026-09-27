@@ -1,6 +1,6 @@
 import { prisma } from "../config/prisma";
 import { ApiError } from "../utils/api-error";
-import { locationValue, objectFields, positiveId, referenceQuantity } from "./stock.validation";
+import { locationValue, objectFields, positiveId, measuredQuantity } from "./stock.validation";
 
 const withIngredient = { ingredient: { select: { id: true, name: true, slug: true, unit: true } } };
 
@@ -22,8 +22,8 @@ export async function createStockItem(userId: number, value: unknown) {
   const location = body.location === undefined ? "PANTRY" : locationValue(body.location);
   const ingredient = await prisma.ingredient.findUnique({ where: { id: ingredientId } });
   if (!ingredient) throw new ApiError(404, "Ingrédient introuvable");
-  const quantity = referenceQuantity(body.quantity, body.unit, ingredient.unit);
-  return prisma.stockItem.create({ data: { userId, ingredientId, quantity, location }, include: withIngredient });
+  const measured = measuredQuantity(body.quantity, body.unit, ingredient.unit);
+  return prisma.stockItem.create({ data: { userId, ingredientId, ...measured, location }, include: withIngredient });
 }
 
 export async function updateStockItem(userId: number, id: number, value: unknown) {
@@ -33,10 +33,10 @@ export async function updateStockItem(userId: number, id: number, value: unknown
     throw new ApiError(400, "Fournissez ensemble la quantité et son unité");
   }
   const item = await getStockItem(userId, id);
-  const quantity = body.quantity === undefined ? undefined : referenceQuantity(body.quantity, body.unit, item.ingredient.unit);
+  const measured = body.quantity === undefined ? {} : measuredQuantity(body.quantity, body.unit, item.ingredient.unit);
   const location = body.location === undefined ? undefined : locationValue(body.location);
   // Le propriétaire reste dans la requête d’écriture, pas uniquement dans la lecture préalable.
-  return prisma.stockItem.update({ where: { id, userId }, data: { quantity, location }, include: withIngredient });
+  return prisma.stockItem.update({ where: { id, userId }, data: { ...measured, location }, include: withIngredient });
 }
 
 export async function deleteStockItem(userId: number, id: number) {

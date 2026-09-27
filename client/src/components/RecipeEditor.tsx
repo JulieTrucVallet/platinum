@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import type { FormEvent } from 'react'
-import { api, ApiError, message, units } from '../lib/api'
+import { api, ApiError, message, units, unitChoices } from '../lib/api'
 import type { Ingredient } from '../lib/api'
 import { useResource } from '../lib/recipes'
 import type { Category, Page, Recipe, SessionProps } from '../lib/recipes'
@@ -13,7 +13,7 @@ export default function RecipeEditor({ recipe, token, onExpired, onSaved, onCanc
   const categories = useResource<{ items: Category[] }>('/recipes/categories', token, onExpired)
   const [q, setQ] = useState(''), [page, setPage] = useState(1)
   const catalogue = useResource<Page<Ingredient>>(`/ingredients?q=${encodeURIComponent(q)}&page=${page}&pageSize=20`, token, onExpired)
-  const [rows, setRows] = useState<Row[]>(recipe?.ingredients.map(row => ({ ...row, unit: row.ingredient.unit })) ?? [])
+  const [rows, setRows] = useState<Row[]>(recipe?.ingredients.map(row => ({ ...row, unit: row.unit ?? row.ingredient.unit })) ?? [])
   const [picked, setPicked] = useState(''), [error, setError] = useState(''), [busy, setBusy] = useState(false)
   const lock = useRef(false)
   function addIngredient() {
@@ -51,7 +51,7 @@ export default function RecipeEditor({ recipe, token, onExpired, onSaved, onCanc
       <label>Difficulté<select name="difficulty" defaultValue={recipe?.difficulty ?? ''}><option value="">Non précisée</option><option value="EASY">Facile</option><option value="MEDIUM">Moyenne</option><option value="HARD">Difficile</option></select></label>
     </fieldset>
     <fieldset disabled={busy}><legend>Ingrédients pour toutes les portions</legend>
-      {rows.map(row => <div className="composition-row" key={row.ingredient.id}><strong>{row.ingredient.name}</strong><label>Quantité de {row.ingredient.name}<input required inputMode="decimal" value={row.quantity} onChange={e => updateRow(row.ingredient.id, { quantity: e.target.value })} /></label><label>Unité de {row.ingredient.name}<select value={row.unit} onChange={e => updateRow(row.ingredient.id, { unit: e.target.value })}>{(row.ingredient.unit === 'GRAM' ? ['GRAM', 'KILOGRAM'] : row.ingredient.unit === 'MILLILITER' ? ['MILLILITER', 'LITER'] : ['PIECE']).map(unit => <option key={unit} value={unit}>{units[unit]}</option>)}</select></label><button type="button" aria-label={`Retirer ${row.ingredient.name} de la recette`} onClick={() => setRows(rows.filter(item => item !== row))}>Retirer</button></div>)}
+      {rows.map(row => <div className="composition-row" role="group" aria-label={row.ingredient.name} key={row.ingredient.id}><strong>{row.ingredient.name}</strong><label>Quantité<input required inputMode="decimal" value={row.quantity} onChange={e => updateRow(row.ingredient.id, { quantity: e.target.value })} /></label><label>Unité<select value={row.unit} onChange={e => updateRow(row.ingredient.id, { unit: e.target.value })}>{unitChoices(row.ingredient).map(unit => <option key={unit} value={unit}>{units[unit]}</option>)}</select></label><button type="button" aria-label={`Retirer ${row.ingredient.name} de la recette`} onClick={() => setRows(rows.filter(item => item !== row))}>Retirer</button></div>)}
       <label>Rechercher dans le catalogue<input type="search" value={q} maxLength={100} onChange={e => { setQ(e.target.value); setPage(1); setPicked('') }} /></label>
       <LoadState {...catalogue} retry={catalogue.refresh} />
       {catalogue.data && <><label>Ingrédient à ajouter<select value={picked} onChange={e => setPicked(e.target.value)}><option value="">Choisir un ingrédient</option>{catalogue.data.items.filter(item => !rows.some(row => row.ingredient.id === item.id)).map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>{catalogue.data.total === 0 && <p>Aucun ingrédient trouvé.</p>}<Pagination page={page} total={catalogue.data.total} size={20} change={value => { setPage(value); setPicked('') }} /></>}

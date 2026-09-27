@@ -49,3 +49,10 @@ export function referenceQuantity(value: unknown, unit: unknown, reference: Ingr
   }
   return quantity;
 }
+
+// Only convert compatible measures; a piece never has an assumed weight.
+export function measuredQuantity(value: unknown, unit: unknown, catalogueUnit: IngredientUnit) {
+  const reference = catalogueUnit !== "MILLILITER" && unit === "PIECE" ? "PIECE"
+    : catalogueUnit !== "MILLILITER" && (unit === "GRAM" || unit === "KILOGRAM") ? "GRAM" : catalogueUnit;
+  return { quantity: referenceQuantity(value, unit, reference), unit: reference };
+}

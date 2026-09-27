@@ -25,6 +25,8 @@ export async function api<T>(path: string, options: { token?: string; method?: s
 export function message(error: unknown) { return error instanceof Error ? error.message : 'Une erreur est survenue.' }
 export type Ingredient = { id: number; name: string; slug: string; isDefaultAvailable?: boolean; unit: 'GRAM' | 'MILLILITER' | 'PIECE' }
 export type Location = 'FRIDGE' | 'FREEZER' | 'PANTRY' | 'CONDIMENTS'
-export type StockItem = { id: number; quantity: string; location: Location; ingredient: Ingredient }
+export type StockItem = { id: number; quantity: string; unit?: Ingredient['unit'] | null; location: Location; ingredient: Ingredient }
 export const locations: Record<Location, string> = { FRIDGE: 'Frigo', FREEZER: 'Congélateur', PANTRY: 'Placard', CONDIMENTS: 'Condiments' }
 export const units: Record<string, string> = { GRAM: 'g', KILOGRAM: 'kg', MILLILITER: 'ml', LITER: 'l', PIECE: 'pièce(s)' }
+
+export const unitChoices = (ingredient: Ingredient) => ingredient.unit === 'MILLILITER' ? ['MILLILITER', 'LITER'] : ['GRAM', 'KILOGRAM', 'PIECE']

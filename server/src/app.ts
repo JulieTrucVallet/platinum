@@ -15,6 +15,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors());
+
 app.use(express.json());
 
 app.get("/", (_req, res) => {
@@ -22,14 +23,23 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+
 app.use("/api/admin/users", accountRoutes);
+
 app.use("/api/stock", stockRoutes);
+
 app.use("/api/recipes", recipeRoutes);
+
 app.get("/api/ingredients", ingredients);
+
 app.get("/api/preferences", preferences.catalogue);
+
 app.get("/api/preferences/me", verifyToken, preferences.read);
+
 app.put("/api/preferences/me", verifyToken, preferences.replace);
+
 app.get("/api/suggestions", verifyToken, preferences.suggestions);
+
 app.use(handleApiError);
 
 export default app;

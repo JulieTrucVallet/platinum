@@ -1,5 +1,3 @@
--- Integration checks. Use a disposable test database, never production.
--- All fixture rows are rolled back. psql must run with ON_ERROR_STOP=1.
 BEGIN;
 
 DO $$

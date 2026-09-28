@@ -28,7 +28,7 @@ Les recettes sont publiques et accessibles par la recherche, la pagination et le
 
 Les étiquettes Végétarien et Végétalien sont attribuées manuellement selon les compositions proposées. Les recettes à base de fromages dont la présure n’est pas précisée restent sans étiquette végétarienne. Aucune certification d’absence d’allergènes n’est attribuée. Les suggestions continuent à comparer les mêmes ingrédients et des unités compatibles.
 
-Aucune photographie n’est importée depuis les notes personnelles. Les recettes utilisent l’affichage de remplacement existant de Platinum ; une image peut être ajoutée par l’administrateur.
+33 photographies du OneNote de Julie illustrent les recettes correspondantes. Les 17 autres recettes gardent l’affichage sans photo. Voir [Photos des recettes](Photos_recettes.md) pour les associations et la commande qui complète une base existante.
 
 ## Validation
 

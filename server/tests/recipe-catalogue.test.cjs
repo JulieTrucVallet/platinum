@@ -282,6 +282,90 @@ test("Recettes : import atomique, répétable, préservation, filtres et suggest
         (recipe) => recipe.title === "Poulet au curry et lait de coco",
       ),
     );
+
+    const { seedRecipeImages } = require("../prisma/seed-recipe-images.cjs");
+    const pictured = added.filter((recipe) => recipe.imageUrl);
+
+    assert.equal(pictured.length, 32);
+
+    for (const recipe of catalogue.filter((recipe) => recipe.imageUrl)) {
+      const file = require("node:path").join(
+        __dirname,
+        "../../client/public",
+        recipe.imageUrl,
+      );
+      assert.ok(require("node:fs").statSync(file).size > 0);
+    }
+    assert.ok(
+      pictured.every((recipe) =>
+        recipe.imageUrl.startsWith("/images/recipes/"),
+      ),
+    );
+
+    const refill = pictured[0];
+    const preserved = pictured[1];
+    const owned = pictured[2];
+
+    await prisma.recipe.update({
+      where: { id: refill.id },
+      data: { imageUrl: null },
+    });
+    await prisma.recipe.update({
+      where: { id: preserved.id },
+      data: { imageUrl: "https://example.test/my-photo.jpg" },
+    });
+    await prisma.recipe.update({
+      where: { id: owned.id },
+      data: { imageUrl: null, authorId: user.id },
+    });
+
+    const beforeImages = await prisma.recipe.findMany({
+      orderBy: { id: "asc" },
+      include: { ingredients: true, preferences: true },
+    });
+    const imagePreview = await seedRecipeImages(prisma);
+
+    assert.equal(imagePreview.planned, 1);
+    assert.equal(imagePreview.updated, 0);
+    assert.deepEqual(
+      await prisma.recipe.findMany({
+        orderBy: { id: "asc" },
+        include: { ingredients: true, preferences: true },
+      }),
+      beforeImages,
+    );
+
+    const imageReports = await Promise.all([
+      seedRecipeImages(prisma, { dryRun: false }),
+      seedRecipeImages(prisma, { dryRun: false }),
+    ]);
+
+    assert.equal(
+      imageReports.reduce((sum, report) => sum + report.updated, 0),
+      1,
+    );
+    assert.equal((await seedRecipeImages(prisma)).planned, 0);
+
+    for (const previous of beforeImages) {
+      const current = await prisma.recipe.findUniqueOrThrow({
+        where: { id: previous.id },
+        include: { ingredients: true, preferences: true },
+      });
+
+      if (previous.id === refill.id) {
+        assert.equal(current.imageUrl, refill.imageUrl);
+        current.imageUrl = previous.imageUrl;
+        current.updatedAt = previous.updatedAt;
+      }
+
+      assert.deepEqual(current, previous);
+    }
+
+    const imageResponse = await fetch(`${base}/recipes/${refill.id}`);
+    const imageDetail = await imageResponse.json();
+
+    assert.equal(imageResponse.status, 200);
+    assert.equal(imageDetail.recipe.imageUrl, refill.imageUrl);
   } finally {
     if (server) {
       await new Promise((resolve) => server.close(resolve));

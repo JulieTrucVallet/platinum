@@ -163,7 +163,8 @@ export default function RecipeEditor({
           Adresse de la photo (facultatif)
           <input
             name="imageUrl"
-            type="url"
+            type="text"
+            inputMode="url"
             defaultValue={recipe?.imageUrl ?? ""}
             maxLength={2048}
             placeholder="https://…"

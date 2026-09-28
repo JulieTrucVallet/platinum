@@ -16,7 +16,9 @@
     "seed:ingredients:check": "node prisma/seed-ingredients.cjs --dry-run",
     "seed:recipes": "node prisma/seed-recipes.cjs --apply",
     "seed:recipes:check": "node prisma/seed-recipes.cjs --dry-run",
-    "test:recipe-catalogue": "node --test tests/recipe-catalogue.test.cjs"
+    "test:recipe-catalogue": "node --test tests/recipe-catalogue.test.cjs",
+    "seed:recipe-images": "node prisma/seed-recipe-images.cjs --apply",
+    "seed:recipe-images:check": "node prisma/seed-recipe-images.cjs --dry-run"
   },
   "keywords": [],
   "author": "",

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { api, ApiError, message } from "./lib/api";
 import AuthPage from "./pages/AuthPage";
 import StockPage from "./pages/StockPage";
+import SiteHeader from "./components/SiteHeader";
 import Logo from "./components/Logo";
 import RecipesPage from "./pages/RecipesPage";
 import SuggestionsPage from "./pages/SuggestionsPage";
@@ -12,6 +13,7 @@ import UsersPage from "./pages/UsersPage";
 import type { Account } from "./lib/recipes";
 import "./App.css";
 import "./Recipes.css";
+import "./components/SiteHeader.css";
 
 function storedToken() {
   try {
@@ -195,38 +197,21 @@ export default function App() {
       >
         Aller au contenu
       </a>
-      <header className="site-header">
-        <Logo compact />
-        <nav aria-label="Navigation principale">
-          {links.map(([path, label]) => (
-            <a
-              key={path}
-              href={`#${path}`}
-              aria-current={active === path ? "page" : undefined}
-            >
-              {label}
-            </a>
-          ))}
-          {signedIn ? (
-            <button
-              className="text-button"
-              onClick={() => {
-                saveToken("");
-                setToken("");
-                setAccount(null);
-                setChecking(false);
-                setNotice("Tu es déconnectée.");
-                setError("");
-                window.location.hash = "/recettes";
-              }}
-            >
-              Se déconnecter
-            </button>
-          ) : (
-            <a href="#/connexion">Se connecter / S’inscrire</a>
-          )}
-        </nav>
-      </header>
+      <SiteHeader
+        key={`${route}-${account?.id ?? "visitor"}`}
+        links={links}
+        active={active}
+        account={signedIn ? account : null}
+        onLogout={() => {
+          saveToken("");
+          setToken("");
+          setAccount(null);
+          setChecking(false);
+          setNotice("Tu es déconnectée.");
+          setError("");
+          window.location.hash = "/recettes";
+        }}
+      />
       {recipeMatch ? (
         <RecipePage
           key={route}

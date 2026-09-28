@@ -86,7 +86,10 @@ export function RecipePhoto({
 }) {
   const [failed, setFailed] = useState(false);
 
-  return url && /^https?:\/\//i.test(url) && !failed ? (
+  return url &&
+    (/^https?:\/\//i.test(url) ||
+      /^\/images\/recipes\/[a-z0-9-]+\.(?:jpg|jpeg|png|webp|gif)$/.test(url)) &&
+    !failed ? (
     <img
       className="recipe-photo"
       src={url}

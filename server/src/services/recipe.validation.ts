@@ -72,7 +72,10 @@ export function recipeInput(value: unknown) {
 
   const imageUrl = optionalText(body.imageUrl, "Adresse de l’image", 2048);
 
-  if (imageUrl) {
+  if (
+    imageUrl &&
+    !/^\/images\/recipes\/[a-z0-9-]+\.(?:jpg|jpeg|png|webp|gif)$/.test(imageUrl)
+  ) {
     let url: URL;
 
     try {

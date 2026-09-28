@@ -396,6 +396,16 @@ test("Corps invalides refusés sans créer de recette incomplète", async (t) =>
     ["catégorie inconnue", { categoryId: 2147483647 }],
     ["difficulté invalide", { difficulty: "UNKNOWN" }],
     ["image javascript", { imageUrl: "javascript:alert(1)" }],
+    ["image relative extérieure", { imageUrl: "//example.test/photo.jpg" }],
+    [
+      "image locale hors catalogue",
+      { imageUrl: "/images/recipes/../photo.jpg" },
+    ],
+    [
+      "image locale avec paramètres",
+      { imageUrl: "/images/recipes/photo.jpg?x=1" },
+    ],
+    ["image locale SVG", { imageUrl: "/images/recipes/photo.svg" }],
     [
       "image avec identifiants",
       { imageUrl: "https://user:password@example.test/photo.jpg" },

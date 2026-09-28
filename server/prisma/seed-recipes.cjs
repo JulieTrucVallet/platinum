@@ -58,6 +58,16 @@ function readRecipes() {
       throw new Error(`Recette invalide : ${recipe.key}`);
     }
 
+    if (
+      recipe.imageUrl !== undefined &&
+      (typeof recipe.imageUrl !== "string" ||
+        !/^\/images\/recipes\/[a-z0-9-]+\.(?:jpg|jpeg|png|webp|gif)$/.test(
+          recipe.imageUrl,
+        ))
+    ) {
+      throw new Error(`Photo invalide : ${recipe.key}`);
+    }
+
     const titleKey = ingredientKey(recipe.title);
 
     if (keys.has(recipe.key) || titles.has(titleKey)) {
@@ -184,6 +194,7 @@ async function seedRecipes(prisma, { dryRun = true } = {}) {
             data: {
               title: recipe.title,
               source: recipeSource(recipe),
+              imageUrl: recipe.imageUrl ?? null,
               instructions: recipe.steps
                 .map((step, index) => `${index + 1}. ${step}`)
                 .join("\n\n"),

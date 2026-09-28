@@ -1,6 +1,7 @@
 [
   {
     "key": "houmous",
+    "imageUrl": "/images/recipes/houmous.jpg",
     "title": "Houmous au citron",
     "category": "aperitif",
     "servings": 4,
@@ -62,6 +63,7 @@
   },
   {
     "key": "guacamole",
+    "imageUrl": "/images/recipes/guacamole.jpg",
     "title": "Guacamole maison",
     "category": "aperitif",
     "servings": 4,
@@ -113,6 +115,7 @@
   },
   {
     "key": "tzatziki",
+    "imageUrl": "/images/recipes/tzatziki.jpg",
     "title": "Tzatziki au concombre",
     "category": "aperitif",
     "servings": 4,
@@ -224,6 +227,7 @@
   },
   {
     "key": "oeufs-mimosa",
+    "imageUrl": "/images/recipes/oeufs-mimosa.jpg",
     "title": "Œufs mimosa",
     "category": "aperitif",
     "servings": 4,
@@ -317,6 +321,7 @@
   },
   {
     "key": "feuilletes-chevre",
+    "imageUrl": "/images/recipes/feuilletes-chevre.jpg",
     "title": "Feuilletés chèvre et miel",
     "category": "aperitif",
     "servings": 4,
@@ -423,6 +428,7 @@
   },
   {
     "key": "spaghetti-bolognaise",
+    "imageUrl": "/images/recipes/spaghetti-bolognaise.jpg",
     "title": "Spaghetti à la bolognaise",
     "category": "plat",
     "servings": 4,
@@ -556,6 +562,7 @@
   },
   {
     "key": "pates-saumon",
+    "imageUrl": "/images/recipes/pates-saumon.jpg",
     "title": "Tagliatelles au saumon et à l’aneth",
     "category": "plat",
     "servings": 2,
@@ -682,6 +689,7 @@
   },
   {
     "key": "risotto-champignons",
+    "imageUrl": "/images/recipes/risotto-champignons.jpg",
     "title": "Risotto aux champignons",
     "category": "plat",
     "servings": 2,
@@ -742,6 +750,7 @@
   },
   {
     "key": "curry-coco",
+    "imageUrl": "/images/recipes/curry-coco.jpg",
     "title": "Poulet au curry et lait de coco",
     "category": "plat",
     "servings": 4,
@@ -805,6 +814,7 @@
   },
   {
     "key": "poulet-basquaise",
+    "imageUrl": "/images/recipes/poulet-basquaise.jpg",
     "title": "Poulet basquaise",
     "category": "plat",
     "servings": 4,
@@ -931,6 +941,7 @@
   },
   {
     "key": "boeuf-oignons",
+    "imageUrl": "/images/recipes/boeuf-oignons.jpg",
     "title": "Bœuf aux oignons",
     "category": "plat",
     "servings": 2,
@@ -994,6 +1005,7 @@
   },
   {
     "key": "chili",
+    "imageUrl": "/images/recipes/chili.jpg",
     "title": "Chili con carne",
     "category": "plat",
     "servings": 4,
@@ -1138,6 +1150,7 @@
   },
   {
     "key": "nouilles-crevettes",
+    "imageUrl": "/images/recipes/nouilles-crevettes.jpg",
     "title": "Nouilles sautées aux crevettes",
     "category": "plat",
     "servings": 2,
@@ -1196,6 +1209,7 @@
   },
   {
     "key": "saumon-papillote",
+    "imageUrl": "/images/recipes/saumon-papillote.jpg",
     "title": "Saumon en papillote et courgettes",
     "category": "plat",
     "servings": 2,
@@ -1254,6 +1268,7 @@
   },
   {
     "key": "quiche-lorraine",
+    "imageUrl": "/images/recipes/quiche-lorraine.jpg",
     "title": "Quiche lorraine",
     "category": "plat",
     "servings": 4,
@@ -1307,6 +1322,7 @@
   },
   {
     "key": "quiche-poireaux",
+    "imageUrl": "/images/recipes/quiche-poireaux.jpg",
     "title": "Quiche aux poireaux",
     "category": "plat",
     "servings": 4,
@@ -1367,6 +1383,7 @@
   },
   {
     "key": "croque-monsieur",
+    "imageUrl": "/images/recipes/croque-monsieur.jpg",
     "title": "Croque-monsieur au four",
     "category": "plat",
     "servings": 2,
@@ -1410,6 +1427,7 @@
   },
   {
     "key": "fajitas-poulet",
+    "imageUrl": "/images/recipes/fajitas-poulet.jpg",
     "title": "Fajitas au poulet",
     "category": "plat",
     "servings": 4,
@@ -1625,6 +1643,7 @@
   },
   {
     "key": "gratin-dauphinois",
+    "imageUrl": "/images/recipes/gratin-dauphinois.jpg",
     "title": "Gratin dauphinois",
     "category": "accompagnement",
     "servings": 4,
@@ -1685,6 +1704,7 @@
   },
   {
     "key": "butternut-roti",
+    "imageUrl": "/images/recipes/butternut-roti.jpg",
     "title": "Butternut rôti au thym",
     "category": "accompagnement",
     "servings": 4,
@@ -1736,6 +1756,7 @@
   },
   {
     "key": "champignons-persillade",
+    "imageUrl": "/images/recipes/champignons-persillade.jpg",
     "title": "Champignons en persillade",
     "category": "accompagnement",
     "servings": 2,
@@ -1787,6 +1808,7 @@
   },
   {
     "key": "brownies",
+    "imageUrl": "/images/recipes/brownies.jpg",
     "title": "Brownies au chocolat et aux noix",
     "category": "dessert",
     "servings": 6,
@@ -1837,6 +1859,7 @@
   },
   {
     "key": "cookies",
+    "imageUrl": "/images/recipes/cookies.jpg",
     "title": "Cookies aux pépites de chocolat",
     "category": "dessert",
     "servings": 6,
@@ -1892,6 +1915,7 @@
   },
   {
     "key": "mousse-chocolat",
+    "imageUrl": "/images/recipes/mousse-chocolat.jpg",
     "title": "Mousse au chocolat sans œufs",
     "category": "dessert",
     "servings": 4,
@@ -1927,6 +1951,7 @@
   },
   {
     "key": "tarte-pommes",
+    "imageUrl": "/images/recipes/tarte-pommes.jpg",
     "title": "Tarte aux pommes",
     "category": "dessert",
     "servings": 6,
@@ -2027,6 +2052,7 @@
   },
   {
     "key": "gateau-yaourt",
+    "imageUrl": "/images/recipes/gateau-yaourt.jpg",
     "title": "Gâteau au yaourt et à la vanille",
     "category": "dessert",
     "servings": 6,
@@ -2142,6 +2168,7 @@
   },
   {
     "key": "creme-vanille",
+    "imageUrl": "/images/recipes/creme-vanille.jpg",
     "title": "Crème dessert à la vanille",
     "category": "dessert",
     "servings": 4,
@@ -2322,6 +2349,7 @@
   },
   {
     "key": "tiramisu-sans-oeufs",
+    "imageUrl": "/images/recipes/tiramisu-sans-oeufs.jpg",
     "title": "Tiramisu sans œufs crus",
     "category": "dessert",
     "servings": 4,
@@ -2372,6 +2400,7 @@
   },
   {
     "key": "pancakes",
+    "imageUrl": "/images/recipes/pancakes.jpg",
     "title": "Pancakes moelleux",
     "category": "petit-dejeuner",
     "servings": 4,
@@ -2427,6 +2456,7 @@
   },
   {
     "key": "pain-perdu",
+    "imageUrl": "/images/recipes/pain-perdu.jpg",
     "title": "Pain perdu",
     "category": "petit-dejeuner",
     "servings": 2,
@@ -2578,6 +2608,7 @@
   },
   {
     "key": "smoothie-fraise",
+    "imageUrl": "/images/recipes/smoothie-fraise.jpg",
     "title": "Smoothie fraise et banane",
     "category": "boisson",
     "servings": 2,
@@ -2614,6 +2645,7 @@
   },
   {
     "key": "chocolat-chaud",
+    "imageUrl": "/images/recipes/chocolat-chaud.jpg",
     "title": "Chocolat chaud maison",
     "category": "boisson",
     "servings": 2,
@@ -2695,6 +2727,7 @@
   },
   {
     "key": "milkshake-vanille",
+    "imageUrl": "/images/recipes/milkshake-vanille.jpg",
     "title": "Milkshake à la vanille",
     "category": "boisson",
     "servings": 2,

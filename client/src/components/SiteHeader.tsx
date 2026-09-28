@@ -90,30 +90,6 @@ export default function SiteHeader({
       >
         <Logo compact />
       </a>
-      <a
-        className="header-account"
-        href={account ? "#/profil" : "#/connexion"}
-        aria-label={account ? "Mon profil" : "Se connecter"}
-        onClick={() => setOpen(false)}
-      >
-        <img
-          className="account-circle"
-          src="/images/avatar-circle.svg"
-          alt=""
-        />
-        {account ? (
-          <span aria-hidden="true">
-            {Array.from(account.username.trim())[0]?.toLocaleUpperCase("fr") ||
-              "?"}
-          </span>
-        ) : (
-          <img
-            className="account-person"
-            src="/images/person.png"
-            alt=""
-          />
-        )}
-      </a>
       <nav
         id="main-navigation"
         className={`site-nav${open ? " is-open" : ""}`}

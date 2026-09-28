@@ -1,5 +1,4 @@
-.platinum-header .menu-toggle,
-.platinum-header .header-account {
+.platinum-header .menu-toggle {
   display: none;
 }
 
@@ -29,8 +28,7 @@
     max-width: 100%;
   }
 
-  .platinum-header .menu-toggle,
-  .platinum-header .header-account {
+  .platinum-header .menu-toggle {
     display: flex;
     width: 44px;
     height: 44px;
@@ -42,8 +40,7 @@
     color: #333;
   }
 
-  .platinum-header .menu-toggle:hover,
-  .platinum-header .header-account:hover {
+  .platinum-header .menu-toggle:hover {
     background: #f7f6ed;
     border-radius: 6px;
   }
@@ -85,31 +82,6 @@
     .menu-bars
     span:last-child {
     transform: rotate(-45deg);
-  }
-
-  .platinum-header .header-account {
-    position: relative;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    color: black;
-  }
-
-  .platinum-header .account-circle {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-  }
-
-  .platinum-header .header-account span {
-    position: relative;
-  }
-
-  .platinum-header .account-person {
-    position: relative;
-    width: 24px;
-    height: 20px;
-    object-fit: contain;
   }
 
   .platinum-header .site-nav {
